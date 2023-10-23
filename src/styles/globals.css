@@ -16,6 +16,7 @@ ul {
 a {
   font-weight: 500;
   text-decoration: inherit;
+  color: black;
 }
 
 a:visited {

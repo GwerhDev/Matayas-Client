@@ -1,5 +1,5 @@
 import s from './Navigator.module.css';
-import logo from '../../../assets/png/matayas-logo.png';
+import logo from '../../../assets/png/matayas-logo-black.png';
 import { Link } from 'react-router-dom';
 
 export const Navigator = () => {

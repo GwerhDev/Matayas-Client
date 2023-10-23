@@ -6,11 +6,11 @@
   line-height: 1.5;
   font-weight: 400;
 
-  --color-background: rgb(36, 36, 36);
-  --color-font-white: rgb(221, 221, 221);
+  --color-background: rgb(255, 255, 255);
+  --color-font: rgb(0, 0, 0);
 
   color-scheme: light dark;
-  color: var(--color-font-white);
+  color: var(--color-font);
   background-color: var(--color-background);
 
   font-synthesis: none;

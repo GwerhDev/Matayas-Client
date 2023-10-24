@@ -18,9 +18,9 @@ export const ProductCard = (props) => {
       <h3>{price}</h3>
       <h2>{name}</h2>
       <p>{description}</p>
-      <p>{category}</p>
       <p>{"⭐".repeat(rating)}</p>
       <button onClick={handleClick}>Ver más</button>
+      <p>{category}</p>
     </div>
   )
 }

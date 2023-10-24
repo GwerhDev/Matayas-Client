@@ -2,7 +2,7 @@
   width: 100vw;
   display: flex;
   position: fixed;
-  background-color: var(--color-background);
+  background-color: var(--color-background-light);
   border-bottom: solid 1px;
 }
 

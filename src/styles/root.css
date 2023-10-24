@@ -7,7 +7,8 @@
   font-weight: 400;
 
   --color-primary: rgb(110, 155, 206);
-  --color-background: rgb(255, 255, 255);
+  --color-background: rgb(212, 212, 212);
+  --color-background-light: rgb(243, 243, 243);
   --color-background-dark: rgb(37, 37, 37);
   --color-background-nav: rgba(37, 37, 37, 0.836);
   --color-font: rgb(0, 0, 0);

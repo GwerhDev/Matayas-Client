@@ -3,7 +3,7 @@ import { CURRENT_USER, GET_PRODUCTS, GET_USER_DATA } from "../../misc/consts";
 const initialState = {
   currentUser: null,
   products: null,
-}
+};
 
 export default function rootReducer(state = initialState, action) {
   switch (action.type) {

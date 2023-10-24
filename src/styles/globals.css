@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   display: flex;
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
   overflow-x: hidden;
 }
@@ -17,6 +17,10 @@ a {
   font-weight: 500;
   text-decoration: inherit;
   color: black;
+}
+
+a:hover {
+  color: var(--color-primary)
 }
 
 a:visited {
@@ -38,10 +42,11 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  color: white;
 }
 
 button:hover {
-  border-color: #646cff;
+  border-color: var(--color-primary);
 }
 
 button:focus,
@@ -53,4 +58,7 @@ button:focus-visible {
   width: 100%;
   min-height: 100vh;
   display: flex;
+  padding-top: 80px;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }

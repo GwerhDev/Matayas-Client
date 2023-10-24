@@ -1,6 +1,9 @@
 .navigatorContainer {
   width: 100vw;
   display: flex;
+  position: fixed;
+  background-color: var(--color-background);
+  border-bottom: solid 1px;
 }
 
 .navigatorContainer nav {
@@ -20,7 +23,7 @@
 }
 
 .navigatorContainer nav ul li:hover {
-  color: rgb(233, 121, 121);
+  color: var(--color-primary);
 }
 
 .authContainer {

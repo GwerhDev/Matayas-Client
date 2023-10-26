@@ -96,6 +96,7 @@ button:focus-visible {
   background-color: var(--color-background-light);
   margin-top: 1rem;
   margin-bottom: 1rem;
+  border-radius: 100%;
 }
 
 .auth-container {

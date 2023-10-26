@@ -12,6 +12,7 @@ import Auth from '../pages/Auth';
 import Profile from '../pages/Profile';
 import Favorites from '../pages/Favorites';
 import Dashboard from '../pages/admin/Dashboard';
+import Product from '../pages/Product';
 
 
 function RouterApp() {
@@ -25,6 +26,7 @@ function RouterApp() {
           <Route path='/' element={<Home />} />
           <Route path='/auth' element={<Auth />} />
           <Route path='/profile/:id' element={<Profile />} />
+          <Route path='/product/:id' element={<Product />} />
           <Route path='/my-favorites' element={<Favorites />} />
           <Route path='/admin/dashboard' element={<Dashboard />} />
           <Route path='/store' element={<Store />} />

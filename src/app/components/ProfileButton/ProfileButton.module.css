@@ -1,0 +1,12 @@
+.profilePicContainer {
+  width: 35px;
+  height: 35px;
+  border-radius: 100%;
+  overflow: hidden;
+  border: var(--color-primary) solid ;
+}
+
+.profilePicContainer:hover {
+  border: var(--color-primary-hover) solid ;
+  cursor: pointer;
+}

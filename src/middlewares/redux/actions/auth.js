@@ -3,7 +3,7 @@ import { URL_API } from "../../config";
 import { CURRENT_USER, ERROR } from "../../misc/consts";
 import { options } from "../../helpers";
 
-export function auth(navigate, userToken) {
+export function auth(navigate) {
   return async function (dispatch) {
     await axios.get(`${URL_API}/auth`, options())
       .then((res) => {
@@ -11,7 +11,7 @@ export function auth(navigate, userToken) {
           type: CURRENT_USER,
           payload: res.data.userData
         });
-        return res.data.logged && navigate(`/profile/${userToken}`);
+        return res.data.logged && navigate(`/`);
       })
       .catch((e) => {
         console.error(e);

@@ -1,0 +1,10 @@
+.buttonLogin {
+  width: 100%;
+  height: 50px;
+  background-color: var(--color-primary);
+  border-radius: 3px;
+}
+
+.buttonLogin:hover {
+  background-color: var(--color-primary-hover);
+}

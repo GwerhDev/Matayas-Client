@@ -1,9 +1,16 @@
+.navContainerExt {
+  padding-right: 3rem;
+  padding-left: 3rem;
+}
+
 .navigatorContainer {
-  width: 100vw;
   display: flex;
-  position: fixed;
-  background-color: var(--color-background-light);
-  border-bottom: solid 1px;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-background-dark-opacity);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.74);  
+  border-radius: 5px;
 }
 
 .navigatorContainer nav {
@@ -11,7 +18,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem;
+  padding: .7em;
   padding-left: 3rem;
   padding-right: 3rem;
 }
@@ -23,11 +30,18 @@
 }
 
 .navigatorContainer nav ul li:hover {
-  color: var(--color-primary);
+  color: var(--color-primary-hover);
+  filter: brightness(1.5);
 }
 
 .authContainer {
   gap: 1rem;
   display: flex;
   align-items: center;
+}
+
+.profileMenu {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
 }

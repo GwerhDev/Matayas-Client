@@ -1,5 +1,5 @@
-import { useNavigate } from 'react-router-dom';
 import s from './ProductCard.module.css';
+import { useNavigate } from 'react-router-dom';
 
 export const ProductCard = (props) => {
   const { id, name, price, image, description, category, rating } = props ? props : null;

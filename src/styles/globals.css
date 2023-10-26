@@ -81,7 +81,8 @@ button:focus-visible {
   width: 100%;
   min-height: 100vh;
   display: flex;
-  padding-top: 80px;
+  flex-direction: column;
+  padding-top: 3rem;
 }
 
 .nav-container {
@@ -131,4 +132,15 @@ button:focus-visible {
 
 .mar-0 {
   margin: 0;
+}
+
+.page-title {
+  width: 100%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.644);
+  background: linear-gradient(168deg, var(--color-background) 50% , var(--color-background-darker) 80%);
 }

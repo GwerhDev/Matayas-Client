@@ -13,6 +13,8 @@ import Profile from '../pages/Profile';
 import Favorites from '../pages/Favorites';
 import Dashboard from '../pages/admin/Dashboard';
 import Product from '../pages/Product';
+import { UsersManagement } from '../pages/admin/UsersManagement';
+import { ProductsManagement } from '../pages/admin/ProductsManagement';
 
 
 function RouterApp() {
@@ -29,6 +31,8 @@ function RouterApp() {
           <Route path='/product/:id' element={<Product />} />
           <Route path='/my-favorites' element={<Favorites />} />
           <Route path='/admin/dashboard' element={<Dashboard />} />
+          <Route path='/admin/users-management' element={<UsersManagement />} />
+          <Route path='/admin/products-management' element={<ProductsManagement />} />
           <Route path='/store' element={<Store />} />
           <Route path='/gallery' element={<Gallery />} />
           <Route path='/location' element={<Location />} />

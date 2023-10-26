@@ -1,0 +1,28 @@
+.profileMenuContainer {
+  background-color: var(--color-background-dark-opacity);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.74);  
+  border-radius: 5px;
+  position: absolute;
+  top: 4.5rem;
+  right: 0;
+  display: none;
+  flex-direction: column;
+  padding: 1rem;
+  gap: .5rem;
+}
+
+.liOption {
+  width: 100%;
+  display: flex;
+}
+
+.linkOption {
+  padding: .5rem;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.linkOption:hover {
+  background-color: var(--color-background);
+}

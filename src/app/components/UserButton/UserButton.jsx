@@ -1,8 +1,8 @@
+import s from './UserButton.module.css';
 import { useSelector } from 'react-redux';
-import s from './ProfileButton.module.css';
 import { $display } from '../../../functions';
 
-export const ProfileButton = () => {
+export const UserButton = () => {
   const { profilePic } = useSelector(state => state.currentUser);
 
   function handleClick() {

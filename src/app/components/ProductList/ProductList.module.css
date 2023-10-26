@@ -1,0 +1,9 @@
+.fieldsContainer {
+  background: linear-gradient(168deg, var(--color-background-darker) 10% , var(--color-background-dark) 80%);
+  border-radius: 5px;
+}
+
+.fieldsUl {
+  display: flex;
+  justify-content: space-evenly;
+}

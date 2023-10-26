@@ -1,8 +1,9 @@
-import { CURRENT_USER, GET_PRODUCTS, GET_USER_DATA } from "../../misc/consts";
+import { CURRENT_USER, GET_PRODUCTS, GET_USERS, GET_USER_DATA } from "../../misc/consts";
 
 const initialState = {
   currentUser: null,
   products: null,
+  users: null
 };
 
 export default function rootReducer(state = initialState, action) {
@@ -21,6 +22,11 @@ export default function rootReducer(state = initialState, action) {
       return {
         ...state,
         products: action.payload
+      };
+    case GET_USERS:
+      return {
+        ...state,
+        users: action.payload
       };
     default:
       return { ...state };

@@ -1,0 +1,27 @@
+.container {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+}
+
+.options {
+  background: linear-gradient(168deg, var(--color-background) 50% , var(--color-secundary) 100%);
+  width: 100%;
+  height: 100px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 4px white;
+}
+
+.options:hover {
+  background: linear-gradient(168deg, var(--color-secundary) 50% , var(--color-secundary) 100%);
+  cursor: pointer;
+  color: white;
+}

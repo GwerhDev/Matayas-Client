@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getUserData } from '../../../middlewares/redux/actions/account';
-import { ProfileButton } from '../ProfileButton/ProfileButton';
-import { ProfileMenu } from '../ProfileMenu/ProfileMenu';
+import { UserButton } from '../UserButton/UserButton';
+import { UserMenu } from '../UserMenu/UserMenu';
 
 export const Navigator = () => {
   const dispatch = useDispatch();
@@ -30,7 +30,7 @@ export const Navigator = () => {
           <div className={s.authContainer}>
             {
               currentUser
-                ? <ProfileButton />
+                ? <UserButton />
                 : <>
                     <Link to="/register" className={s.registerLink}>REGISTRARSE</Link>
                     <Link to="/login"><button>INGRESAR</button></Link>
@@ -38,9 +38,7 @@ export const Navigator = () => {
             }
           </div>
         </nav>
-      </div>
-      <div className={s.profileMenu}>
-        <ProfileMenu/>
+        <UserMenu/>
       </div>
     </div>
   )

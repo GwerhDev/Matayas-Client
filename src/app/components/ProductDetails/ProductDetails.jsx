@@ -16,7 +16,7 @@ export const ProductDetails = () => {
   }, [dispatch, id])
 
   return (
-    <div>
+    <div className={s.container}>
       <img src={productDetails?.image || defaultImage } alt="" />
       <p>{productDetails?.price}</p>
       <p>{productDetails?.title}</p>

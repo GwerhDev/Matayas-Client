@@ -33,3 +33,10 @@ export function getProductDetails(id) {
       });
   };
 }
+
+export function resetProductDetails() {
+  return({
+    type: GET_PRODUCTS_DETAILS,
+    payload: null
+  });
+}

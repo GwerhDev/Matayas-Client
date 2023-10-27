@@ -19,7 +19,7 @@ export const Navigator = () => {
 
   function handleLogoLeave() {
     setLogoImg(logo);
-  } 
+  }
 
   useEffect(() => {
     dispatch(getUserData());
@@ -29,26 +29,35 @@ export const Navigator = () => {
     <div className={s.navContainerExt}>
       <div className={s.navigatorContainer}>
         <nav>
-          <Link to="/"><div className={s.logo} style={{backgroundImage: `url(${logoImg})`}} onMouseEnter={handleLogoHover} onMouseLeave={handleLogoLeave} alt="" height="40px" /></Link>
-          <ul>
-            <Link to="/"><li>Inicio</li></Link>
-            <Link to="/store"><li>Inventario</li></Link>
-            <Link to="/gallery"><li>Galería de Fotos</li></Link>
-            <Link to="/location"><li>Ubicación</li></Link>
-            <Link to="/contact"><li>Contacto</li></Link>
-          </ul>
-          <div className={s.authContainer}>
-            {
-              currentUser
-                ? <UserButton />
-                : <>
+          <section className={s.logoSection}>
+            <Link to="/">
+              <div className={s.logo} style={{ backgroundImage: `url(${logoImg})` }}
+                onMouseEnter={handleLogoHover} onMouseLeave={handleLogoLeave} alt="" height="40px" />
+            </Link>
+          </section>
+          <section className={s.menuSection}>
+            <ul>
+              <Link to="/"><li>Inicio</li></Link>
+              <Link to="/store"><li>Inventario</li></Link>
+              <Link to="/gallery"><li>Galería de Fotos</li></Link>
+              <Link to="/location"><li>Ubicación</li></Link>
+              <Link to="/contact"><li>Contacto</li></Link>
+            </ul>
+          </section>
+          <section className={s.userSection}>
+            <div className={s.authContainer}>
+              {
+                currentUser
+                  ? <UserButton />
+                  : <>
                     <Link to="/register" className={s.registerLink}>REGISTRARSE</Link>
                     <Link to="/login"><button>INGRESAR</button></Link>
                   </>
-            }
-          </div>
+              }
+            </div>
+          </section>
         </nav>
-        <UserMenu/>
+        <UserMenu />
       </div>
     </div>
   )

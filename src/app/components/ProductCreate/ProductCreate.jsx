@@ -1,9 +1,13 @@
-import { useState } from 'react';
 import s from './ProductCreate.module.css';
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import defaultImage from '../../../assets/png/default-image.png';
+import { useDispatch } from 'react-redux';
+import { createProduct } from '../../../middlewares/redux/actions/admin';
 
 export const ProductCreate = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [title, setTitle] = useState('');
   const [price, setPrice] = useState('');
   const [description, setDescription] = useState('');
@@ -23,7 +27,7 @@ export const ProductCreate = () => {
       description,
     }
 
-    console.log(formData);
+    dispatch(createProduct(formData, navigate));
     return;
   }
 

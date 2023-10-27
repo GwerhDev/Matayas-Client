@@ -11,3 +11,4 @@ export const DELETE_PRODUCT = "DELETE_PRODUCT";
 export const CREATE_USER = "CREATE_USER";
 export const UPDATE_USER = "UPDATE_USER";
 export const DELETE_USER = "DELETE_USER";
+export const GET_PRODUCTS_DETAILS = "GET_PRODUCTS_DETAILS";

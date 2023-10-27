@@ -2,7 +2,7 @@ import s from './ProductCard.module.css';
 import { useNavigate } from 'react-router-dom';
 
 export const ProductCard = (props) => {
-  const { id, title, price, image, description, category, rating } = props ? props : null;
+  const { id, title, price, image, category, rating } = props ? props : null;
   const navigate = useNavigate();
 
   function handleClick(e) {
@@ -13,11 +13,12 @@ export const ProductCard = (props) => {
   return (
     <div className={s.cardContainer}>
       <div className={s.imageContainer}>
-        <img src={image} alt="product image" width="100%"/>
+        <img src={image} alt="product image" height="100%"/>
       </div>
-      <h3>{price}</h3>
-      <h2>{title}</h2>
-      <p>{description}</p>
+      <ul className={s.data}>
+        <li className={s.title}>{title}</li>
+        <li className={s.price}>{price}</li>
+      </ul>
       <p>{"⭐".repeat(rating)}<span style={{filter:'grayscale(1)'}}>{"⭐".repeat(5-rating)}</span></p>
       <button onClick={handleClick}>Ver más...</button>
       <p>{category}</p>

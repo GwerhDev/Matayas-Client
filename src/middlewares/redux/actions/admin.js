@@ -17,10 +17,10 @@ export function getUsers() {
   }
 }
 
-export function createUser() {
+export function createUser(formData) {
   return async function (dispatch) {
     try {
-      const response = await axios.get(`${URL_API}/admin/management-users/create`, options());
+      const response = await axios.get(`${URL_API}/admin/management-users/create`, formData, options());
       dispatch({
         type: CREATE_USER,
         payload: response.data
@@ -31,10 +31,10 @@ export function createUser() {
   }
 }
 
-export function updateUser() {
+export function updateUser(formData, id) {
   return async function (dispatch) {
     try {
-      const response = await axios.get(`${URL_API}/admin/management-users/update`, options());
+      const response = await axios.get(`${URL_API}/admin/management-users/update/${id}`, formData, options());
       dispatch({
         type: UPDATE_USER,
         payload: response.data
@@ -45,10 +45,10 @@ export function updateUser() {
   }
 }
 
-export function deleteUser() {
+export function deleteUser(id) {
   return async function (dispatch) {
     try {
-      const response = await axios.get(`${URL_API}/admin/management-users/delete`, options());
+      const response = await axios.get(`${URL_API}/admin/management-users/delete/${id}`, options());
       dispatch({
         type: DELETE_USER,
         payload: response.data
@@ -59,24 +59,25 @@ export function deleteUser() {
   }
 }
 
-export function createProduct() {
+export function createProduct(formData, navigate) {
   return async function (dispatch) {
     try {
-      const response = await axios.get(`${URL_API}/admin/management-products/create`, options());
+      const response = await axios.post(`${URL_API}/admin/management-products/create`, formData, options());
       dispatch({
         type: CREATE_PRODUCT,
         payload: response.data
       });
+      response.data.success && navigate('/admin/products/management')
     } catch (e) {
       console.error(e);
     }
   }
 }
 
-export function updateProduct() {
+export function updateProduct(formData, id) {
   return async function (dispatch) {
     try {
-      const response = await axios.get(`${URL_API}/admin/management-products/update`, options());
+      const response = await axios.patch(`${URL_API}/admin/management-products/update/${id}`, formData, options());
       dispatch({
         type: UPDATE_PRODUCT,
         payload: response.data
@@ -87,10 +88,10 @@ export function updateProduct() {
   }
 }
 
-export function deleteProduct() {
+export function deleteProduct(id) {
   return async function (dispatch) {
     try {
-      const response = await axios.get(`${URL_API}/admin/management-products/delete`, options());
+      const response = await axios.delete(`${URL_API}/admin/management-products/delete/${id}`, options());
       dispatch({
         type: DELETE_PRODUCT,
         payload: response.data

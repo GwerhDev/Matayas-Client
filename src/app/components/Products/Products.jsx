@@ -1,18 +1,28 @@
 import s from './Products.module.css';
 import { ProductCard } from "../ProductsCard/ProductCard";
+import { useSelector } from 'react-redux';
 
 export const Products = () => {
+  const products = useSelector(state => state.products)
+
   return (
     <div className={s.productsContainer}>
-      <ProductCard
-        id='1263128912893120'
-        title='Test product'
-        price='$1.000.000'
-        image='https://www.randallamplifiers.com/wp-content/uploads/sites/9/2019/08/kh120RHS.jpg'
-        description='Amplifier test'
-        category='amps'
-        rating={3}
-      />
+      {
+        products?.map(product => {
+          return (
+          <ProductCard
+            key={product?._id}
+            id={product?._id}
+            title={product?.title}
+            price={product?.price}
+            image={product?.image}
+            description={product?.description}
+            category={product?.category}
+            rating={product?.rate}
+          />
+          )
+        })
+      }
     </div>
   )
 }

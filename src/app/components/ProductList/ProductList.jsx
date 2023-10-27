@@ -22,10 +22,10 @@ export const ProductList = () => {
       </div>
       <nav className={s.fieldsContainer}>
         <ul className={s.fieldsUl}>
-          <li>Image</li> -
-          <li>Title</li> -
-          <li>Price</li> -
-          <li>Description</li> -
+          <li>Foto</li> -
+          <li>Título</li> -
+          <li>Precio</li> -
+          <li>Descripción</li> -
           <li>Editar</li> -
           <li>Eliminar</li>
         </ul>

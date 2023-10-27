@@ -35,7 +35,8 @@
 
 .productsUlLi li {
   width: 300px;
-  text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .optionsContainer {

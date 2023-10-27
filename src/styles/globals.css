@@ -149,6 +149,9 @@ button:focus-visible {
 .button-nostyle {
   border: none;
   background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .button-nostyle:hover {

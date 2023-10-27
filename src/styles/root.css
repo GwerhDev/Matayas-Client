@@ -8,9 +8,9 @@
   width: 100%;
   min-height: 100vh;
 
-  --color-primary: rgb(139, 66, 56);
+  --color-primary: #96464d;
   --color-secundary: #5e4451;
-  --color-primary-hover: rgb(122, 39, 39);
+  --color-primary-hover: #4b2536;
   --color-secundary-hover: #703345;
   --color-background: rgb(31, 31, 31);
   --color-background-light: rgb(223, 223, 223);
@@ -21,6 +21,8 @@
   --color-font-dark: rgb(0, 0, 0);
   --bg-button-secundary: #344b97;
   --bg-button-secundary-hover: #4a63b6;
+  --bg-button-tertiary: #803643;
+  --bg-button-tertiary-hover: #4b2536; 
 
   color-scheme: light dark;
   color: var(--color-font);

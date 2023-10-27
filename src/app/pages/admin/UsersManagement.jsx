@@ -1,7 +1,6 @@
 import { UserList } from "../../components/UserList/UserList";
 
-export const UsersManagement = () => {
-
+const UsersManagement = () => {
   return (
     <div className="page-container">
       <h2 className="page-title">Administración de usuarios</h2>
@@ -9,3 +8,5 @@ export const UsersManagement = () => {
     </div>
   )
 }
+
+export default UsersManagement;

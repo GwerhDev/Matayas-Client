@@ -3,12 +3,21 @@
   padding-left: 3rem;
 }
 
+.logo {
+  transition-duration: .2s;
+  width: 150px;
+  height: 35px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left;
+}
+
 .navigatorContainer {
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: var(--color-background-dark-opacity);
-  background: linear-gradient(to top, var(--color-secundary) 1% , var(--color-background) 80%);
+  background: linear-gradient(to top, var(--color-secundary) 1% , var(--color-background) 100%);
   backdrop-filter: blur(10px);
   border-radius: 5px;
   transition-duration: .2s;

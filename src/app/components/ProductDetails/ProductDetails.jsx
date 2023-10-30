@@ -11,6 +11,7 @@ import messengerIcon from '../../../assets/svg/messenger-icon.svg';
 import mailIcon from '../../../assets/svg/mail-icon.svg';
 import telegramIcon from '../../../assets/svg/telegram-icon.svg';
 import { ProductComments } from '../ProductComments/ProductComments';
+import { Preloader } from '../Preloader/Preloader';
 
 export const ProductDetails = () => {
   const dispatch = useDispatch();
@@ -32,75 +33,82 @@ export const ProductDetails = () => {
 
   return (
     <div className={s.container}>
-      <section className={s.gallerySection}>
-        <ul className={s.galleryUl}>
-          <li style={{ border: productDetails?.image === visorImage ? "white solid 1px" : "transparent" }} onClick={() => setVisorImage(productDetails?.image)}>
-            <img src={productDetails?.image || defaultImage} alt="1" width="100%" />
-          </li>
-          {
-            productDetails?.gallery?.map((e, index) => {
-              return (
-                <li style={{ border: productDetails?.image === e ? "white solid 1px" : "transparent" }} key={e} onClick={() => setVisorImage(e)}>
-                  <img src={e} alt={index + 2} width="100%" />
-                </li>
-              )
-            })
-          }
-        </ul>
-      </section>
-      <section className={s.detailsSection}>
-        <div className={s.mainImageContainer}>
-          <img src={visorImage || defaultImage} width="100%" alt="" />
-        </div>
-
-        <div className='divider' />
-
-        <h2>Descripción</h2>
-        <p>{productDetails?.description}</p>
-
-        <div className='divider' />
-
-        {
-          productDetails?.features &&
+      {
+        productDetails ?
           <>
-            <h1>Características</h1>
-            <p>{productDetails?.features}</p>
+            <section className={s.gallerySection}>
+              <ul className={s.galleryUl}>
+                <li style={{ border: productDetails?.image === visorImage ? "white solid 1px" : "transparent" }} onClick={() => setVisorImage(productDetails?.image)}>
+                  <img src={productDetails?.image || defaultImage} alt="1" width="100%" />
+                </li>
+                {
+                  productDetails?.gallery?.map((e, index) => {
+                    return (
+                      <li style={{ border: productDetails?.image === e ? "white solid 1px" : "transparent" }} key={e} onClick={() => setVisorImage(e)}>
+                        <img src={e} alt={index + 2} width="100%" />
+                      </li>
+                    )
+                  })
+                }
+              </ul>
+            </section>
+            <section className={s.detailsSection}>
+              <div className={s.mainImageContainer}>
+                <img src={visorImage || defaultImage} width="100%" alt="" />
+              </div>
 
-            <div className='divider' />
+              <div className='divider' />
+
+              <h2>Descripción</h2>
+              <p>{productDetails?.description}</p>
+
+              <div className='divider' />
+
+              {
+                productDetails?.features &&
+                <>
+                  <h1>Características</h1>
+                  <p>{productDetails?.features}</p>
+
+                  <div className='divider' />
+                </>
+              }
+
+              <ProductComments />
+
+            </section>
+            <section className={s.contactSection}>
+              <p><b>{productDetails?.title}</b></p>
+              <p>{"⭐".repeat(productDetails?.rate)}<span style={{ filter: 'grayscale(1)' }}>{"⭐".repeat(5 - productDetails?.rate)}</span></p>
+              <h2>${productDetails?.price}</h2>
+
+              <div className='divider' />
+              <h2>Comprar</h2>
+              <p>Método de contacto:</p>
+              <span className={s.contactMethod}>
+                <div className={s.imgContainer}>
+                  <a href={phoneLink}><img src={phoneIcon} alt="" width="38px" height="38px" /></a>
+                </div>
+                <div className={s.imgContainer}>
+                  <a target='_blank' rel='noreferrer' href={whatsappLink}><img src={whatsappIcon} alt="" width="38px" height="38px" /></a>
+                </div>
+                <div className={s.imgContainer}>
+                  <a target='_blank' rel='noreferrer' href={instagramLink}><img src={instagramIcon} alt="" width="38px" height="38px" /></a>
+                </div>
+                <div className={s.imgContainer}>
+                  <a target='_blank' rel='noreferrer' href={messengerLink}><img src={messengerIcon} alt="" width="38px" height="38px" /></a>
+                </div>
+                <div className={s.imgContainer}>
+                  <a target='_blank' rel='noreferrer' href={telegramLink}><img src={telegramIcon} alt="" width="38px" height="38px" /></a>
+                </div>
+                <div className={s.imgContainer}>
+                  <a href={mailLink}><img src={mailIcon} alt="" width="38px" height="38px" /></a>
+                </div>
+              </span>
+            </section>
           </>
-        }
-
-        <ProductComments />
-      </section>
-      <section className={s.contactSection}>
-        <p><b>{productDetails?.title}</b></p>
-        <p>{"⭐".repeat(productDetails?.rate)}<span style={{ filter: 'grayscale(1)' }}>{"⭐".repeat(5 - productDetails?.rate)}</span></p>
-        <h2>${productDetails?.price}</h2>
-
-        <div className='divider' />
-        <h2>Comprar</h2>
-        <p>Método de contacto:</p>
-        <span className={s.contactMethod}>
-          <div className={s.imgContainer}>
-            <a href={phoneLink}><img src={phoneIcon} alt="" width="38px" height="38px" /></a>
-          </div>
-          <div className={s.imgContainer}>
-            <a target='_blank' rel='noreferrer' href={whatsappLink}><img src={whatsappIcon} alt="" width="38px" height="38px" /></a>
-          </div>
-          <div className={s.imgContainer}>
-            <a target='_blank' rel='noreferrer' href={instagramLink}><img src={instagramIcon} alt="" width="38px" height="38px" /></a>
-          </div>
-          <div className={s.imgContainer}>
-            <a target='_blank' rel='noreferrer' href={messengerLink}><img src={messengerIcon} alt="" width="38px" height="38px" /></a>
-          </div>
-          <div className={s.imgContainer}>
-            <a target='_blank' rel='noreferrer' href={telegramLink}><img src={telegramIcon} alt="" width="38px" height="38px" /></a>
-          </div>
-          <div className={s.imgContainer}>
-            <a href={mailLink}><img src={mailIcon} alt="" width="38px" height="38px"/></a>
-          </div>
-        </span>
-      </section>
+          : <Preloader />
+      }
     </div>
   )
 }

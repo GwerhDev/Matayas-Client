@@ -1,6 +1,7 @@
 import s from './Products.module.css';
 import { ProductCard } from "../ProductsCard/ProductCard";
 import { useSelector } from 'react-redux';
+import { Preloader } from '../Preloader/Preloader';
 
 export const Products = () => {
   const products = useSelector(state => state.products)
@@ -8,6 +9,8 @@ export const Products = () => {
   return (
     <div className={s.productsContainer}>
       {
+        products
+        ?
         products?.map(product => {
           return (
           <ProductCard
@@ -22,6 +25,8 @@ export const Products = () => {
           />
           )
         })
+        :
+        <Preloader/>
       }
     </div>
   )

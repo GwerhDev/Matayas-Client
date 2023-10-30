@@ -17,7 +17,6 @@ import ProductsCreate from '../pages/admin/ProductsCreate';
 import UsersManagement from '../pages/admin/UsersManagement';
 import ProductsManagement from '../pages/admin/ProductsManagement';
 
-
 function RouterApp() {
   return (
     <div>

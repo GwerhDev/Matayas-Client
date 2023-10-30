@@ -1,0 +1,20 @@
+.container {
+  min-height: 300px;
+  margin-top: 3rem;
+  max-height: 50vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  max-width: 500px;
+}

@@ -3,6 +3,7 @@ import { useLocation, useNavigate  } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { auth } from '../../middlewares/redux/actions/auth';
 import { setUserToken } from '../../middlewares/helpers';
+import { Preloader } from '../components/Preloader/Preloader';
 
 const Auth = () => {
   const dispatch = useDispatch();
@@ -17,7 +18,9 @@ const Auth = () => {
   }, [dispatch, userToken, navigate]);
 
   return (
-    <div></div>
+    <div>
+      <Preloader />
+    </div>
   );
 };
 

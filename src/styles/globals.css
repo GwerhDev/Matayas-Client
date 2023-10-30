@@ -9,6 +9,13 @@ body {
   flex-direction: column;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bolder;
+  padding: 0;
+  margin: 0;
+}
+
 input {
   background-color: var(--color-background-light);
   font-size: 15px;
@@ -108,6 +115,7 @@ button:focus-visible {
   align-items: center;
   justify-content: center;
   padding: 3rem;
+  padding-top: 5rem;
 }
 
 .auth-form {

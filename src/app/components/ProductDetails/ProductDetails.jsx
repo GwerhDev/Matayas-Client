@@ -78,9 +78,9 @@ export const ProductDetails = () => {
 
             </section>
             <section className={s.contactSection}>
-              <p><b>{productDetails?.title}</b></p>
+              <h2><b>{productDetails?.title}</b></h2>
               <p>{"⭐".repeat(productDetails?.rate)}<span style={{ filter: 'grayscale(1)' }}>{"⭐".repeat(5 - productDetails?.rate)}</span></p>
-              <h2>${productDetails?.price}</h2>
+              <h1>${productDetails?.price}</h1>
 
               <div className='divider' />
               <h2>Comprar</h2>

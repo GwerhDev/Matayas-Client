@@ -1,0 +1,34 @@
+.container {
+  width: 100%;
+  background-color: var(--color-background-darker);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.headerImageContainer {
+  height: 300px;
+  background-color: var(--color-background-dark);
+}
+
+.profilePicCOntainer {
+  padding: 1rem;
+  padding-left: 2rem;
+  margin-top: -4rem;
+}
+
+.profilePic {
+  border-radius: 100%;
+  border: solid var(--color-primary);
+}
+
+.profilePic:hover {
+  border: solid var(--color-primary-hover);
+  cursor: pointer;
+}
+
+.userData {
+  padding-left: 2rem;
+  padding-bottom: 4rem;
+}

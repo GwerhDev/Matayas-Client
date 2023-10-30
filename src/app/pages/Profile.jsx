@@ -1,7 +1,9 @@
+import { ProfileHeader } from "../components/ProfileHeader/ProfileHeader";
+
 const Profile = () => {
   return (
     <div className="page-container">
-      Profile
+      <ProfileHeader />
     </div>
   )
 }

@@ -10,7 +10,7 @@ export const Preloader = () => {
     anime.timeline().add({
       targets: '#Layer_1 path:nth-child(3)',
       fillOpacity: [0, 1],
-      duration: 3000,
+      duration: 9000,
     });
   }, []);
 

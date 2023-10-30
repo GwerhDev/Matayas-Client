@@ -2,6 +2,7 @@ import axios from "axios";
 import { URL_API } from "../../config";
 import { CURRENT_USER, ERROR } from "../../misc/consts";
 import { options } from "../../helpers";
+import { getUserData } from "./account";
 
 export function auth(navigate) {
   return async function (dispatch) {
@@ -13,6 +14,7 @@ export function auth(navigate) {
         });
         return res.data.logged && navigate(`/`);
       })
+      .then(dispatch(getUserData()))
       .catch((e) => {
         console.error(e);
         return;
@@ -69,4 +71,14 @@ export function signupGoogle() {
         return;
       });
   };
+}
+
+export function logout() {
+  localStorage.removeItem('userToken');
+  return ({
+    type: CURRENT_USER,
+    payload: null
+    },
+    window.location.reload()
+  );
 }

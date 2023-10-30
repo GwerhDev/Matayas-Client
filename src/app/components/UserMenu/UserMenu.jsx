@@ -1,10 +1,12 @@
 import s from './UserMenu.module.css';
 import { $d } from '../../../functions';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { admin } from '../Utils/consts';
+import { logout } from '../../../middlewares/redux/actions/auth';
 
 export const UserMenu = () => {
+  const dispatch = useDispatch();
   const currentUser = useSelector(state => state.currentUser);
 
   document.addEventListener('mouseup', function (e) {
@@ -22,8 +24,7 @@ export const UserMenu = () => {
   }
 
   function handleLogout() {
-    localStorage.removeItem('userToken');
-    window.location.reload();
+    dispatch(logout());
   }
 
   return (

@@ -17,7 +17,7 @@ export const ProductCard = (props) => {
       </div>
       <ul className={s.data}>
         <li className={s.title}>{title}</li>
-        <li className={s.price}>${price}</li>
+        <li className={s.price}><h2>${price}</h2></li>
       </ul>
       <p>{category}</p>
     </div>

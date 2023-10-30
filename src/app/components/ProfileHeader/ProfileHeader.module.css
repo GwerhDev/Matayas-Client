@@ -15,6 +15,7 @@
 .profilePicCOntainer {
   padding: 1rem;
   padding-left: 2rem;
+  padding-right: 2rem;
   margin-top: -4rem;
 }
 
@@ -30,5 +31,6 @@
 
 .userData {
   padding-left: 2rem;
+  padding-right: 2rem;
   padding-bottom: 4rem;
 }

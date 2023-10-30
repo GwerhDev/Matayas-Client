@@ -11,7 +11,7 @@ export const SignupInner = () => {
 
   function handleSignup(e) {
     e.preventDefault();
-    const formData = { email, username, password }
+    const formData = { email, username, password };
     dispatch(signupInner(formData));
   }
 

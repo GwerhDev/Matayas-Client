@@ -212,7 +212,7 @@ textarea {
 }
 
 .select-group option {
-  background-color: var(--bg-button-tertiary);
+  background-color: var(--color-background-darker);
 }
 
 .nav-select {

@@ -44,32 +44,34 @@ export const Navigator = () => {
           </section>
         </nav>
       </div>
-      <nav className={s.menuContainer}>
-        <section className={s.underLogo}>
-        </section>
-        <section className={s.menuSection}>
-          <ul>
-            <Link to="/"><li>Inicio</li></Link>
-            <Link to="/store"><li>Inventario</li></Link>
-            <Link to="/gallery"><li>Galería de Fotos</li></Link>
-            <Link to="/location"><li>Ubicación</li></Link>
-            <Link to="/contact"><li>Contacto</li></Link>
-          </ul>
-        </section>
-        <section className={s.userSection}>
-          <div className={s.authContainer}>
-            {
-              currentUser
-                ? <UserButton />
-                : <div className={s.authButtons}>
-                    <Link to="/register" className={s.registerLink}>Registrarse</Link>
-                    <Link to="/login"><button className={s.enterButton}>Ingresar</button></Link>
-                  </div>
-            }
-            <UserMenu />
-          </div>
-        </section>
-      </nav>
+      <div className={s.menuContainer}>
+        <nav>
+          <section className={s.underLogo}>
+          </section>
+          <section className={s.menuSection}>
+            <ul>
+              <Link to="/"><li>Inicio</li></Link>
+              <Link to="/store"><li>Inventario</li></Link>
+              <Link to="/gallery"><li>Galería de Fotos</li></Link>
+              <Link to="/location"><li>Ubicación</li></Link>
+              <Link to="/contact"><li>Contacto</li></Link>
+            </ul>
+          </section>
+          <section className={s.userSection}>
+            <div className={s.authContainer}>
+              {
+                currentUser
+                  ? <UserButton />
+                  : <div className={s.authButtons}>
+                      <Link to="/register" className={s.registerLink}>Registrarse</Link>
+                      <Link to="/login"><button className={s.enterButton}>Ingresar</button></Link>
+                    </div>
+              }
+              <UserMenu />
+            </div>
+          </section>
+        </nav>
+      </div>
     </div>
   )
 }

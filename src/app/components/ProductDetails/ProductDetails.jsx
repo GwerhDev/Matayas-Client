@@ -18,6 +18,12 @@ export const ProductDetails = () => {
   const productDetails = useSelector(state => state.productDetails);
   const { id } = params;
   const [visorImage, setVisorImage] = useState(null);
+  const phoneLink = "tel:56933451508";
+  const mailLink = "mailto:info@amplificadoresmatayas.com";
+  const whatsappLink = "https://api.whatsapp.com/send/?phone=56933451508&text&type=phone_number&app_absent=0";
+  const instagramLink = "https://www.instagram.com/amplificadoresmatayas/";
+  const messengerLink = "https://m.me/amplificadoresmatayas";
+  const telegramLink = "https://t.me/amplificadoresmatayas";
 
   useEffect(() => {
     dispatch(getProductDetails(id));
@@ -75,12 +81,24 @@ export const ProductDetails = () => {
         <h2>Comprar</h2>
         <p>Método de contacto:</p>
         <span className={s.contactMethod}>
-          <a href="tel:56933451508"><img src={phoneIcon} alt="" width="38px" height="38px" /></a>
-          <img src={whatsappIcon} alt="" width="38px" height="38px" />
-          <img src={instagramIcon} alt="" width="38px" height="38px" />
-          <img src={messengerIcon} alt="" width="38px" height="38px" />
-          <img src={telegramIcon} alt="" width="38px" height="38px" />
-          <a href="mailto:info@amplificadoresmatayas.com"><img src={mailIcon} alt="" width="38px" height="38px" /></a>
+          <div className={s.imgContainer}>
+            <a href={phoneLink}><img src={phoneIcon} alt="" width="38px" height="38px" /></a>
+          </div>
+          <div className={s.imgContainer}>
+            <a target='_blank' rel='noreferrer' href={whatsappLink}><img src={whatsappIcon} alt="" width="38px" height="38px" /></a>
+          </div>
+          <div className={s.imgContainer}>
+            <a target='_blank' rel='noreferrer' href={instagramLink}><img src={instagramIcon} alt="" width="38px" height="38px" /></a>
+          </div>
+          <div className={s.imgContainer}>
+            <a target='_blank' rel='noreferrer' href={messengerLink}><img src={messengerIcon} alt="" width="38px" height="38px" /></a>
+          </div>
+          <div className={s.imgContainer}>
+            <a target='_blank' rel='noreferrer' href={telegramLink}><img src={telegramIcon} alt="" width="38px" height="38px" /></a>
+          </div>
+          <div className={s.imgContainer}>
+            <a href={mailLink}><img src={mailIcon} alt="" width="38px" height="38px"/></a>
+          </div>
         </span>
       </section>
     </div>

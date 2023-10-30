@@ -205,6 +205,20 @@ textarea {
   align-items: center;
 }
 
+.select-group {
+  background-color: transparent;
+  border: none;
+  font-family: Poppins;
+}
+
+.select-group option {
+  background-color: var(--bg-button-tertiary);
+}
+
+.nav-select {
+  width: 100px;
+}
+
 .loader {
   margin-top: 1rem;
   width: 100%;
@@ -215,6 +229,7 @@ textarea {
   background: linear-gradient(currentColor 0 0) 0 100%/0% 3px no-repeat;
   animation: l2 2s linear infinite;
 }
+
 .loader:before {
   content:"Cargando..."
 }

@@ -65,7 +65,8 @@
 .enterButton {
   padding-top: 0;
   padding-bottom: 0;
-  margin-bottom: 3px;
+  padding-left: .5rem;
+  padding-right: .5rem;
 }
 
 .profileMenu {
@@ -117,5 +118,5 @@
   font-size: 14px;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: .2rem;
 }

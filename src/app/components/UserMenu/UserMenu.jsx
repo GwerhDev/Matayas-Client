@@ -17,6 +17,10 @@ export const UserMenu = () => {
     return;
   });
 
+  function handleClick() {
+    $d('#profile-menu-container').style.display = 'none'
+  }
+
   function handleLogout() {
     localStorage.removeItem('userToken');
     window.location.reload();
@@ -24,11 +28,11 @@ export const UserMenu = () => {
 
   return (
     <ul className={s.profileMenuContainer} id='profile-menu-container'>
-      <li className={s.liOption}><Link className={s.linkOption} to={`/profile/${currentUser?.id}`}>Perfil</Link></li>
-      <li className={s.liOption}><Link className={s.linkOption} to='/my-favorites'>Favoritos</Link></li>
+      <li className={s.liOption}><Link className={s.linkOption} onClick={handleClick} to={`/profile/${currentUser?.id}`}>Perfil</Link></li>
+      <li className={s.liOption}><Link className={s.linkOption} onClick={handleClick} to='/my-favorites'>Favoritos</Link></li>
       {
         currentUser?.role === admin
-          ? <li className={s.liOption}><Link className={s.linkOption} to='/admin/dashboard'>Dashboard</Link></li>
+          ? <li className={s.liOption}><Link className={s.linkOption} onClick={handleClick} to='/admin/dashboard'>Dashboard</Link></li>
           : null
       }
       <div className='divider pad-0 mar-0' />

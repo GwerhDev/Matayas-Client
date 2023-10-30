@@ -3,15 +3,18 @@ import { useSelector } from 'react-redux';
 import { $display } from '../../../functions';
 
 export const UserButton = () => {
-  const { profilePic } = useSelector(state => state.currentUser);
+  const { profilePic, username } = useSelector(state => state.currentUser);
 
   function handleClick() {
     $display('#profile-menu-container')
   }
 
   return (
-    <div className={s.profilePicContainer} onClick={handleClick}>
-      <img src={profilePic} alt="" width="100%" />
+    <div className={s.container} onClick={handleClick}>
+      { username }
+      <div className={s.profilePicContainer}>
+        <img src={profilePic} alt="" width="100%" />
+      </div>
     </div>
   )
 }

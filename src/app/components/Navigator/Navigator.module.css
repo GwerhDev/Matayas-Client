@@ -13,13 +13,12 @@
   justify-content: center;
   background-color: var(--color-background-dark-opacity);
   background: linear-gradient(to top, var(--color-secundary) 1% , var(--color-background) 100%);
-  backdrop-filter: blur(10px);
-  border-bottom: solid thin rgb(83, 83, 83);
   transition-duration: .2s;
 }
 
 .navigatorContainer nav {
   width: 100%;
+  max-width: 1190px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -39,10 +38,27 @@
   filter: brightness(1.5);
 }
 
+.menuContainer {
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(to bottom, var(--color-secundary) 100% , var(--color-background) 100%);
+  border-bottom: solid thin rgb(83, 83, 83);
+  height: 30px;
+}
+
 .authContainer {
   gap: 1rem;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
+  justify-content: flex-end;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.enterButton {
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-bottom: 3px;
 }
 
 .profileMenu {
@@ -52,8 +68,15 @@
 }
 
 .logoSection,
-.userSection {
+.userSection,
+.featuredSection {
   width: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.searchSection {
+  width: 100%;
 }
 
 .userSection {
@@ -61,8 +84,31 @@
   justify-content: flex-end;
 }
 
+.underLogo {
+  width: 150px;
+  height: 10px;
+  padding: 0;
+  margin: 0;
+}
+
 .menuSection {
-  width: 100%;
+  width: 50%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  max-width: 1190px;
+}
+
+.menuSection ul {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 2rem;
+  font-size: 14px;
+}
+
+.authButtons {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }

@@ -13,7 +13,7 @@ const Login = () => {
         <LoginGoogle />
         <div className="divider"/>
         <span className="auth-form-text">
-          Don't have an account yet? Sign up here and get started with GustavoEduca today! <Link to="/register">Register</Link>
+          Don't have an account yet? Sign up here and get started with GustavoEduca today! <Link to="/register" className="link-to">Register</Link>
         </span>
       </form>
     </div>

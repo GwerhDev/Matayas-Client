@@ -1,9 +1,80 @@
+.container {
+  display: flex;
+  background-color: var(--color-background-dark);
+  border-radius: 5px;
+  padding: 1rem;
+  gap: 1rem;
+}
+
 .mainImageContainer {
-  width: 500px;
-  height: 280px;
+  width: 100%;
+  max-height: 450px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   border-radius: 5px;
+}
+
+.gallerySection {
+  width: 80px;
+  display: flex;
+  flex-direction: column;
+}
+
+.detailsSection {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.contactSection {
+  border: var(--color-background) solid 1px;
+  border-radius: 5px;
+  width: 50%;
+  padding: 1rem;
+}
+
+.galleryUl {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+  max-height: 450px;
+}
+
+.galleryUl li {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-background);
+  border: solid 1px transparent;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  filter: grayscale(.5);
+}
+
+.galleryUl li:hover {
+  filter: grayscale(0);
+  cursor: pointer;
+  border: solid 1px var(--color-background-light);
+}
+
+.contactMethod {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.contactMethod img {
+  border: solid 2px var(--color-background);
+  border-radius: 100%;
+  filter: grayscale(.4);
+}
+
+.contactMethod img:hover {
+  border: solid 2px var(--color-background-light);
+  cursor: pointer;
+  filter: grayscale(0);
 }

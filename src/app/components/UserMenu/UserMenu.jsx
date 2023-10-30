@@ -27,11 +27,11 @@ export const UserMenu = () => {
       <li className={s.liOption}><Link className={s.linkOption} to={`/profile/${currentUser?.id}`}>Perfil</Link></li>
       <li className={s.liOption}><Link className={s.linkOption} to='/my-favorites'>Favoritos</Link></li>
       {
-        currentUser?.role === admin 
-          ?  <li className={s.liOption}><Link className={s.linkOption} to='/admin/dashboard'>Dashboard</Link></li>
-          :  null
+        currentUser?.role === admin
+          ? <li className={s.liOption}><Link className={s.linkOption} to='/admin/dashboard'>Dashboard</Link></li>
+          : null
       }
-      <div className='divider pad-0 mar-0'/>
+      <div className='divider pad-0 mar-0' />
       <li><button className='btn-logout' onClick={handleLogout}>Cerrar sesión</button></li>
     </ul>
   )

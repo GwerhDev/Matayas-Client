@@ -19,6 +19,9 @@
   --color-background-dark-opacity: rgba(22, 22, 22, 0.788);
   --color-font: rgb(241, 241, 241);
   --color-font-dark: rgb(0, 0, 0);
+  --color-gray-100: rgb(100, 100, 100);
+  --color-gray-75: rgb(75, 75, 75);
+  --color-gray-50: rgb(50, 50, 50);
   --bg-button-secundary: #344b97;
   --bg-button-secundary-hover: #4a63b6;
   --bg-button-tertiary: #803643;
@@ -26,7 +29,7 @@
 
   color-scheme: light dark;
   color: var(--color-font);
-  background: linear-gradient(168deg, var(--color-background) 10% , var(--color-background) 80%);
+  background: var(--color-background);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

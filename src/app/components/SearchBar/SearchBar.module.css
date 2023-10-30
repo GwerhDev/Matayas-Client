@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.container input {
+  height: 3px;
+  width: 100%;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.container input:active,
+.container input:focus,
+.container input:focus-visible,
+.container input:focus-within {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.container button {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  padding: 0;
+  padding: .1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  display: flex;
+  align-items: center;
+}

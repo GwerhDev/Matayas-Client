@@ -1,12 +1,23 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: 14px;
+}
+
+.container:hover {
+  cursor: pointer;
+}
+
 .profilePicContainer {
-  width: 35px;
-  height: 35px;
+  width: 20px;
+  height: 20px;
   border-radius: 100%;
   overflow: hidden;
   border: var(--color-primary) solid ;
 }
 
-.profilePicContainer:hover {
+.container:hover .profilePicContainer{
   border: var(--color-primary-hover) solid ;
   cursor: pointer;
 }

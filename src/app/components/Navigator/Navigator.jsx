@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import { getUserData } from '../../../middlewares/redux/actions/account';
 import { UserButton } from '../UserButton/UserButton';
 import { UserMenu } from '../UserMenu/UserMenu';
+import { SearchBar } from '../SearchBar/SearchBar';
 
 export const Navigator = () => {
   const dispatch = useDispatch();
@@ -35,30 +36,40 @@ export const Navigator = () => {
                 onMouseEnter={handleLogoHover} onMouseLeave={handleLogoLeave} alt="" height="40px" />
             </Link>
           </section>
-          <section className={s.menuSection}>
-            <ul>
-              <Link to="/"><li>Inicio</li></Link>
-              <Link to="/store"><li>Inventario</li></Link>
-              <Link to="/gallery"><li>Galería de Fotos</li></Link>
-              <Link to="/location"><li>Ubicación</li></Link>
-              <Link to="/contact"><li>Contacto</li></Link>
-            </ul>
+          <section className={s.searchSection}>
+            <SearchBar />
           </section>
-          <section className={s.userSection}>
-            <div className={s.authContainer}>
-              {
-                currentUser
-                  ? <UserButton />
-                  : <>
-                    <Link to="/register" className={s.registerLink}>REGISTRARSE</Link>
-                    <Link to="/login"><button>INGRESAR</button></Link>
-                  </>
-              }
-            </div>
+          <section className={s.featuredSection}>
+
           </section>
         </nav>
-        <UserMenu />
       </div>
+      <nav className={s.menuContainer}>
+        <section className={s.underLogo}>
+        </section>
+        <section className={s.menuSection}>
+          <ul>
+            <Link to="/"><li>Inicio</li></Link>
+            <Link to="/store"><li>Inventario</li></Link>
+            <Link to="/gallery"><li>Galería de Fotos</li></Link>
+            <Link to="/location"><li>Ubicación</li></Link>
+            <Link to="/contact"><li>Contacto</li></Link>
+          </ul>
+        </section>
+        <section className={s.userSection}>
+          <div className={s.authContainer}>
+            {
+              currentUser
+                ? <UserButton />
+                : <div className={s.authButtons}>
+                    <Link to="/register" className={s.registerLink}>Registrarse</Link>
+                    <Link to="/login"><button className={s.enterButton}>Ingresar</button></Link>
+                  </div>
+            }
+            <UserMenu />
+          </div>
+        </section>
+      </nav>
     </div>
   )
 }

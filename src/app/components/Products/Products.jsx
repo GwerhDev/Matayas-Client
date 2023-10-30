@@ -18,7 +18,7 @@ export const Products = () => {
             image={product?.image}
             description={product?.description}
             category={product?.category}
-            rating={product?.rate}
+            rate={product?.rate}
           />
           )
         })

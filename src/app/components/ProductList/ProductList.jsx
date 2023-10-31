@@ -5,10 +5,17 @@ import { getProducts, resetProductDetails } from '../../../middlewares/redux/act
 import editIcon from '../../../assets/png/edit-icon.png';
 import deleteIcon from '../../../assets/png/delete-icon.png';
 import { Link } from 'react-router-dom';
+import { deleteProduct } from '../../../middlewares/redux/actions/admin';
 
 export const ProductList = () => {
   const dispatch = useDispatch();
   const products = useSelector(state => state.products);
+
+  function handleDelete(e, id) {
+    e.preventDefault();
+    dispatch(deleteProduct(id));
+    return;
+  }
 
   useEffect(() => {
     dispatch(getProducts());
@@ -46,7 +53,7 @@ export const ProductList = () => {
                   </button>
                 </Link>
               </li> -
-              <li><button className='button-nostyle'><img src={deleteIcon} alt="" height="20px" /></button></li>
+              <li><button onClick={(e) => handleDelete(e, product._id)} className='button-nostyle'><img src={deleteIcon} alt="" height="20px" /></button></li>
             </ul>
           ))
         }

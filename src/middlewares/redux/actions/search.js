@@ -4,6 +4,10 @@ import { GET_SEARCH_BY_QUERY } from "../../misc/consts";
 
 export function searchByQuery(query) {
   return async function (dispatch) {
+    dispatch({
+      type: GET_SEARCH_BY_QUERY,
+      payload: null
+    })
     await axios.get(`${URL_API}/search/${query}`)
       .then((res) => {
         dispatch({

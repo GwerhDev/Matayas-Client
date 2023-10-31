@@ -14,9 +14,11 @@ export const SearchBar = () => {
   }
 
   return (
-    <div className={s.container}>
-      <input onInput={(e) => setQuery(e.target.value)} placeholder='Buscar productos, marcas y más...' type="text" />
-      <button onClick={handleSearch} className={s.searchButton}><img src={searchIcon} alt="" width="20px"/></button>
-    </div>
+    <form onSubmit={handleSearch}>
+      <div className={s.container}>
+        <input onInput={(e) => setQuery(e.target.value)} placeholder='Buscar productos, marcas y más...' type="text" />
+        <button type='submit' className={s.searchButton}><img src={searchIcon} alt="" width="20px" /></button>
+      </div>
+    </form>
   )
 }

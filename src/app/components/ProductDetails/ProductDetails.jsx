@@ -32,10 +32,10 @@ export const ProductDetails = () => {
   }, [dispatch, id, productDetails?.image])
 
   return (
-    <div className={s.container}>
+    <>
       {
         productDetails ?
-          <>
+          <div className={s.container}>
             <section className={s.gallerySection}>
               <ul className={s.galleryUl}>
                 <li style={{ border: productDetails?.image === visorImage ? "white solid 1px" : "transparent" }} onClick={() => setVisorImage(productDetails?.image)}>
@@ -106,9 +106,10 @@ export const ProductDetails = () => {
                 </div>
               </span>
             </section>
-          </>
-          : <Preloader position="static"/>
+          </div>
+          : <Preloader position="static" />
       }
-    </div>
+
+    </>
   )
 }

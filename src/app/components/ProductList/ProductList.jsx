@@ -38,7 +38,13 @@ export const ProductList = () => {
               <li>{product.title}</li> -
               <li>{product.price}</li> -
               <li>{product.description}</li> -
-              <li><button className='button-nostyle'><img src={editIcon} alt="" height="20px" /></button></li> -
+              <li>
+                <Link to={`/admin/products/management/update/${product._id}`}>
+                  <button className='button-nostyle'>
+                    <img src={editIcon} alt="" height="20px" />
+                  </button>
+                </Link>
+              </li> -
               <li><button className='button-nostyle'><img src={deleteIcon} alt="" height="20px" /></button></li>
             </ul>
           ))

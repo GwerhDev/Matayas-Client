@@ -17,6 +17,7 @@ import ProductsCreate from '../pages/admin/ProductsCreate';
 import UsersManagement from '../pages/admin/UsersManagement';
 import ProductsManagement from '../pages/admin/ProductsManagement';
 import Search from '../pages/Search';
+import ProductsUpdate from '../pages/admin/ProductsUpdate';
 
 function RouterApp() {
   return (
@@ -35,6 +36,7 @@ function RouterApp() {
           <Route path='/admin/users/management' element={<UsersManagement />} />
           <Route path='/admin/products/management' element={<ProductsManagement />} />
           <Route path='/admin/products/management/create' element={<ProductsCreate />} />
+          <Route path='/admin/products/management/update/:id' element={<ProductsUpdate />} />
           <Route path='/store' element={<Store />} />
           <Route path='/gallery' element={<Gallery />} />
           <Route path='/location' element={<Location />} />

@@ -1,4 +1,4 @@
-import { CURRENT_USER, ERROR, GET_PRODUCTS, GET_PRODUCTS_DETAILS, GET_USERS, GET_USER_DATA } from "../../misc/consts";
+import { CURRENT_USER, ERROR, GET_PRODUCTS, GET_PRODUCTS_DETAILS, GET_SEARCH_BY_QUERY, GET_USERS, GET_USER_DATA } from "../../misc/consts";
 
 const initialState = {
   error: null,
@@ -6,6 +6,7 @@ const initialState = {
   products: null,
   currentUser: null,
   productDetails: null,
+  search: null
 };
 
 export default function rootReducer(state = initialState, action) {
@@ -34,6 +35,11 @@ export default function rootReducer(state = initialState, action) {
       return {
         ...state,
         productDetails: action.payload
+      }
+    case GET_SEARCH_BY_QUERY:
+      return {
+        ...state,
+        search: action.payload
       }
     case ERROR:
       return {

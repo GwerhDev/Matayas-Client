@@ -16,6 +16,7 @@ import Product from '../pages/Product';
 import ProductsCreate from '../pages/admin/ProductsCreate';
 import UsersManagement from '../pages/admin/UsersManagement';
 import ProductsManagement from '../pages/admin/ProductsManagement';
+import Search from '../pages/Search';
 
 function RouterApp() {
   return (
@@ -38,6 +39,7 @@ function RouterApp() {
           <Route path='/gallery' element={<Gallery />} />
           <Route path='/location' element={<Location />} />
           <Route path='/contact' element={<Contact />} />
+          <Route path='/search' element={<Search />} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
         </Routes>

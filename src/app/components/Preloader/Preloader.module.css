@@ -7,7 +7,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: fixed;
   z-index: 999;
   background-color: var(--color-background);
   overflow: hidden;

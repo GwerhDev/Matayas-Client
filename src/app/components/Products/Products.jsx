@@ -26,7 +26,7 @@ export const Products = () => {
           )
         })
         :
-        <Preloader/>
+        <Preloader position="fixed"/>
       }
     </div>
   )

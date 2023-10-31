@@ -1,6 +1,6 @@
 import axios from "axios";
-import { GET_SEARCH_BY_QUERY } from "../../misc/consts";
 import { URL_API } from "../../config";
+import { GET_SEARCH_BY_QUERY } from "../../misc/consts";
 
 export function searchByQuery(query) {
   return async function (dispatch) {

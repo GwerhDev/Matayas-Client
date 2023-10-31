@@ -2,7 +2,8 @@ import anime from 'animejs';
 import s from './Preloader.module.css';
 import { useEffect } from 'react';
 
-export const Preloader = () => {
+export const Preloader = (props) => {
+  const { position } = props || 'fixed';
   const colorLine = 'white';
   const colorText = 'white';
 
@@ -23,7 +24,7 @@ export const Preloader = () => {
   }, []);
 
   return (
-    <div className={s.container}>
+    <div className={s.container} style={{ position: position, zIndex: position === "static"? 1 : 999 }}>
       <div className={s.logoContainer}>
         <div className={s.logo}>
           <svg

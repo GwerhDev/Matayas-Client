@@ -74,7 +74,7 @@ export function createProduct(formData, navigate) {
   }
 }
 
-export function updateProduct(formData, id) {
+export function updateProduct(formData, id, navigate) {
   return async function (dispatch) {
     try {
       const response = await axios.patch(`${URL_API}/admin/management-products/update/${id}`, formData, options());
@@ -82,6 +82,7 @@ export function updateProduct(formData, id) {
         type: UPDATE_PRODUCT,
         payload: response.data
       });
+      response.data.success && navigate('/admin/products/management');
     } catch (e) {
       console.error(e);
     }

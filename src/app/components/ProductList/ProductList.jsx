@@ -1,7 +1,7 @@
 import s from './ProductList.module.css';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getProducts } from '../../../middlewares/redux/actions/products';
+import { getProducts, resetProductDetails } from '../../../middlewares/redux/actions/products';
 import editIcon from '../../../assets/png/edit-icon.png';
 import deleteIcon from '../../../assets/png/delete-icon.png';
 import { Link } from 'react-router-dom';
@@ -11,7 +11,8 @@ export const ProductList = () => {
   const products = useSelector(state => state.products);
 
   useEffect(() => {
-    dispatch(getProducts())
+    dispatch(getProducts());
+    dispatch(resetProductDetails());
   }, [dispatch]);
 
   return (

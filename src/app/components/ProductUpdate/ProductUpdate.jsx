@@ -31,7 +31,7 @@ export const ProductUpdate = () => {
       description,
     }
 
-    dispatch(updateProduct(formData, navigate));
+    dispatch(updateProduct(formData, id, navigate));
     return;
   }
 

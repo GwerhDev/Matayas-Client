@@ -25,7 +25,9 @@
   --bg-button-secundary: #344b97;
   --bg-button-secundary-hover: #4a63b6;
   --bg-button-tertiary: #803643;
-  --bg-button-tertiary-hover: #4b2536; 
+  --bg-button-tertiary-hover: #4b2536;
+  --color-error-background: rgb(248, 180, 180);
+  --color-error-font: rgb(128, 41, 41);
 
   color-scheme: light dark;
   color: var(--color-font);

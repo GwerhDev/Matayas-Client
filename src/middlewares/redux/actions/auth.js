@@ -48,16 +48,21 @@ export function loginGoogle() {
 }
 
 export function signupInner(formData) {
-  return async function () {
+  return async function (dispatch) {
     await axios.post(`${URL_API}/signup-inner`, formData)
       .then((res) => {
         return res.data.logged;
       })
       .catch((e) => {
         console.error(e);
-        return;
+        return (
+          dispatch({
+            type: ERROR,
+            payload: e.response.data.error
+          })
+        );
       });
-  };
+  }
 }
 
 export function signupGoogle() {
@@ -78,7 +83,7 @@ export function logout() {
   return ({
     type: CURRENT_USER,
     payload: null
-    },
+  },
     window.location.reload()
   );
 }

@@ -205,6 +205,10 @@ textarea {
   align-items: center;
 }
 
+select:hover {
+  cursor: pointer;
+}
+
 .select-group {
   background-color: transparent;
   border: none;
@@ -235,3 +239,16 @@ textarea {
 }
 
 @keyframes l2 {to{background-size: 100% 3px}}
+
+.error-span {
+  background-color: var(--color-error-background);
+  color: var(--color-error-font);
+  width: 100%;
+  border-radius: 5px;
+  border: solid 1px;
+}
+
+.error-span p {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}

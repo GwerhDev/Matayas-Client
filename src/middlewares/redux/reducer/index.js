@@ -1,6 +1,7 @@
-import { CURRENT_USER, GET_PRODUCTS, GET_PRODUCTS_DETAILS, GET_USERS, GET_USER_DATA } from "../../misc/consts";
+import { CURRENT_USER, ERROR, GET_PRODUCTS, GET_PRODUCTS_DETAILS, GET_USERS, GET_USER_DATA } from "../../misc/consts";
 
 const initialState = {
+  error: null,
   users: null,
   products: null,
   currentUser: null,
@@ -33,6 +34,11 @@ export default function rootReducer(state = initialState, action) {
       return {
         ...state,
         productDetails: action.payload
+      }
+    case ERROR:
+      return {
+        ...state,
+        error: action.payload
       }
     default:
       return { ...state };

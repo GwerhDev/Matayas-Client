@@ -37,7 +37,7 @@ export const Seeker = () => {
           )
         })
         :
-        <Preloader position="static"/>
+        <Preloader/>
       }
     </div>
   )

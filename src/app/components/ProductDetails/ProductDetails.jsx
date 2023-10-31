@@ -107,7 +107,7 @@ export const ProductDetails = () => {
               </span>
             </section>
           </div>
-          : <Preloader position="static" />
+          : <Preloader/>
       }
 
     </>

@@ -25,7 +25,7 @@ export const ProfileHeader = () => {
             </div>
           </div >
           :
-          <Preloader position="static" />
+          <Preloader />
       }
     </>
   )

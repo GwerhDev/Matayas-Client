@@ -66,7 +66,7 @@ export const ProductCreate = () => {
         </span>
         <span className={s.formTextarea}>
           <label htmlFor="Description">Descripción</label>
-          <textarea onInput={(e) => setDescription(e.target.value)} placeholder='Ej: En estricto rigor...' />
+          <textarea className='resize-vertical' onInput={(e) => setDescription(e.target.value)} placeholder='Ej: En estricto rigor...' />
         </span>
         <span className={s.formGallery}>
           <label htmlFor="Gallery">Galería</label>

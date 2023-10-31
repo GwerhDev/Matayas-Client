@@ -196,6 +196,10 @@ textarea {
   border-color: var(--color-background-light);
   color: black;
   font-family: Poppins;
+  resize: none;
+}
+
+.resize-vertical {
   resize: vertical;
 }
 

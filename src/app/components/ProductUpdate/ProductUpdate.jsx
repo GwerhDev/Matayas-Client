@@ -84,7 +84,7 @@ export const ProductUpdate = () => {
             </span>
             <span className={s.formTextarea}>
               <label htmlFor="Description">Descripción</label>
-              <textarea defaultValue={description} onInput={(e) => setDescription(e.target.value)} placeholder='Ej: En estricto rigor...' />
+              <textarea className='resize-vertical' defaultValue={description} onInput={(e) => setDescription(e.target.value)} placeholder='Ej: En estricto rigor...' />
             </span>
             <span className={s.formGallery}>
               <label htmlFor="Gallery">Galería</label>

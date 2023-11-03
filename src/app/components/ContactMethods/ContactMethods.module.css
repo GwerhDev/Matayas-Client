@@ -1,0 +1,18 @@
+.contactMethod {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.contactMethod img {
+  border: solid 2px var(--color-background);
+  border-radius: 100%;
+  filter: grayscale(.4);
+}
+
+.contactMethod img:hover {
+  border: solid 2px var(--color-background-light);
+  cursor: pointer;
+  filter: grayscale(0);
+}

@@ -281,3 +281,10 @@ select:hover {
 .align-items-center {
   align-items: center;
 }
+
+.contact-methods {
+  position: fixed;
+  bottom: 10px;
+  z-index: 999;
+  right: 3rem;
+}

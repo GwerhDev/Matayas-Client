@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProducts, resetProductDetails } from "../../middlewares/redux/actions/products";
 import { Slider } from "../components/Slider/Slider";
 import { Preloader } from "../components/Preloader/Preloader";
+import { ContactMethods } from "../components/ContactMethods/ContactMethods";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -28,6 +29,9 @@ const Home = () => {
           :
           <Preloader/>
       }
+      <div className="contact-methods">
+        <ContactMethods/>
+      </div>
     </div>
   )
 }

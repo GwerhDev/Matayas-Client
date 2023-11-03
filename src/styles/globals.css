@@ -265,3 +265,19 @@ select:hover {
   padding-left: 1rem;
   padding-right: 1rem;
 }
+
+.d-flex {
+  display: flex;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.align-items-center {
+  align-items: center;
+}

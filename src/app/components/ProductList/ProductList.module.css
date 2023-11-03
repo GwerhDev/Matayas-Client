@@ -45,3 +45,8 @@
   margin-bottom: 1rem;
   margin-top: 1rem;
 }
+
+.deleteOptionsContainer {
+  display: none;
+  gap: 1rem;
+}

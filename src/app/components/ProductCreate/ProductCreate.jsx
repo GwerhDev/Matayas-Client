@@ -62,7 +62,7 @@ export const ProductCreate = () => {
         </span>
         <span className={s.formSpan}>
           <label htmlFor="Price">Precio</label>
-          <input onInput={(e) => setPrice(e.target.value)} type="text" placeholder='Ej: $1.000 (CLP)' />
+          <input onInput={(e) => setPrice(e.target.value)} type="number" placeholder='Ej: $1.000 (CLP)' />
         </span>
         <span className={s.formTextarea}>
           <label htmlFor="Description">Descripción</label>

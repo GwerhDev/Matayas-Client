@@ -6,6 +6,7 @@ import editIcon from '../../../assets/png/edit-icon.png';
 import deleteIcon from '../../../assets/png/delete-icon.png';
 import { Link } from 'react-router-dom';
 import { deleteProduct } from '../../../middlewares/redux/actions/admin';
+import { $gId } from '../../../functions';
 
 export const ProductList = () => {
   const dispatch = useDispatch();
@@ -15,6 +16,17 @@ export const ProductList = () => {
     e.preventDefault();
     dispatch(deleteProduct(id));
     return;
+  }
+
+  function handleDeleteOptions(e, id, value) {
+    e.preventDefault();
+    if (value) {
+      $gId(`delete-${id}`).style.display = 'none';
+      $gId(`check-delete-${id}`).style.display = 'flex';
+    } else {
+      $gId(`delete-${id}`).style.display = 'flex';
+      $gId(`check-delete-${id}`).style.display = 'none';
+    }
   }
 
   useEffect(() => {
@@ -53,7 +65,15 @@ export const ProductList = () => {
                   </button>
                 </Link>
               </li> -
-              <li><button onClick={(e) => handleDelete(e, product._id)} className='button-nostyle'><img src={deleteIcon} alt="" height="20px" /></button></li>
+              <li>
+                <button id={`delete-${product._id}`} onClick={(e) => handleDeleteOptions(e, product._id, true)} className='button-nostyle'>
+                  <img src={deleteIcon} alt="" height="20px" />
+                </button>
+                <div className={s.deleteOptionsContainer} id={`check-delete-${product._id}`}>
+                  <button onClick={(e) => handleDelete(e, product._id)}>✔️</button>
+                  <button onClick={(e) => handleDeleteOptions(e, product._id, false)}>❌</button>
+                </div>
+              </li>
             </ul>
           ))
         }

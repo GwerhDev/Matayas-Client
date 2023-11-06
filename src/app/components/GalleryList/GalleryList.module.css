@@ -1,0 +1,52 @@
+.fieldsUl {
+  width: 100%;
+  background: linear-gradient(168deg, var(--color-background-darker) 10%, var(--color-background-dark) 80%);
+  display: flex;
+  border-radius: 5px;
+  justify-content: space-evenly;
+}
+
+.fieldsUl li {
+  width: 300px;
+  text-align: center;
+}
+
+.productsUl {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  gap: .5rem;
+  justify-content: space-evenly;
+}
+
+.productsUlLi {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: rgb(236, 236, 236);
+  font-size: 14px;
+  border-radius: 5px;
+  color: black;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.productsUlLi li {
+  width: 300px;
+  display: flex;
+  justify-content: center;
+}
+
+.optionsContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.deleteOptionsContainer {
+  display: none;
+  gap: 1rem;
+}

@@ -4,7 +4,6 @@ import { Footer } from '../components/Footer/Footer';
 import { Navigator } from '../components/Navigator/Navigator';
 import Store from '../pages/Store';
 import Gallery from '../pages/Gallery';
-import Location from '../pages/Location';
 import Contact from '../pages/Contact';
 import Login from '../pages/Login';
 import Register from '../pages/Register';
@@ -18,6 +17,8 @@ import UsersManagement from '../pages/admin/UsersManagement';
 import ProductsManagement from '../pages/admin/ProductsManagement';
 import Search from '../pages/Search';
 import ProductsUpdate from '../pages/admin/ProductsUpdate';
+import GalleryManagement from '../pages/admin/GalleryManagement';
+import GalleryCreate from '../pages/admin/GalleryCreate';
 
 function RouterApp() {
   return (
@@ -34,12 +35,13 @@ function RouterApp() {
           <Route path='/my-favorites' element={<Favorites />} />
           <Route path='/admin/dashboard' element={<Dashboard />} />
           <Route path='/admin/users/management' element={<UsersManagement />} />
+          <Route path='/admin/gallery/management' element={<GalleryManagement />} />
+          <Route path='/admin/gallery/management/create' element={<GalleryCreate />} />
           <Route path='/admin/products/management' element={<ProductsManagement />} />
           <Route path='/admin/products/management/create' element={<ProductsCreate />} />
           <Route path='/admin/products/management/update/:id' element={<ProductsUpdate />} />
           <Route path='/store' element={<Store />} />
           <Route path='/gallery' element={<Gallery />} />
-          <Route path='/location' element={<Location />} />
           <Route path='/contact' element={<Contact />} />
           <Route path='/search' element={<Search />} />
           <Route path='/login' element={<Login />} />

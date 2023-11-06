@@ -3,6 +3,7 @@ import { options } from "../../helpers";
 import { URL_API } from "../../config";
 import { CREATE_PRODUCT, CREATE_USER, DELETE_USER, GET_USERS, UPDATE_USER } from "../../misc/consts";
 import { getProducts } from "./products";
+import { getGallery } from "./gallery";
 
 export function getUsers() {
   return async function (dispatch) {
@@ -92,6 +93,44 @@ export function deleteProduct(id) {
     try {
       await axios.delete(`${URL_API}/admin/management-products/delete/${id}`, options());
       dispatch(getProducts());
+    } catch (e) {
+      console.error(e);
+    }
+  }
+}
+
+export function createGallery(formData, navigate) {
+  return async function (dispatch) {
+    try {
+      const response = await axios.post(`${URL_API}/admin/management-gallery/create`, formData, options());
+      dispatch({
+        type: CREATE_PRODUCT,
+        payload: response.data
+      });
+      response.data.success && navigate('/admin/gallery/management')
+    } catch (e) {
+      console.error(e);
+    }
+  }
+}
+
+export function updateGallery(formData, id, navigate) {
+  return async function (dispatch) {
+    try {
+      const response = await axios.patch(`${URL_API}/admin/management-gallery/update/${id}`, formData, options());
+      dispatch(getGallery());
+      response.data.success && navigate('/admin/gallery/management');
+    } catch (e) {
+      console.error(e);
+    }
+  }
+}
+
+export function deleteGallery(id) {
+  return async function (dispatch) {
+    try {
+      await axios.delete(`${URL_API}/admin/management-gallery/delete/${id}`, options());
+      dispatch(getGallery());
     } catch (e) {
       console.error(e);
     }

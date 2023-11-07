@@ -1,0 +1,7 @@
+.galleryContainer {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  grid-gap: 3px;
+}

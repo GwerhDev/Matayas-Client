@@ -1,0 +1,38 @@
+.cardContainer {
+  height: auto;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cardContainer:hover {
+  cursor: pointer;
+}
+
+.imageContainer {
+  background-color: var(--color-background);
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.data {
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.price {
+  width: 100%;
+  font-size: 18px;
+}
+
+.title {
+  width: 100%;
+  font-size: 13px;
+}

@@ -6,6 +6,7 @@ export const Slider = () => {
     <div className={s.container}>
       <div className={s.logoContainer}>
         <img className={s.logo} src={matayasLogo} alt=""/>
+        Fabricación, modificación y reparación de amplificadores a tubos
       </div>
     </div>
   )

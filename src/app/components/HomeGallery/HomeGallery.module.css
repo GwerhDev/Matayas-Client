@@ -11,3 +11,12 @@
 h1:hover {
   color: var(--color-primary);
 }
+
+.container ul li {
+  filter: grayscale(.4);
+}
+
+.container ul li:hover {
+  filter: grayscale(0);
+  cursor: pointer;
+}

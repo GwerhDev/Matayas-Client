@@ -30,7 +30,7 @@ export const UserMenu = () => {
   return (
     <ul className={s.profileMenuContainer} id='profile-menu-container'>
       <li className={s.liOption}><Link className={s.linkOption} onClick={handleClick} to={`/profile/${currentUser?.id}`}>Perfil</Link></li>
-      <li className={s.liOption}><Link className={s.linkOption} onClick={handleClick} to='/my-favorites'>Favoritos</Link></li>
+      {/* <li className={s.liOption}><Link className={s.linkOption} onClick={handleClick} to='/my-favorites'>Favoritos</Link></li> */}
       {
         currentUser?.role === admin
           ? <li className={s.liOption}><Link className={s.linkOption} onClick={handleClick} to='/admin/dashboard'>Dashboard</Link></li>

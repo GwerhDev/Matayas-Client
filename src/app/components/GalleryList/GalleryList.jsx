@@ -55,7 +55,6 @@ export const GalleryList = () => {
             <ul key={elem._id} className={s.productsUlLi}>
               <li><img src={elem.file} alt="" width="30px" /></li> -
               <li>{elem.title}</li> -
-              <li>{elem.price}</li> -
               <li>{elem.description}</li> -
               <li>
                 <Link to={`/admin/gallery/management/update/${elem._id}`}>

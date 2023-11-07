@@ -42,9 +42,8 @@ export const GalleryList = () => {
       </div>
       <nav className={s.fieldsContainer}>
         <ul className={s.fieldsUl}>
-          <li>Foto</li> -
+          <li>Archivo</li> -
           <li>Título</li> -
-          <li>Precio</li> -
           <li>Descripción</li> -
           <li>Editar</li> -
           <li>Eliminar</li>
@@ -54,12 +53,12 @@ export const GalleryList = () => {
         {
           gallery?.map(elem => (
             <ul key={elem._id} className={s.productsUlLi}>
-              <li><img src={elem.image} alt="" width="30px" /></li> -
+              <li><img src={elem.file} alt="" width="30px" /></li> -
               <li>{elem.title}</li> -
               <li>{elem.price}</li> -
               <li>{elem.description}</li> -
               <li>
-                <Link to={`/admin/products/management/update/${elem._id}`}>
+                <Link to={`/admin/gallery/management/update/${elem._id}`}>
                   <button className='button-nostyle'>
                     <img src={editIcon} alt="" height="20px" />
                   </button>

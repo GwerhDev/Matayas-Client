@@ -19,6 +19,8 @@ import Search from '../pages/Search';
 import ProductsUpdate from '../pages/admin/ProductsUpdate';
 import GalleryManagement from '../pages/admin/GalleryManagement';
 import GalleryCreate from '../pages/admin/GalleryCreate';
+import GalleryUpdate from '../pages/admin/GalleryUpdate';
+import Shop from '../pages/Shop';
 
 function RouterApp() {
   return (
@@ -37,14 +39,16 @@ function RouterApp() {
           <Route path='/admin/users/management' element={<UsersManagement />} />
           <Route path='/admin/gallery/management' element={<GalleryManagement />} />
           <Route path='/admin/gallery/management/create' element={<GalleryCreate />} />
+          <Route path='/admin/gallery/management/update/:id' element={<GalleryUpdate />} />
           <Route path='/admin/products/management' element={<ProductsManagement />} />
           <Route path='/admin/products/management/create' element={<ProductsCreate />} />
           <Route path='/admin/products/management/update/:id' element={<ProductsUpdate />} />
+          <Route path='/shop' element={<Shop />} />
           <Route path='/store' element={<Store />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/search' element={<Search />} />
           <Route path='/gallery' element={<Gallery />} />
           <Route path='/contact' element={<Contact />} />
-          <Route path='/search' element={<Search />} />
-          <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
         </Routes>
       </main>

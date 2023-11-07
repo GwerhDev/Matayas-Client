@@ -31,7 +31,7 @@ export default function rootReducer(state = initialState, action) {
     case GET_GALLERY_DETAILS:
       return {
         ...state,
-        gallery: action.payload
+        galleryDetails: action.payload
       };
     case GET_PRODUCTS:
       return {

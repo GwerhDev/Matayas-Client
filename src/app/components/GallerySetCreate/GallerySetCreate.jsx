@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import defaultImage from '../../../assets/png/default-image.png';
 import { useDispatch } from 'react-redux';
-import { createProduct } from '../../../middlewares/redux/actions/admin';
+import { createGallery } from '../../../middlewares/redux/actions/admin';
 
 export const GallerySetCreate = () => {
   const dispatch = useDispatch();
@@ -20,19 +20,19 @@ export const GallerySetCreate = () => {
   function handleSubmit(e) {
     e.preventDefault();
     const formData = {
-      image: featuredImage,
+      file: featuredImage,
       title,
       description,
     }
 
-    dispatch(createProduct(formData, navigate));
+    dispatch(createGallery(formData, navigate));
     return;
   }
 
   return (
     <div className={s.container}>
       <div className={s.optionsContainer}>
-        <Link to="/admin/products/management"><button className="button-user-options">Volver</button></Link>
+        <Link to="/admin/gallery/management"><button className="button-user-options">Volver</button></Link>
         <Link to="/admin/dashboard"><button className="button-user-options">Dashboard</button></Link>
       </div>
       <form className="auth-form">

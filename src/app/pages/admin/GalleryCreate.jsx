@@ -3,7 +3,7 @@ import { GallerySetCreate } from "../../components/GallerySetCreate/GallerySetCr
 const GalleryCreate = () => {
   return (
     <div className="page-container">
-      <h2 className="page-title">Creación de galeía</h2>
+      <h2 className="page-title">Creación de galería</h2>
       <GallerySetCreate />
     </div>
   )

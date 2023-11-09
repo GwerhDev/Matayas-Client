@@ -5,19 +5,19 @@ import { getProducts, resetProductDetails } from "../../middlewares/redux/action
 import { Slider } from "../components/Slider/Slider";
 import { Preloader } from "../components/Preloader/Preloader";
 import { ContactMethods } from "../components/ContactMethods/ContactMethods";
-import { getGallery, resetGalleryDetails } from "../../middlewares/redux/actions/gallery";
+import { getLastGallery, resetGalleryDetails } from "../../middlewares/redux/actions/gallery";
 import { HomeGallery } from "../components/HomeGallery/HomeGallery";
 import { scrollToTop } from "../../functions";
 
 const Home = () => {
   const dispatch = useDispatch();
   const products = useSelector(state => state.products);
-  const gallery = useSelector(state => state.gallery);
+  const lastGallery = useSelector(state => state.lastGallery);
 
   useEffect(() => {
     dispatch(resetGalleryDetails());
     dispatch(resetProductDetails());
-    dispatch(getGallery());
+    dispatch(getLastGallery());
     dispatch(getProducts());
     scrollToTop();
   }, [dispatch]);
@@ -25,12 +25,12 @@ const Home = () => {
   return (
     <div className="home-container">
       {
-        products || gallery
+        products || lastGallery
           ?
           <>
             <Slider />
             <div className="page-container">
-              <HomeGallery gallery={gallery} />
+              <HomeGallery gallery={lastGallery} />
               <Products products={products} />
             </div>
           </>

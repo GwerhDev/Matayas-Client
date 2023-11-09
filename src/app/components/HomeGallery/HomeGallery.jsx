@@ -12,7 +12,7 @@ export const HomeGallery = (props) => {
         {
           gallery?.map(e => (
             <li key={e._id}>
-              <img src={e.file} alt="gallery" width={"100%"} />
+              <Link to="/gallery"><img src={e.file} alt="gallery" width={"100%"} /></Link>
             </li>
           ))
         }

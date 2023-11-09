@@ -1,6 +1,6 @@
 import axios from "axios";
 import { URL_API } from "../../config";
-import { GET_GALLERY, GET_GALLERY_DETAILS } from "../../misc/consts";
+import { GET_GALLERY, GET_GALLERY_DETAILS, GET_LAST_GALLERY } from "../../misc/consts";
 
 export function getGallery() {
   return async function (dispatch) {
@@ -8,6 +8,22 @@ export function getGallery() {
       .then((res) => {
         dispatch({
           type: GET_GALLERY,
+          payload: res.data
+        });
+      })
+      .catch((e) => {
+        console.error(e);
+        return;
+      });
+  };
+}
+
+export function getLastGallery() {
+  return async function (dispatch) {
+    await axios.get(`${URL_API}/gallery/lasts`)
+      .then((res) => {
+        dispatch({
+          type: GET_LAST_GALLERY,
           payload: res.data
         });
       })

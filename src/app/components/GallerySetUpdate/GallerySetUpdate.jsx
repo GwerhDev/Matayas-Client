@@ -17,11 +17,6 @@ export const GallerySetUpdate = () => {
   const [featuredFile, setFeaturedFile] = useState(null);
   const galleryDetails = useSelector(state => state.galleryDetails);
 
-  function handleGallery(e) {
-    e.preventDefault();
-    return;
-  }
-
   function handleSubmit(e) {
     e.preventDefault();
     const formData = {
@@ -78,14 +73,6 @@ export const GallerySetUpdate = () => {
             <span className={s.formTextarea}>
               <label htmlFor="Description">Descripción</label>
               <textarea className='resize-vertical' defaultValue={description} onInput={(e) => setDescription(e.target.value)} placeholder='Ej: En estricto rigor...' />
-            </span>
-            <span className={s.formGallery}>
-              <label htmlFor="Gallery">Galería</label>
-              <div>
-                <button type='default' onClick={handleGallery} className={s.addGallery}>
-                  +
-                </button>
-              </div>
             </span>
             <div className='divider' />
             <button onClick={handleSubmit}>Actualizar</button>

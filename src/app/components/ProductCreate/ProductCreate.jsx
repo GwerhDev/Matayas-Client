@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import defaultImage from '../../../assets/png/default-image.png';
 import { useDispatch } from 'react-redux';
-import { createProduct } from '../../../middlewares/redux/actions/admin';
+import { createProduct, postInstagram } from '../../../middlewares/redux/actions/admin';
 
 export const ProductCreate = () => {
   const dispatch = useDispatch();
@@ -12,6 +12,7 @@ export const ProductCreate = () => {
   const [price, setPrice] = useState('');
   const [description, setDescription] = useState('');
   const [featuredImage, setFeaturedImage] = useState(null);
+  const productGallery = [];
 
   function handleGallery(e) {
     e.preventDefault();
@@ -25,6 +26,7 @@ export const ProductCreate = () => {
       title,
       price,
       description,
+      productGallery
     }
 
     dispatch(createProduct(formData, navigate));
@@ -77,7 +79,10 @@ export const ProductCreate = () => {
           </div>
         </span>
         <div className='divider' />
-        <button onClick={handleSubmit}>Publicar</button>
+        <div className={s.buttonsContainer}>
+          <button onClick={handleSubmit}>Publicar</button>
+          <a className={s.instagramButton} href={postInstagram()}>Publicar en Instagram</a>
+        </div>
       </form>
     </div>
   )

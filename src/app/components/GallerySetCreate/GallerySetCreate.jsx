@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import defaultImage from '../../../assets/png/default-image.png';
 import { useDispatch } from 'react-redux';
-import { createGallery } from '../../../middlewares/redux/actions/admin';
+import { createGallery, postInstagram } from '../../../middlewares/redux/actions/admin';
 
 export const GallerySetCreate = () => {
   const dispatch = useDispatch();
@@ -11,11 +11,6 @@ export const GallerySetCreate = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [featuredImage, setFeaturedImage] = useState(null);
-
-  function handleGallery(e) {
-    e.preventDefault();
-    return;
-  }
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -62,16 +57,11 @@ export const GallerySetCreate = () => {
           <label htmlFor="Description">Descripción</label>
           <textarea className='resize-vertical' onInput={(e) => setDescription(e.target.value)} placeholder='Ej: En estricto rigor...' />
         </span>
-        <span className={s.formGallery}>
-          <label htmlFor="Gallery">Galería</label>
-          <div>
-            <button type='default' onClick={handleGallery} className={s.addGallery}>
-              +
-            </button>
-          </div>
-        </span>
         <div className='divider' />
-        <button onClick={handleSubmit}>Publicar</button>
+        <div className={s.buttonsContainer}>
+          <button onClick={handleSubmit}>Publicar</button>
+          <a className={s.instagramButton} href={postInstagram()}>Publicar en Instagram</a>
+        </div>
       </form>
     </div>
   )

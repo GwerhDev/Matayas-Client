@@ -40,3 +40,4 @@ export function resetGalleryDetails() {
     payload: null
   });
 }
+

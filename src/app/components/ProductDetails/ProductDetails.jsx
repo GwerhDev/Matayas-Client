@@ -17,7 +17,8 @@ export const ProductDetails = () => {
 
   useEffect(() => {
     dispatch(getProductDetails(id));
-    setVisorImage(productDetails?.image);
+    setVisorImage({file: productDetails?.image});
+
   }, [dispatch, id, productDetails?.image])
 
   return (
@@ -27,14 +28,14 @@ export const ProductDetails = () => {
           <div className={s.container}>
             <section className={s.gallerySection}>
               <ul className={s.galleryUl}>
-                <li style={{ border: productDetails?.image === visorImage ? "white solid 1px" : "transparent" }} onClick={() => setVisorImage(productDetails?.image)}>
+                <li style={{ border: productDetails?.image === visorImage.file ? "white solid 1px" : "transparent" }} onClick={() => setVisorImage({ file: productDetails?.image })}>
                   <img src={productDetails?.image || defaultImage} alt="1" width="100%" />
                 </li>
                 {
-                  productDetails?.gallery?.map((e, index) => {
+                  productDetails?.productGallery?.map((e, index) => {
                     return (
-                      <li style={{ border: productDetails?.image === e ? "white solid 1px" : "transparent" }} key={e} onClick={() => setVisorImage(e)}>
-                        <img src={e} alt={index + 2} width="100%" />
+                      <li style={{ border: visorImage.file === e.file ? "white solid 1px" : "transparent" }} key={e._id} onClick={() => setVisorImage(e)}>
+                        <img src={e.file} alt={index + 2} width="100%" />
                       </li>
                     )
                   })
@@ -43,7 +44,7 @@ export const ProductDetails = () => {
             </section>
             <section className={s.detailsSection}>
               <div className={s.mainImageContainer}>
-                <img src={visorImage || defaultImage} width="100%" alt="" />
+                <img src={visorImage.file || defaultImage} width="100%" alt="" />
               </div>
 
               <div className='divider' />

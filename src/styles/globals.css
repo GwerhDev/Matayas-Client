@@ -270,6 +270,10 @@ select:hover {
   display: flex;
 }
 
+.d-none {
+  display: none;
+}
+
 .row {
   flex-direction: row;
 }
@@ -287,4 +291,12 @@ select:hover {
   bottom: 10px;
   z-index: 999;
   right: 3rem;
+}
+
+.g-1 {
+  gap: 1rem;
+}
+
+.g-2 {
+  gap: 2rem;
 }

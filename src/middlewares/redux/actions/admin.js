@@ -136,7 +136,3 @@ export function deleteGallery(id) {
     }
   }
 }
-
-export function postInstagram() {
-  return `${URL_API}/admin/post-instagram/`
-}

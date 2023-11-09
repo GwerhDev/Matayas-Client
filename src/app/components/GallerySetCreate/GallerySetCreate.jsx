@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import defaultImage from '../../../assets/png/default-image.png';
 import { useDispatch } from 'react-redux';
-import { createGallery, postInstagram } from '../../../middlewares/redux/actions/admin';
+import { createGallery } from '../../../middlewares/redux/actions/admin';
 
 export const GallerySetCreate = () => {
   const dispatch = useDispatch();
@@ -60,7 +60,6 @@ export const GallerySetCreate = () => {
         <div className='divider' />
         <div className={s.buttonsContainer}>
           <button onClick={handleSubmit}>Publicar</button>
-          <a className={s.instagramButton} href={postInstagram()}>Publicar en Instagram</a>
         </div>
       </form>
     </div>

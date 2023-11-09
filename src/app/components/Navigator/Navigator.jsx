@@ -7,8 +7,7 @@ import { useEffect, useState } from 'react';
 import { getUserData } from '../../../middlewares/redux/actions/account';
 import { UserButton } from '../UserButton/UserButton';
 import { UserMenu } from '../UserMenu/UserMenu';
-import { SearchBar } from '../SearchBar/SearchBar';
-
+/* import { SearchBar } from '../SearchBar/SearchBar';*/
 export const Navigator = () => {
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.currentUser);
@@ -28,7 +27,7 @@ export const Navigator = () => {
 
   return (
     <div className={s.navContainerExt}>
-      <div className={s.navigatorContainer}>
+{/*       <div className={s.navigatorContainer}>
         <nav>
           <section className={s.logoSection}>
             <Link to="/">
@@ -43,9 +42,13 @@ export const Navigator = () => {
 
           </section>
         </nav>
-      </div>
+      </div> */}
       <div className={s.menuContainer}>
         <nav>
+          <Link to="/">
+            <div className={s.logo} style={{ backgroundImage: `url(${logoImg})` }}
+              onMouseEnter={handleLogoHover} onMouseLeave={handleLogoLeave} alt="" height="40px" />
+          </Link>
           <section className={s.underLogo}>
           </section>
           <section className={s.menuSection}>
@@ -67,9 +70,9 @@ export const Navigator = () => {
                 currentUser
                   ? <UserButton />
                   : <div className={s.authButtons}>
-                      <Link to="/register" className={s.registerLink}>Registrarse</Link>
-                      <Link to="/login"><button className={s.enterButton}>Ingresar</button></Link>
-                    </div>
+                    <Link to="/register" className={s.registerLink}>Registrarse</Link>
+                    <Link to="/login"><button className={s.enterButton}>Ingresar</button></Link>
+                  </div>
               }
               <UserMenu />
             </div>

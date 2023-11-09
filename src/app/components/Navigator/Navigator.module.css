@@ -43,7 +43,7 @@
   justify-content: center;
   background: linear-gradient(to bottom, var(--color-secundary) 100% , var(--color-background) 100%);
   border-bottom: solid thin rgb(83, 83, 83);
-  height: 30px;
+  height: 50px;
 }
 
 .menuContainer nav {

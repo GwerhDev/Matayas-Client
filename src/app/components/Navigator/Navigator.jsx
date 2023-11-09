@@ -7,7 +7,10 @@ import { useEffect, useState } from 'react';
 import { getUserData } from '../../../middlewares/redux/actions/account';
 import { UserButton } from '../UserButton/UserButton';
 import { UserMenu } from '../UserMenu/UserMenu';
+import { Menu } from '../Menu/Menu';
 /* import { SearchBar } from '../SearchBar/SearchBar';*/
+import burgerIcon from '../../../assets/svg/burger-icon.svg';
+
 export const Navigator = () => {
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.currentUser);
@@ -45,24 +48,17 @@ export const Navigator = () => {
       </div> */}
       <div className={s.menuContainer}>
         <nav>
-          <Link to="/">
-            <div className={s.logo} style={{ backgroundImage: `url(${logoImg})` }}
-              onMouseEnter={handleLogoHover} onMouseLeave={handleLogoLeave} alt="" height="40px" />
-          </Link>
           <section className={s.underLogo}>
+            <Link to="/">
+              <div className={s.logo} style={{ backgroundImage: `url(${logoImg})` }}
+                onMouseEnter={handleLogoHover} onMouseLeave={handleLogoLeave} alt="" height="40px" />
+            </Link>
           </section>
           <section className={s.menuSection}>
-            <ul>
-              <Link to="/"><li>Inicio</li></Link>
-              <Link to="/gallery"><li>Galería</li></Link>
-              <Link to="/shop"><li>Venta</li></Link>
-              {/* <select name="category" className="select-group nav-select" >
-                <option defaultValue>Categorías</option>
-                <option value={"1"}>Amplificadores</option>
-              </select> */}
-              {/* <Link to="/store"><li>Inventario</li></Link> */}
-              <Link to="/contact"><li>Contacto</li></Link>
-            </ul>
+          <Menu />
+          </section>
+          <section className={s.menuSectionMobile}>
+            <button className={s.menuIcon}><img src={burgerIcon} alt="" width={"20px"}/></button>
           </section>
           <section className={s.userSection}>
             <div className={s.authContainer}>

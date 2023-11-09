@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { getGallery, resetGalleryDetails } from "../../middlewares/redux/actions/gallery";
 import { Preloader } from "../components/Preloader/Preloader";
 import { GallerySets } from "../components/GallerySets/GallerySets";
+import { ContactMethods } from "../components/ContactMethods/ContactMethods";
 
 const Gallery = () => {
   const dispatch = useDispatch();
@@ -17,11 +18,14 @@ const Gallery = () => {
     <div className="page-container">
       {
         gallery
-        ?
-        <GallerySets gallery={gallery} />
-        :
-        <Preloader/>
+          ?
+          <GallerySets gallery={gallery} />
+          :
+          <Preloader />
       }
+      <div className="contact-methods">
+        <ContactMethods />
+      </div>
     </div>
   )
 }

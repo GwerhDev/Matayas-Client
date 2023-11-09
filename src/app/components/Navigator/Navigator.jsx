@@ -27,7 +27,7 @@ export const Navigator = () => {
 
   return (
     <div className={s.navContainerExt}>
-{/*       <div className={s.navigatorContainer}>
+      {/*       <div className={s.navigatorContainer}>
         <nav>
           <section className={s.logoSection}>
             <Link to="/">
@@ -56,11 +56,11 @@ export const Navigator = () => {
               <Link to="/"><li>Inicio</li></Link>
               <Link to="/gallery"><li>Galería</li></Link>
               <Link to="/shop"><li>Venta</li></Link>
-              <select name="category" className="select-group nav-select" >
+              {/* <select name="category" className="select-group nav-select" >
                 <option defaultValue>Categorías</option>
                 <option value={"1"}>Amplificadores</option>
-              </select>
-              <Link to="/store"><li>Inventario</li></Link>
+              </select> */}
+              {/* <Link to="/store"><li>Inventario</li></Link> */}
               <Link to="/contact"><li>Contacto</li></Link>
             </ul>
           </section>

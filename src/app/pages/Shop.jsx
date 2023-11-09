@@ -3,6 +3,7 @@ import { getProducts, resetProductDetails } from "../../middlewares/redux/action
 import { Products } from "../components/Products/Products";
 import { useEffect } from "react";
 import { Preloader } from "../components/Preloader/Preloader";
+import { ContactMethods } from "../components/ContactMethods/ContactMethods";
 
 const Shop = () => {
   const dispatch = useDispatch();
@@ -17,11 +18,14 @@ const Shop = () => {
     <div className="page-container">
       {
         products
-        ?
-        <Products products={products} />
-        :
-        <Preloader/>
+          ?
+          <Products products={products} />
+          :
+          <Preloader />
       }
+      <div className="contact-methods">
+        <ContactMethods />
+      </div>
     </div>
   )
 }

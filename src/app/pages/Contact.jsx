@@ -6,14 +6,21 @@ import instagramIcon from '../../assets/svg/instagram-icon.svg';
 import messengerIcon from '../../assets/svg/messenger-icon.svg';
 import mailIcon from '../../assets/svg/mail-icon.svg';
 import telegramIcon from '../../assets/svg/telegram-icon.svg';
+import { useEffect } from 'react';
+import { scrollToTop } from '../../functions';
 
 const Contact = () => {
+  useEffect(() => {
+    scrollToTop();
+    }
+  )
+
   return (
     <div className="page-container">
       <div className="page-container d-flex row">
         <section className="w-50 d-flex column">
           Ventura Lavalle 608, Santiago Centro
-          <span className="contactMethod d-flex g-1">
+          <span className="contactMethod d-flex g-1 pad-top-1">
             <div className={s.imgContainer}>
               <a href={phoneLink}><img src={phoneIcon} alt="" width="38px" height="38px" /></a>
             </div>

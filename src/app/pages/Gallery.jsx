@@ -4,6 +4,7 @@ import { getGallery, resetGalleryDetails } from "../../middlewares/redux/actions
 import { Preloader } from "../components/Preloader/Preloader";
 import { GallerySets } from "../components/GallerySets/GallerySets";
 import { ContactMethods } from "../components/ContactMethods/ContactMethods";
+import { scrollToTop } from "../../functions";
 
 const Gallery = () => {
   const dispatch = useDispatch();
@@ -12,6 +13,7 @@ const Gallery = () => {
   useEffect(() => {
     dispatch(resetGalleryDetails());
     dispatch(getGallery());
+    scrollToTop();
   }, [dispatch]);
 
   return (

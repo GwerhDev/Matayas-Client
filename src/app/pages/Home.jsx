@@ -7,6 +7,7 @@ import { Preloader } from "../components/Preloader/Preloader";
 import { ContactMethods } from "../components/ContactMethods/ContactMethods";
 import { getGallery, resetGalleryDetails } from "../../middlewares/redux/actions/gallery";
 import { HomeGallery } from "../components/HomeGallery/HomeGallery";
+import { scrollToTop } from "../../functions";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -18,6 +19,7 @@ const Home = () => {
     dispatch(resetProductDetails());
     dispatch(getGallery());
     dispatch(getProducts());
+    scrollToTop();
   }, [dispatch]);
 
   return (

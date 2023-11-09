@@ -7,6 +7,7 @@ import defaultImage from '../../../assets/png/default-image.png';
 import { ProductComments } from '../ProductComments/ProductComments';
 import { Preloader } from '../Preloader/Preloader';
 import { ContactMethods } from '../ContactMethods/ContactMethods';
+import { scrollToTop } from '../../../functions';
 
 export const ProductDetails = () => {
   const dispatch = useDispatch();
@@ -18,7 +19,7 @@ export const ProductDetails = () => {
   useEffect(() => {
     dispatch(getProductDetails(id));
     setVisorImage({file: productDetails?.image});
-
+    scrollToTop();
   }, [dispatch, id, productDetails?.image])
 
   return (

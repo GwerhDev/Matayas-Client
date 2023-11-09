@@ -40,3 +40,7 @@ export const $display = (e) => {
   if (element.style.display === "flex") return element.style.display = "none";
   return element.style.display = "flex";
 };
+
+export const scrollToTop = () => {
+  window.scrollTo(0, 0);
+}

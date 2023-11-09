@@ -4,6 +4,7 @@ import { Products } from "../components/Products/Products";
 import { useEffect } from "react";
 import { Preloader } from "../components/Preloader/Preloader";
 import { ContactMethods } from "../components/ContactMethods/ContactMethods";
+import { scrollToTop } from "../../functions";
 
 const Shop = () => {
   const dispatch = useDispatch();
@@ -12,6 +13,7 @@ const Shop = () => {
   useEffect(() => {
     dispatch(resetProductDetails());
     dispatch(getProducts());
+    scrollToTop();
   }, [dispatch]);
 
   return (

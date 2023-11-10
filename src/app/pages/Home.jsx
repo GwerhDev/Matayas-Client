@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { Products } from "../components/Products/Products";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts, resetProductDetails } from "../../middlewares/redux/actions/products";
 import { Slider } from "../components/Slider/Slider";
@@ -8,6 +7,7 @@ import { ContactMethods } from "../components/ContactMethods/ContactMethods";
 import { getLastGallery, resetGalleryDetails } from "../../middlewares/redux/actions/gallery";
 import { HomeGallery } from "../components/HomeGallery/HomeGallery";
 import { scrollToTop } from "../../functions";
+import { HomeProducts } from "../components/HomeProducts/HomeProducts";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -31,7 +31,7 @@ const Home = () => {
             <Slider />
             <div className="page-container">
               <HomeGallery gallery={lastGallery} />
-              <Products products={products} />
+              <HomeProducts products={products} />
             </div>
           </>
           :

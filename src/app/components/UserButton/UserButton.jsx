@@ -11,7 +11,7 @@ export const UserButton = () => {
 
   return (
     <div className={s.container} onClick={handleClick}>
-      { username }
+      <p className={s.username}>{ username }</p>
       <div className={s.profilePicContainer}>
         <img src={profilePic} alt="" width="100%" />
       </div>

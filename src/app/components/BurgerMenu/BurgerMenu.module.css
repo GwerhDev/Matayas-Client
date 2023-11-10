@@ -1,0 +1,6 @@
+.container {
+  background-color: var(--color-background-dark);
+  width: 100%;
+  display: none;
+  justify-content: center;
+}

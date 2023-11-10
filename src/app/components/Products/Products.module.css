@@ -5,3 +5,10 @@
   justify-content: left;
   grid-gap: 20px;
 }
+
+@media only screen and (max-width: calc(1200px + 6rem)) {
+  .container {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}

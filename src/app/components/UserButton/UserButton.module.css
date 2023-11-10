@@ -21,3 +21,14 @@
   border: var(--color-primary-hover) solid ;
   cursor: pointer;
 }
+
+@media only screen and (max-width: calc(1200px + 6rem)) {
+  .username {
+    display: none;
+  }
+
+  .profilePicContainer {
+    width: 35px;
+    height: 35px;
+  }
+}

@@ -135,12 +135,25 @@
   align-items: center;
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: calc(1200px + 6rem)) {
+  .logo {
+    width: 100px;
+    height: 35px;
+  }
+
   .menuSection {
     display: none;
   }
 
   .menuSectionMobile {
     display: flex;
+  }
+
+  .underLogo {
+    padding-left: 3rem;
+  }
+
+  .userSection {
+    padding-right: 3rem;
   }
 }

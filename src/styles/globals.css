@@ -302,7 +302,7 @@ select:hover {
 }
 
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: calc(1200px + 6rem)) {
   .contact-methods {
     bottom: 0;
     right: 0;
@@ -315,6 +315,21 @@ select:hover {
     justify-content: center;
     background-color: var(--color-background-dark);
   }
+
+  .contact-page {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+
+  .map-contact {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
 }
 
 .g-1 {
@@ -324,3 +339,4 @@ select:hover {
 .g-2 {
   gap: 2rem;
 }
+

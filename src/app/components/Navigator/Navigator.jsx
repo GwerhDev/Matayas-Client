@@ -10,11 +10,17 @@ import { UserMenu } from '../UserMenu/UserMenu';
 import { Menu } from '../Menu/Menu';
 /* import { SearchBar } from '../SearchBar/SearchBar';*/
 import burgerIcon from '../../../assets/svg/burger-icon.svg';
+import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
+import { $display } from '../../../functions';
 
 export const Navigator = () => {
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.currentUser);
   const [logoImg, setLogoImg] = useState(logo);
+
+  function handleClick() {
+    $display('#burger-menu-container')
+  }
 
   function handleLogoHover() {
     setLogoImg(logotypo);
@@ -58,7 +64,7 @@ export const Navigator = () => {
           <Menu />
           </section>
           <section className={s.menuSectionMobile}>
-            <button className={s.menuIcon}><img src={burgerIcon} alt="" width={"20px"}/></button>
+            <button className={s.menuIcon} onClick={handleClick}><img src={burgerIcon} alt="" width={"20px"}/></button>
           </section>
           <section className={s.userSection}>
             <div className={s.authContainer}>
@@ -75,6 +81,7 @@ export const Navigator = () => {
           </section>
         </nav>
       </div>
+      <BurgerMenu/>
     </div>
   )
 }

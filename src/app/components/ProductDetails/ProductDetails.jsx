@@ -50,6 +50,16 @@ export const ProductDetails = () => {
 
               <div className='divider' />
 
+            <section className={s.contactSection}>
+              <h2><b>{productDetails?.title}</b></h2>
+              <p>{"⭐".repeat(productDetails?.rate)}<span style={{ filter: 'grayscale(1)' }}>{"⭐".repeat(5 - productDetails?.rate)}</span></p>
+              <h1>${productDetails?.price}</h1>
+
+              <div className='divider' />
+              <h2>Comprar</h2>
+              <p>Método de contacto:</p>
+              <ContactMethods/>
+            </section>
               <h2>Descripción</h2>
               <p>{productDetails?.description}</p>
 
@@ -67,16 +77,6 @@ export const ProductDetails = () => {
 
               <ProductComments />
 
-            </section>
-            <section className={s.contactSection}>
-              <h2><b>{productDetails?.title}</b></h2>
-              <p>{"⭐".repeat(productDetails?.rate)}<span style={{ filter: 'grayscale(1)' }}>{"⭐".repeat(5 - productDetails?.rate)}</span></p>
-              <h1>${productDetails?.price}</h1>
-
-              <div className='divider' />
-              <h2>Comprar</h2>
-              <p>Método de contacto:</p>
-              <ContactMethods/>
             </section>
           </div>
           : <Preloader/>

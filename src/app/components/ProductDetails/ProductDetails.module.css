@@ -33,7 +33,6 @@
 .contactSection {
   border: var(--color-background) solid 1px;
   border-radius: 5px;
-  width: 50%;
   padding: 1rem;
 }
 
@@ -60,4 +59,20 @@
   filter: grayscale(0);
   cursor: pointer;
   border: solid 1px var(--color-background-light);
+}
+
+@media only screen and (max-width: calc(1200px + 6rem)) {
+  .container {
+    flex-direction: column;
+  }
+  
+  .gallerySection {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .galleryUl {
+    flex-direction: row;
+  }
+
 }

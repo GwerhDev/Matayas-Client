@@ -1,8 +1,9 @@
 .contactMethod {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: left;
   flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .contactMethod img {
@@ -26,7 +27,5 @@
     align-items: center;
     justify-content: space-evenly;
     gap: 1rem;
-    padding-left: 3rem;
-    padding-right: 3rem;
   }
 }

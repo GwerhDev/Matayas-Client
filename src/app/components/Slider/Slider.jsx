@@ -5,7 +5,7 @@ export const Slider = () => {
   return (
     <div className={s.container}>
       <div className={s.logoContainer}>
-        <img className={s.logo} src={matayasLogo} alt=""/>
+        <img className={s.logo} src={matayasLogo} alt="logo matayas"/>
         <p className={s.text}>Fabricación, modificación y reparación de amplificadores a tubos</p>
       </div>
     </div>

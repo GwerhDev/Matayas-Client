@@ -1,6 +1,6 @@
 .container {
   min-height: 150px;
-  margin-top: 3rem;
+  margin-top: 6rem;
   max-height: 50vh;
   width: 100%;
   display: flex;
@@ -17,7 +17,7 @@
 }
 
 .logo {
-  max-width: 500px;
+  max-width: 800px;
 }
 
 .text {
@@ -34,5 +34,8 @@
 @media only screen and (max-width: 700px) {
   .text {
     font-size: 12px;
+  }
+  .logo {
+    max-width: 500px;
   }
 }

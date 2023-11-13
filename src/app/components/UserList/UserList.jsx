@@ -34,7 +34,7 @@ export const UserList = () => {
           users?.map(user => (
             <ul key={user._id} className={s.usersUlLi}>
               <li>{user.username}</li> -
-              <li>{user.email}</li> -
+              <li className={s.email}>{user.email}</li> -
               <li><img className={s.profilePic} src={user.profilePic || user.googlePic} alt="" height="40px" /></li> -
               <li>{user.role}</li> -
               <li><button className='button-nostyle'><img src={editIcon} alt="" height="20px" /></button></li> -

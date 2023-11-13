@@ -9,6 +9,9 @@
 .fieldsUl li {
   width: 300px;
   text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .productsUl {
@@ -37,6 +40,9 @@
   width: 300px;
   display: flex;
   justify-content: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .optionsContainer {

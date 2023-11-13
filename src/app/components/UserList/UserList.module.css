@@ -14,6 +14,9 @@
 .fieldsUl li {
   width: 300px;
   text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .usersUl {
@@ -41,6 +44,9 @@
   width: 300px;
   display: flex;
   justify-content: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .profilePic {
@@ -52,4 +58,8 @@
   justify-content: space-between;
   margin-bottom: 1rem;
   margin-top: 1rem;
+}
+
+.email {
+  justify-content: flex-start;
 }

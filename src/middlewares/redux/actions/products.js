@@ -1,6 +1,6 @@
 import axios from "axios";
 import { URL_API } from "../../config";
-import { GET_PRODUCTS, GET_PRODUCTS_DETAILS } from "../../misc/consts";
+import { GET_LAST_PRODUCTS, GET_PRODUCTS, GET_PRODUCTS_DETAILS } from "../../misc/consts";
 
 export function getProducts() {
   return async function (dispatch) {
@@ -8,6 +8,22 @@ export function getProducts() {
       .then((res) => {
         dispatch({
           type: GET_PRODUCTS,
+          payload: res.data
+        });
+      })
+      .catch((e) => {
+        console.error(e);
+        return;
+      });
+  };
+}
+
+export function getLastProducts() {
+  return async function (dispatch) {
+    await axios.get(`${URL_API}/products/lasts`)
+      .then((res) => {
+        dispatch({
+          type: GET_LAST_PRODUCTS,
           payload: res.data
         });
       })

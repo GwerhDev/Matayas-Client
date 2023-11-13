@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getProducts, resetProductDetails } from "../../middlewares/redux/actions/products";
+import { getLastProducts, resetProductDetails } from "../../middlewares/redux/actions/products";
 import { Slider } from "../components/Slider/Slider";
 import { Preloader } from "../components/Preloader/Preloader";
 import { ContactMethods } from "../components/ContactMethods/ContactMethods";
@@ -11,27 +11,27 @@ import { HomeProducts } from "../components/HomeProducts/HomeProducts";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const products = useSelector(state => state.products);
+  const lastProducts = useSelector(state => state.lastProducts);
   const lastGallery = useSelector(state => state.lastGallery);
 
   useEffect(() => {
     dispatch(resetGalleryDetails());
     dispatch(resetProductDetails());
+    dispatch(getLastProducts());
     dispatch(getLastGallery());
-    dispatch(getProducts());
     scrollToTop();
   }, [dispatch]);
 
   return (
     <div className="home-container">
       {
-        products || lastGallery
+        lastProducts || lastGallery
           ?
           <>
             <Slider />
             <div className="page-container">
               <HomeGallery gallery={lastGallery} />
-              <HomeProducts products={products} />
+              <HomeProducts products={lastProducts} />
             </div>
           </>
           :

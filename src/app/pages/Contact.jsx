@@ -19,7 +19,10 @@ const Contact = () => {
     <div className="page-container">
       <div className="d-flex row contact-page">
         <section className="w-50 d-flex column">
-          Ventura Lavalle 608, Santiago Centro
+          <h1>Contacto</h1>
+          <p>Teléfono: <a href={phoneLink}>+56 9 3345 1508</a></p>
+          <p>Email: <a href={mailLink}> info@amplificadoresmatayas.com</a></p>
+          <p>Dirección: Ventura Lavalle 608, Santiago Centro</p>
           <span className="contactMethod d-flex g-1 pad-top-1">
             <div className={s.imgContainer}>
               <a href={phoneLink}><img src={phoneIcon} alt="" width="38px" height="38px" /></a>

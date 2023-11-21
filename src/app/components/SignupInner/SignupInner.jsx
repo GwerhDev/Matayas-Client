@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import s from './SignupInner.module.css';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -6,6 +7,7 @@ import { resetError } from '../../../middlewares/redux/actions';
 
 export const SignupInner = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -14,7 +16,7 @@ export const SignupInner = () => {
   function handleSignup(e) {
     e.preventDefault();
     const formData = { email, username, password };
-    dispatch(signupInner(formData));
+    dispatch(signupInner(formData, navigate));
   }
 
   useEffect(() => {

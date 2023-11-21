@@ -51,7 +51,7 @@ export function signupInner(formData, navigate) {
   return async function (dispatch) {
     await axios.post(`${URL_API}/signup-inner`, formData)
       .then((res) => {
-        return res.data.logged && navigate(`/mail-verification/pending`);
+        return res.data.signed && navigate(`/mail-verification/pending`);
       })
       .catch((e) => {
         console.error(e);

@@ -21,6 +21,8 @@ import GalleryManagement from '../pages/admin/GalleryManagement';
 import GalleryCreate from '../pages/admin/GalleryCreate';
 import GalleryUpdate from '../pages/admin/GalleryUpdate';
 import Shop from '../pages/Shop';
+import MailVerification from '../pages/MailVerification';
+import PendingMailVerification from '../pages/PendingMailVerification';
 
 function RouterApp() {
   return (
@@ -36,6 +38,8 @@ function RouterApp() {
           <Route path='/product/:id' element={<Product />} />
           <Route path='/my-favorites' element={<Favorites />} />
           <Route path='/admin/dashboard' element={<Dashboard />} />
+          <Route path='/mail-verification/auth' element={<MailVerification />} />
+          <Route path='/mail-verification/pending' element={<PendingMailVerification />} />
           <Route path='/admin/users/management' element={<UsersManagement />} />
           <Route path='/admin/gallery/management' element={<GalleryManagement />} />
           <Route path='/admin/gallery/management/create' element={<GalleryCreate />} />

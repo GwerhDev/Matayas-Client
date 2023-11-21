@@ -47,11 +47,11 @@ export function loginGoogle() {
   };
 }
 
-export function signupInner(formData) {
+export function signupInner(formData, navigate) {
   return async function (dispatch) {
     await axios.post(`${URL_API}/signup-inner`, formData)
       .then((res) => {
-        return res.data.logged;
+        return res.data.logged && navigate(`/mail-verification/pending`);
       })
       .catch((e) => {
         console.error(e);
@@ -86,4 +86,22 @@ export function logout() {
   },
     window.location.reload()
   );
+}
+
+export function emailVerification(token, navigate) {
+  return async function (dispatch) {
+    await axios.post(`${URL_API}/email-verification`, { token })
+      .then((res) => {
+        return res.data.verified && navigate(`/login`);
+      })
+      .catch((e) => {
+        console.error(e);
+        return (
+          dispatch({
+            type: ERROR,
+            payload: e.response.data.error
+          })
+        );
+      });
+  };
 }

@@ -1,0 +1,14 @@
+.inputContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.inputContainer label {
+  width: 80px;
+}
+
+.inputContainer input{
+  width: 100%;
+}

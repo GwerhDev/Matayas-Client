@@ -8,6 +8,7 @@ import mailIcon from '../../assets/svg/mail-icon.svg';
 import telegramIcon from '../../assets/svg/telegram-icon.svg';
 import { useEffect } from 'react';
 import { scrollToTop } from '../../functions';
+import { Link } from 'react-router-dom';
 
 const Contact = () => {
   useEffect(() => {
@@ -40,7 +41,7 @@ const Contact = () => {
               <a target='_blank' rel='noreferrer' href={telegramLink}><img src={telegramIcon} alt="" width="38px" height="38px" /></a>
             </div>
             <div className={s.imgContainer}>
-              <a href={mailLink}><img src={mailIcon} alt="" width="38px" height="38px" /></a>
+              <Link to="/contact/message"><img src={mailIcon} alt="" width="38px" height="38px" /></Link>
             </div>
           </span>
         </section>

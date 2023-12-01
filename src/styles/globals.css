@@ -345,3 +345,6 @@ select:hover {
   gap: 2rem;
 }
 
+#gallery-viewer {
+  display: none;
+}

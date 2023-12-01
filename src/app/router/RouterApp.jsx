@@ -38,9 +38,11 @@ function RouterApp() {
           <Route path='/profile/:id' element={<Profile />} />
           <Route path='/product/:id' element={<Product />} />
           <Route path='/my-favorites' element={<Favorites />} />
-          <Route path='/admin/dashboard' element={<Dashboard />} />
+
           <Route path='/mail-verification/auth' element={<MailVerification />} />
           <Route path='/mail-verification/pending' element={<PendingMailVerification />} />
+
+          <Route path='/admin/dashboard' element={<Dashboard />} />
           <Route path='/admin/users/management' element={<UsersManagement />} />
           <Route path='/admin/gallery/management' element={<GalleryManagement />} />
           <Route path='/admin/gallery/management/create' element={<GalleryCreate />} />
@@ -48,6 +50,7 @@ function RouterApp() {
           <Route path='/admin/products/management' element={<ProductsManagement />} />
           <Route path='/admin/products/management/create' element={<ProductsCreate />} />
           <Route path='/admin/products/management/update/:id' element={<ProductsUpdate />} />
+          
           <Route path='/shop' element={<Shop />} />
           <Route path='/store' element={<Store />} />
           <Route path='/login' element={<Login />} />

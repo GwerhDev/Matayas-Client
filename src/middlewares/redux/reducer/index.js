@@ -1,4 +1,4 @@
-import { CURRENT_USER, ERROR, GET_GALLERY, GET_GALLERY_DETAILS, GET_LAST_GALLERY, GET_LAST_PRODUCTS, GET_PRODUCTS, GET_PRODUCTS_DETAILS, GET_SEARCH_BY_QUERY, GET_USERS, GET_USER_DATA } from "../../misc/consts";
+import { CURRENT_USER, ERROR, GET_GALLERY, GET_GALLERY_DETAILS, GET_LAST_GALLERY, GET_LAST_PRODUCTS, GET_PRODUCTS, GET_PRODUCTS_DETAILS, GET_SEARCH_BY_QUERY, GET_USERS, GET_USER_DATA, SET_GALLERY_VIEWER } from "../../misc/consts";
 
 const initialState = {
   error: null,
@@ -9,6 +9,7 @@ const initialState = {
   lastProducts: null,
   lastGallery: null,
   galleryDetails: null,
+  galleryViewer: null,
   productDetails: null,
   search: null
 };
@@ -44,6 +45,11 @@ export default function rootReducer(state = initialState, action) {
       return {
         ...state,
         galleryDetails: action.payload
+      };
+    case SET_GALLERY_VIEWER:
+      return {
+        ...state,
+        galleryViewer: action.payload,
       };
     case GET_PRODUCTS:
       return {

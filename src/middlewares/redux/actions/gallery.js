@@ -1,6 +1,6 @@
 import axios from "axios";
 import { URL_API } from "../../config";
-import { GET_GALLERY, GET_GALLERY_DETAILS, GET_LAST_GALLERY } from "../../misc/consts";
+import { GET_GALLERY, GET_GALLERY_DETAILS, GET_LAST_GALLERY, SET_GALLERY_VIEWER } from "../../misc/consts";
 
 export function getGallery() {
   return async function (dispatch) {
@@ -48,6 +48,13 @@ export function getGalleryDetails(id) {
         return;
       });
   };
+}
+
+export function setGalleryViewer(data) {
+  return({
+    type: SET_GALLERY_VIEWER,
+    payload: data
+  });
 }
 
 export function resetGalleryDetails() {

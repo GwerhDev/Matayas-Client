@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import defaultImage from '../../../assets/png/default-image.png';
 import { useDispatch } from 'react-redux';
 import { createGallery } from '../../../middlewares/redux/actions/admin';
+import { URL_API } from '../../../middlewares/config';
 
 export const GallerySetCreate = () => {
   const dispatch = useDispatch();
@@ -60,6 +61,7 @@ export const GallerySetCreate = () => {
         <div className='divider' />
         <div className={s.buttonsContainer}>
           <button onClick={handleSubmit}>Publicar</button>
+          <a className={s.linkButton} target='_blank' rel='noreferrer' href={`${URL_API}/admin/post-instagram`}>Publicar en Instagram</a>
         </div>
       </form>
     </div>

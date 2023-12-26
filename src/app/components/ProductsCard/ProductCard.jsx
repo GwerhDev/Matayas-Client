@@ -5,6 +5,10 @@ export const ProductCard = (props) => {
   const { id, title, price, image, category } = props ? props : null;
   const navigate = useNavigate();
 
+  const formattedPrice = price.toLocaleString('es', {
+    useGrouping: true,
+  });
+
   function handleClick(e) {
     e.preventDefault();
     navigate(`/product/${id}`);
@@ -17,7 +21,7 @@ export const ProductCard = (props) => {
       </div>
       <ul className={s.data}>
         <li className={s.title}>{title}</li>
-        <li className={s.price}><h2>${price}</h2></li>
+        <li className={s.price}><h2>${formattedPrice}</h2></li>
       </ul>
       <p>{category}</p>
     </div>

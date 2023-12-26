@@ -12,12 +12,16 @@ export const Products = (props) => {
       <ul className={s.productsContainer}>
         {
           products?.map(product => {
+            const formattedPrice = product?.price.toLocaleString('es', {
+              useGrouping: true,
+            });
+
             return (
               <ProductCard
                 key={product?._id}
                 id={product?._id}
                 title={product?.title}
-                price={product?.price}
+                price={formattedPrice}
                 image={product?.image}
                 description={product?.description}
                 category={product?.category}

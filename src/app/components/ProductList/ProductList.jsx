@@ -52,30 +52,35 @@ export const ProductList = () => {
       </nav>
       <ul className={s.productsUl}>
         {
-          products?.map(product => (
-            <ul key={product._id} className={s.productsUlLi}>
-              <li><img src={product.image} alt="" width="30px" /></li> -
-              <li>{product.title}</li> -
-              <li>{product.price}</li> -
-              <li>{product.description}</li> -
-              <li>
-                <Link to={`/admin/products/management/update/${product._id}`}>
-                  <button className='button-nostyle'>
-                    <img src={editIcon} alt="" height="20px" />
+          products?.map(product => {
+            const formattedPrice = product?.price.toLocaleString('es', {
+              useGrouping: true,
+            });
+            return (
+              <ul key={product._id} className={s.productsUlLi}>
+                <li><img src={product.image} alt="" width="30px" /></li> -
+                <li>{formattedPrice}</li> -
+                <li>{product.price}</li> -
+                <li>{product.description}</li> -
+                <li>
+                  <Link to={`/admin/products/management/update/${product._id}`}>
+                    <button className='button-nostyle'>
+                      <img src={editIcon} alt="" height="20px" />
+                    </button>
+                  </Link>
+                </li> -
+                <li>
+                  <button id={`delete-${product._id}`} onClick={(e) => handleDeleteOptions(e, product._id, true)} className='button-nostyle'>
+                    <img src={deleteIcon} alt="" height="20px" />
                   </button>
-                </Link>
-              </li> -
-              <li>
-                <button id={`delete-${product._id}`} onClick={(e) => handleDeleteOptions(e, product._id, true)} className='button-nostyle'>
-                  <img src={deleteIcon} alt="" height="20px" />
-                </button>
-                <div className={s.deleteOptionsContainer} id={`check-delete-${product._id}`}>
-                  <button onClick={(e) => handleDelete(e, product._id)}>✔️</button>
-                  <button onClick={(e) => handleDeleteOptions(e, product._id, false)}>❌</button>
-                </div>
-              </li>
-            </ul>
-          ))
+                  <div className={s.deleteOptionsContainer} id={`check-delete-${product._id}`}>
+                    <button onClick={(e) => handleDelete(e, product._id)}>✔️</button>
+                    <button onClick={(e) => handleDeleteOptions(e, product._id, false)}>❌</button>
+                  </div>
+                </li>
+              </ul>
+            )
+          })
         }
       </ul>
     </div>

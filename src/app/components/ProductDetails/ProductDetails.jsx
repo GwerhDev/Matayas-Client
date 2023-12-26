@@ -15,6 +15,9 @@ export const ProductDetails = () => {
   const productDetails = useSelector(state => state.productDetails);
   const { id } = params;
   const [visorImage, setVisorImage] = useState(null);
+  const formattedPrice = productDetails?.price.toLocaleString('es', {
+    useGrouping: true,
+  });
 
   useEffect(() => {
     dispatch(getProductDetails(id));
@@ -45,7 +48,7 @@ export const ProductDetails = () => {
             </section>
             <section className={s.detailsSection}>
               <div className={s.mainImageContainer}>
-                <img src={visorImage.file || defaultImage} width="100%" alt="" />
+                <img src={visorImage.file || defaultImage} height="100%" width="100%" alt="" />
               </div>
 
               <div className='divider' />
@@ -53,7 +56,7 @@ export const ProductDetails = () => {
             <section className={s.contactSection}>
               <h2><b>{productDetails?.title}</b></h2>
               <p>{"⭐".repeat(productDetails?.rate)}<span style={{ filter: 'grayscale(1)' }}>{"⭐".repeat(5 - productDetails?.rate)}</span></p>
-              <h1>${productDetails?.price}</h1>
+              <h1>${formattedPrice}</h1>
 
               <div className='divider' />
               <h2>Comprar</h2>

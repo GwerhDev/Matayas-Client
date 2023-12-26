@@ -236,20 +236,6 @@ select:hover {
   width: 100px;
 }
 
-.loader {
-  margin-top: 1rem;
-  width: 100%;
-  font-weight: bold;
-  font-family: sans-serif;
-  font-size: 15px;
-  padding-bottom: 8px;
-  background: linear-gradient(currentColor 0 0) 0 100%/0% 3px no-repeat;
-  animation: l2 2s linear infinite;
-}
-
-.loader:before {
-  content: "Cargando..."
-}
 
 @keyframes l2 {
   to {

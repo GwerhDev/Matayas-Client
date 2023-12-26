@@ -59,8 +59,8 @@ export const ProductList = () => {
             return (
               <ul key={product._id} className={s.productsUlLi}>
                 <li><img src={product.image} alt="" width="30px" /></li> -
+                <li>{product.title}</li> -
                 <li>{formattedPrice}</li> -
-                <li>{product.price}</li> -
                 <li>{product.description}</li> -
                 <li>
                   <Link to={`/admin/products/management/update/${product._id}`}>

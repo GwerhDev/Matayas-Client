@@ -28,17 +28,17 @@ const Home = () => {
         lastProducts || lastGallery
           ?
           <>
-            <Slider />
+            <Slider items={lastProducts} />
             <div className="page-container">
               <HomeGallery gallery={lastGallery} />
               <HomeProducts products={lastProducts} />
             </div>
           </>
           :
-          <Preloader/>
+          <Preloader />
       }
       <div className="contact-methods">
-        <ContactMethods/>
+        <ContactMethods />
       </div>
     </div>
   )

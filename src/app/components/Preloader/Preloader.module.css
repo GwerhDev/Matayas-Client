@@ -19,8 +19,18 @@
   max-width: 1190px;
 }
 
+.text {
+  text-align: center;
+}
+
 @media only screen and (max-width: calc(1200px + 6rem)) {
   .logo {
     min-width: calc(500px - 6rem);
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .text {
+    font-size: 12px;
   }
 }

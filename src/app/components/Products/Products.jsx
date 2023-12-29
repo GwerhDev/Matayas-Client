@@ -1,6 +1,7 @@
 import s from './Products.module.css';
 import { ProductCard } from "../ProductsCard/ProductCard";
 import { Link } from 'react-router-dom';
+import { formattedPrice } from '../../../functions';
 
 export const Products = (props) => {
   const { products } = props || null;
@@ -12,16 +13,12 @@ export const Products = (props) => {
       <ul className={s.productsContainer}>
         {
           products?.map(product => {
-            const formattedPrice = product?.price.toLocaleString('es', {
-              useGrouping: true,
-            });
-
             return (
               <ProductCard
                 key={product?._id}
                 id={product?._id}
                 title={product?.title}
-                price={formattedPrice}
+                price={formattedPrice(product?.price)}
                 image={product?.image}
                 description={product?.description}
                 category={product?.category}

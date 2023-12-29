@@ -73,6 +73,7 @@ export const Preloader = () => {
         </div>
         <div className='loader' />
       </div>
+      <p className={s.text}>Fabricación, modificación y reparación de amplificadores a tubos</p>
     </div>
   )
 }

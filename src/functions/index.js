@@ -44,3 +44,7 @@ export const $display = (e) => {
 export const scrollToTop = () => {
   window.scrollTo(0, 0);
 }
+
+export const formattedPrice = (price) => price.toLocaleString('es', {
+  useGrouping: true,
+});

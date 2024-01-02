@@ -12,6 +12,12 @@ export const Slider = (props) => {
     let interval = null;
     $d("#slider-container").style.transform = `translateX(${-index * 100}vw)`;
 
+    if(index === 0) {
+      $d("#slider-container").style.transitionDuration = `0s`;
+    } else {
+      $d("#slider-container").style.transitionDuration = `1s`;
+    }
+
     interval = setInterval(() => {
       setIndex((index + 1) % (items?.length + 1));
     }, 5000);

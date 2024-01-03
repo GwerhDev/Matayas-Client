@@ -24,6 +24,8 @@ import Shop from '../pages/Shop';
 import MailVerification from '../pages/MailVerification';
 import PendingMailVerification from '../pages/PendingMailVerification';
 import Message from '../pages/Message';
+import PrivacyPolicy from '../pages/PrivacyPolicy';
+import Conditions from '../pages/Conditions';
 
 function RouterApp() {
   return (
@@ -58,7 +60,9 @@ function RouterApp() {
           <Route path='/gallery' element={<Gallery />} />
           <Route path='/contact' element={<Contact />} />
           <Route path='/register' element={<Register />} />
+          <Route path='/conditions' element={<Conditions />} />
           <Route path='/contact/message' element={<Message />} />
+          <Route path='/privacy-policy' element={<PrivacyPolicy />} />
         </Routes>
       </main>
       <Footer />

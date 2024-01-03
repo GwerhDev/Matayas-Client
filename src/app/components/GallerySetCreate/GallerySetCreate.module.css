@@ -69,17 +69,3 @@
 .instagramButton:hover {
   background-color: rgb(58, 58, 58);
 }
-
-.linkButton {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  border-radius: 5px;
-  background-color: var(--color-primary);
-}
-
-.linkButton:hover {
-  background-color: var(--color-secundary);
-}

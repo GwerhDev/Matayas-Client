@@ -40,11 +40,13 @@ export const Slider = (props) => {
                 items.map((item, i) => {
                   return (
                     <Link to={`/product/${item._id}`} key={i} className={s.background} id='slide'>
-                      <div>
-                        <h2 className={s.titleText}>{item.title}</h2>
-                        <h1 className={s.priceText}>${formattedPrice(item.price)}</h1>
+                      <div className={s.sliderContent}>
+                        <div className={s.textContainer}>
+                          <h2 className={s.titleText}>{item.title}</h2>
+                          <h1 className={s.priceText}>${formattedPrice(item.price)}</h1>
+                        </div>
+                        <img className={s.imageSlider} key={i} src={item.image} height="100%" />
                       </div>
-                      <img className={s.imageSlider} key={i} src={item.image} height="100%" />
                     </Link>
                   )
                 })

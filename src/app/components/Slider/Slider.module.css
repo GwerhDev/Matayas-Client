@@ -32,6 +32,7 @@
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
+  justify-content: space-between;
 }
 
 .sliderCard {
@@ -58,6 +59,20 @@
   align-items: center;
 }
 
+.sliderContent {
+  padding: 4rem;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1190px;
+}
+
+.imageSlider {
+  height: 100%;
+}
+
 
 @media only screen and (max-width: calc(1200px + 6rem)) {
   .logoContainer {
@@ -67,6 +82,10 @@
 }
 
 @media only screen and (max-width: 700px) {
+  .textContainer {
+    width: 150px;
+  }
+
   .text {
     font-size: 12px;
   }
@@ -76,14 +95,14 @@
   }
 
   .priceText {
-    font-size: 16px;
+    font-size: 29px;
   }
 
   .imageSlider {
-    height: 175px;
+    max-height: 175px;
   }
 
   .logo {
-    max-width: 500px;
+    max-width: 350px;
   }
 }

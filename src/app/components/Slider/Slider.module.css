@@ -70,6 +70,19 @@
   .text {
     font-size: 12px;
   }
+
+  .titleText {
+    font-size: 14px;
+  }
+
+  .priceText {
+    font-size: 16px;
+  }
+
+  .imageSlider {
+    height: 175px;
+  }
+
   .logo {
     max-width: 500px;
   }

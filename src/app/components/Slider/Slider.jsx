@@ -41,10 +41,10 @@ export const Slider = (props) => {
                   return (
                     <Link to={`/product/${item._id}`} key={i} className={s.background} id='slide'>
                       <div>
-                        <h2>{item.title}</h2>
-                        <h1>${formattedPrice(item.price)}</h1>
+                        <h2 className={s.titleText}>{item.title}</h2>
+                        <h1 className={s.priceText}>${formattedPrice(item.price)}</h1>
                       </div>
-                      <img key={i} src={item.image} height="100%" />
+                      <img className={s.imageSlider} key={i} src={item.image} height="100%" />
                     </Link>
                   )
                 })

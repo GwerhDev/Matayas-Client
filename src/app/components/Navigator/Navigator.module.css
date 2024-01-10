@@ -14,10 +14,11 @@
   background-color: var(--color-background-dark-opacity);
   background: linear-gradient(to top, var(--color-secundary) 1%, var(--color-background) 100%);
   transition-duration: .2s;
+  width: 100vw;
 }
 
 .navigatorContainer nav {
-  width: 100%;
+  width: 100vw;
   max-width: 1190px;
   display: flex;
   align-items: center;

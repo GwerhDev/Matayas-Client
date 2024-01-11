@@ -27,13 +27,13 @@ const Home = () => {
       {
         lastProducts || lastGallery
           ?
-          <div className="app-container">
+          <>
             <Slider items={lastProducts} />
             <div className="page-container">
               <HomeGallery gallery={lastGallery} />
               <HomeProducts products={lastProducts} />
             </div>
-          </div>
+          </>
           :
           <Preloader />
       }

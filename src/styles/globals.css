@@ -220,6 +220,11 @@ textarea {
   padding: 0;
 }
 
+.app-container {
+  width: 100vw;
+  overflow-x: hidden;
+}
+
 select:hover {
   cursor: pointer;
 }

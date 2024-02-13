@@ -6,9 +6,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(216, 216, 216, 0.301);
-  background: linear-gradient(168deg, var(--color-background) 50%, var(--color-secundary) 100%);
+  border-radius: 3px;
+  border: solid 1px rgba(37, 37, 37, 0.644);
+  background: var(--color-background);
 }
 
 .cardContainer:hover {
@@ -18,7 +18,7 @@
 
 .imageContainer {
   background-color: var(--color-background);
-  border-radius: 5px;
+  border-radius: 3px;
   width: 100%;
   height: 200px;
   overflow: hidden;

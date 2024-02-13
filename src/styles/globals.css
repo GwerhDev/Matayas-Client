@@ -98,6 +98,7 @@ button:focus-visible {
   display: flex;
   flex-direction: column;
   padding-top: 5rem;
+  padding-bottom: 1rem;
 }
 
 .nav-container {

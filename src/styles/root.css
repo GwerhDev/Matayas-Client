@@ -31,7 +31,7 @@
 
   color-scheme: light dark;
   color: var(--color-font);
-  background: var(--color-background);
+  background: linear-gradient(168deg, var(--color-background-dark) 50% , var(--color-background-dark) 100%);;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

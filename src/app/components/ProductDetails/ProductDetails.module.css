@@ -1,6 +1,6 @@
 .container {
   display: flex;
-  background-color: var(--color-background-dark);
+  background-color: var(--color-background-darker);
   border-radius: 5px;
   padding: 1rem;
   gap: 1rem;

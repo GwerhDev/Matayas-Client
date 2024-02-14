@@ -54,6 +54,9 @@ export const Navigator = () => {
       </div> */}
       <div className={s.menuContainer}>
         <nav>
+          <section className={s.menuSectionMobile}>
+            <button className={s.menuIcon} onClick={handleClick}><img src={burgerIcon} alt="" width={"20px"}/></button>
+          </section>
           <section className={s.underLogo}>
             <Link to="/">
               <div className={s.logo} style={{ backgroundImage: `url(${logoImg})` }}
@@ -62,9 +65,6 @@ export const Navigator = () => {
           </section>
           <section className={s.menuSection}>
           <Menu />
-          </section>
-          <section className={s.menuSectionMobile}>
-            <button className={s.menuIcon} onClick={handleClick}><img src={burgerIcon} alt="" width={"20px"}/></button>
           </section>
           <section className={s.userSection}>
             <div className={s.authContainer}>

@@ -13,6 +13,7 @@
   justify-content: center;
   background-color: var(--color-background-dark-opacity);
   background: linear-gradient(to top, var(--color-secundary) 1%, var(--color-background) 100%);
+  backdrop-filter: blur(10px);
   transition-duration: .2s;
   width: 100vw;
 }
@@ -42,7 +43,8 @@
 .menuContainer {
   display: flex;
   justify-content: center;
-  background: linear-gradient(to bottom, var(--color-secundary) 100%, var(--color-background) 100%);
+  background: linear-gradient(to bottom, rgba(26, 26, 26, 0.925) 100%, var(--color-background) 100%);
+  backdrop-filter: blur(10px);
   border-bottom: solid thin rgb(83, 83, 83);
   height: 50px;
 }
@@ -128,6 +130,7 @@
   display: none;
   width: 100%;
   justify-content: center;
+  padding-left: 3rem;
 }
 
 .menuIcon {
@@ -138,20 +141,37 @@
 
 @media only screen and (max-width: calc(1200px + 6rem)) {
   .logo {
+    padding: 0;
     width: 100px;
     height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
   }
 
   .menuSection {
     display: none;
   }
-
+  
   .menuSectionMobile {
     display: flex;
+    justify-content: flex-start;
+    width: auto;
+  }
+
+  .userSection {
+    width: auto;
   }
 
   .underLogo {
-    padding-left: 3rem;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .userSection {

@@ -26,3 +26,27 @@
 .linkOption:hover {
   background-color: var(--color-background);
 }
+
+.authButtons {
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 130px;
+}
+
+.registerLink {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: .5rem;
+}
+
+.registerLink:hover {
+  background-color: var(--color-background);
+}
+
+.enterButton {
+  width: 100%;
+}

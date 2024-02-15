@@ -12,11 +12,11 @@
   --color-secundary: #5e4451e8;
   --color-primary-hover: #4b2536;
   --color-secundary-hover: #703345;
-  --color-background: rgb(27, 27, 27);
+  --color-background: rgb(18, 19, 24);
   --color-background-light: rgb(223, 223, 223);
-  --color-background-dark: rgb(22, 22, 22);
-  --color-background-darker: rgb(8, 8, 8);
-  --color-background-dark-opacity: rgba(22, 22, 22, 0.788);
+  --color-background-dark: rgb(14, 15, 19);
+  --color-background-darker: rgb(8, 8, 10);
+  --color-background-dark-opacity: rgba(14, 15, 19, 0.87);
   --color-font: rgb(241, 241, 241);
   --color-font-dark: rgb(0, 0, 0);
   --color-gray-100: rgb(100, 100, 100);

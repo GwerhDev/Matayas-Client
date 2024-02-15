@@ -18,7 +18,7 @@ export const Navigator = () => {
   const [logoImg, setLogoImg] = useState(logo);
 
   function handleClick() {
-    $display('#burger-menu-container')
+    $display('#burger-menu-container');
   }
 
   function handleLogoHover() {

@@ -45,7 +45,7 @@
   background: linear-gradient(to bottom, var(--color-background-dark-opacity) 100%, var(--color-background-light) 100%);
   backdrop-filter: blur(10px);
   border-bottom: solid thin rgb(83, 83, 83);
-  height: 50px;
+  height: 70px;
 }
 
 .menuContainer nav {
@@ -115,7 +115,7 @@
   justify-content: flex-start;
   width: 100%;
   gap: 2rem;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .menuSectionMobile {

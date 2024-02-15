@@ -30,8 +30,8 @@ const Home = () => {
           <>
             <Slider items={lastProducts} />
             <div className="page-container">
-              <HomeGallery gallery={lastGallery} />
               <HomeProducts products={lastProducts} />
+              <HomeGallery gallery={lastGallery} />
             </div>
           </>
           :

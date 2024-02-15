@@ -9,6 +9,24 @@
   cursor: pointer;
 }
 
+.container img {
+  padding: .2rem;
+  border: solid 1px transparent;
+  border-radius: 4px;
+  transition-duration: .3s;
+}
+
+.container img:hover {
+  border-color: var(--color-primary);
+}
+
+.container img:active,
+.container img:focus,
+.container img:focus-visible,
+.container img::before {
+  border: 2px solid white;
+}
+
 .profilePicContainer {
   width: 20px;
   height: 20px;

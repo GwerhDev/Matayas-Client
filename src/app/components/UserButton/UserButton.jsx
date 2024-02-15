@@ -22,7 +22,6 @@ export const UserButton = () => {
         </>
         :
         <img src={userIcon} />
-          
       }
     </div>
   )

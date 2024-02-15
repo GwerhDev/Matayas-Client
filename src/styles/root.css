@@ -50,7 +50,7 @@
   position: absolute;
 }
 ::-webkit-scrollbar-track {
-  background: linear-gradient(168deg, var(--color-background) 10% , var(--color-primary) 80%);
+  background: linear-gradient(168deg, var(--color-background) 10% , var(--color-background-dark) 80%);
 }
 ::-webkit-scrollbar-thumb {
   background: #fff2;

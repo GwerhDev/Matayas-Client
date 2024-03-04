@@ -10,8 +10,8 @@
 
   --color-primary: #625b88;
   --color-primary-hover: #27254b;
-  --color-secondary: #5e4451e8;
-  --color-secondary-hover: #703345;
+  --color-secondary: #53445ee8;
+  --color-secondary-hover: #523370;
   --color-tertiary: #4b4157;
   --color-background: rgb(18, 19, 24);
   --color-background-light: rgb(223, 223, 223);
@@ -25,8 +25,8 @@
   --color-gray-50: rgb(50, 50, 50);
   --bg-button-secondary: #344b97;
   --bg-button-secondary-hover: #4a63b6;
-  --bg-button-tertiary: #803643;
-  --bg-button-tertiary-hover: #4b2536;
+  --bg-button-tertiary: #613680;
+  --bg-button-tertiary-hover: #43254b;
   --color-error-background: rgb(248, 180, 180);
   --color-error-font: rgb(128, 41, 41);
 

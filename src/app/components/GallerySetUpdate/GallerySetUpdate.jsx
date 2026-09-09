@@ -4,7 +4,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import defaultImage from '../../../assets/png/default-image.png';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateGallery } from '../../../middlewares/redux/actions/admin';
-import { Preloader } from '../Preloader/Preloader';
+import { Spinner } from '../Spinner/Spinner';
 import { getGalleryDetails } from '../../../middlewares/redux/actions/gallery';
 
 export const GallerySetUpdate = () => {
@@ -79,7 +79,7 @@ export const GallerySetUpdate = () => {
           </form>
         </div>
         :
-        <Preloader/>
+        <Spinner label="Cargando…" />
       }
     </>
   )

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
-import { Preloader } from "../components/Preloader/Preloader";
+import { Spinner } from "../components/Spinner/Spinner";
 import { emailVerification } from "../../middlewares/redux/actions/auth";
 
 const MailVerification = () => {
@@ -11,15 +11,13 @@ const MailVerification = () => {
   const params = new URLSearchParams(location.search);
   const token = params.get('token');
 
-  console.log(token);
-
   useEffect(() => {
     dispatch(emailVerification(token, navigate))
   }, [dispatch, token, navigate]);
 
   return (
-    <div>
-      <Preloader />
+    <div className="auth-container">
+      <Spinner label="Verificando tu correo…" />
     </div>
   )
 }

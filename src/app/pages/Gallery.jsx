@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getGallery, resetGalleryDetails } from "../../middlewares/redux/actions/gallery";
-import { Preloader } from "../components/Preloader/Preloader";
+import { GallerySetsSkeleton } from "../components/Skeleton/Skeleton";
 import { GallerySets } from "../components/GallerySets/GallerySets";
 import { ContactMethods } from "../components/ContactMethods/ContactMethods";
 import { scrollToTop } from "../../functions";
@@ -23,7 +23,7 @@ const Gallery = () => {
           ?
           <GallerySets gallery={gallery} />
           :
-          <Preloader />
+          <GallerySetsSkeleton />
       }
       <div className="contact-methods">
         <ContactMethods />

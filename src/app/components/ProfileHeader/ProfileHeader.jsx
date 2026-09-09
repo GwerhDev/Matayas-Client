@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import s from './ProfileHeader.module.css';
 import defaultImage from '../../../assets/png/default-image.png';
-import { Preloader } from '../Preloader/Preloader';
+import { ProfileHeaderSkeleton } from '../Skeleton/Skeleton';
 
 export const ProfileHeader = () => {
   const currentUser = useSelector(state => state.currentUser);
@@ -25,7 +25,7 @@ export const ProfileHeader = () => {
             </div>
           </div >
           :
-          <Preloader />
+          <ProfileHeaderSkeleton />
       }
     </>
   )

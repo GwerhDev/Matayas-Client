@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProducts, resetProductDetails } from "../../middlewares/redux/actions/products";
 import { Products } from "../components/Products/Products";
 import { useEffect } from "react";
-import { Preloader } from "../components/Preloader/Preloader";
+import { ProductsSkeleton } from "../components/Skeleton/Skeleton";
 import { ContactMethods } from "../components/ContactMethods/ContactMethods";
 import { scrollToTop } from "../../functions";
 
@@ -23,7 +23,7 @@ const Shop = () => {
           ?
           <Products products={products} />
           :
-          <Preloader />
+          <ProductsSkeleton />
       }
       <div className="contact-methods">
         <ContactMethods />

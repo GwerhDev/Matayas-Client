@@ -5,7 +5,7 @@ import { getProductDetails } from '../../../middlewares/redux/actions/products';
 import { useParams } from 'react-router-dom';
 import defaultImage from '../../../assets/png/default-image.png';
 import { ProductComments } from '../ProductComments/ProductComments';
-import { Preloader } from '../Preloader/Preloader';
+import { ProductDetailsSkeleton } from '../Skeleton/Skeleton';
 import { ContactMethods } from '../ContactMethods/ContactMethods';
 import { scrollToTop } from '../../../functions';
 
@@ -82,7 +82,7 @@ export const ProductDetails = () => {
 
             </section>
           </div>
-          : <Preloader/>
+          : <ProductDetailsSkeleton />
       }
 
     </>

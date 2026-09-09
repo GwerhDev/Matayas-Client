@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { searchByQuery } from '../../../middlewares/redux/actions/search';
 import { ProductCard } from '../ProductsCard/ProductCard';
-import { Preloader } from '../Preloader/Preloader';
+import { ProductGridSkeleton } from '../Skeleton/Skeleton';
 
 export const Seeker = () => {
   const dispatch = useDispatch();
@@ -37,7 +37,7 @@ export const Seeker = () => {
           )
         })
         :
-        <Preloader/>
+        <ProductGridSkeleton />
       }
     </div>
   )

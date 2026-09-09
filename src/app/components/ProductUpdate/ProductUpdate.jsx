@@ -5,7 +5,7 @@ import defaultImage from '../../../assets/png/default-image.png';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateProduct } from '../../../middlewares/redux/actions/admin';
 import { getProductDetails } from '../../../middlewares/redux/actions/products';
-import { Preloader } from '../Preloader/Preloader';
+import { Spinner } from '../Spinner/Spinner';
 
 export const ProductUpdate = () => {
   const dispatch = useDispatch();
@@ -182,7 +182,7 @@ export const ProductUpdate = () => {
           </form>
         </div>
         :
-        <Preloader/>
+        <Spinner label="Cargando…" />
       }
     </>
   )

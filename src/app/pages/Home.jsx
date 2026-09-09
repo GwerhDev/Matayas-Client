@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getLastProducts, resetProductDetails } from "../../middlewares/redux/actions/products";
 import { Slider } from "../components/Slider/Slider";
-import { Preloader } from "../components/Preloader/Preloader";
+import { HomeSkeleton } from "../components/Skeleton/Skeleton";
 import { ContactMethods } from "../components/ContactMethods/ContactMethods";
 import { getLastGallery, resetGalleryDetails } from "../../middlewares/redux/actions/gallery";
 import { HomeGallery } from "../components/HomeGallery/HomeGallery";
@@ -35,7 +35,9 @@ const Home = () => {
             </div>
           </>
           :
-          <Preloader />
+          <div className="page-container">
+            <HomeSkeleton />
+          </div>
       }
       <div className="contact-methods">
         <ContactMethods />

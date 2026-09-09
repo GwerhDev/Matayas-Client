@@ -21,9 +21,10 @@ const Contact = () => {
       <div className="d-flex row contact-page">
         <section className="w-50 d-flex column">
           <h1>Contacto</h1>
-          <p>Teléfono: <a href={phoneLink}>+56 9 3345 1508</a></p>
-          <p>Email: <a href={mailLink}> info@amplificadoresmatayas.com</a></p>
-          <p>Dirección: Santiago Concha 1290, Santiago Centro</p>
+          <p className="section-subtitle">Escríbenos o visítanos en el taller.</p>
+          <p className="pad-top-1"><span className="text-muted">Teléfono:</span> <a href={phoneLink}>+56 9 3345 1508</a></p>
+          <p><span className="text-muted">Email:</span> <a href={mailLink}>info@amplificadoresmatayas.com</a></p>
+          <p><span className="text-muted">Dirección:</span> Santiago Concha 1290, Santiago Centro</p>
           <span className="contactMethod d-flex g-1 pad-top-1">
             <div className={s.imgContainer}>
               <a href={phoneLink}><img src={phoneIcon} alt="" width="38px" height="38px" /></a>

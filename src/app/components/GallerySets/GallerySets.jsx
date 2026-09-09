@@ -7,7 +7,7 @@ export const GallerySets = (props) => {
   return (
     <div className={s.container}>
       <h1>Galería</h1>
-      <p>Mantención, reparación de equipos</p>
+      <p className="section-subtitle">Mantención, reparación de equipos</p>
       <ul className={s.galleryContainer}>
         {
           gallery?.map(product => {

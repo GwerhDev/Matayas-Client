@@ -9,7 +9,7 @@ export const Products = (props) => {
   return (
     <div className={s.container}>
       <Link to="/shop"><h1>Venta</h1></Link>
-      <p>Productos en venta</p>
+      <p className="section-subtitle">Productos en venta</p>
       <ul className={s.productsContainer}>
         {
           products?.map(product => {

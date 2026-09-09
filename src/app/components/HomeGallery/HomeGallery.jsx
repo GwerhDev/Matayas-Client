@@ -7,7 +7,7 @@ export const HomeGallery = (props) => {
   return (
     <div className={s.container}>
       <Link to="/gallery"><h1>Galería</h1></Link>
-      <p>Mantención, reparación de equipos</p>
+      <p className="section-subtitle">Mantención, reparación de equipos</p>
       <ul>
         {
           gallery?.map(e => (

@@ -105,3 +105,36 @@ export function emailVerification(token, navigate) {
       });
   };
 }
+
+// Paso 1: pedir el enlace de recuperación. `onDone(true)` en éxito.
+export function requestPasswordRecovery(email, onDone) {
+  return async function (dispatch) {
+    try {
+      await axios.post(`${URL_API}/password-recovery`, { email });
+      if (onDone) onDone(true);
+    } catch (e) {
+      console.error(e);
+      dispatch({
+        type: ERROR,
+        payload: errMessage(e, 'No se pudo procesar la solicitud.')
+      });
+      if (onDone) onDone(false);
+    }
+  };
+}
+
+// Paso 2: definir la contraseña nueva con el token del correo.
+export function resetPassword(formData, navigate) {
+  return async function (dispatch) {
+    try {
+      await axios.post(`${URL_API}/password-recovery/reset`, formData);
+      navigate('/login');
+    } catch (e) {
+      console.error(e);
+      dispatch({
+        type: ERROR,
+        payload: errMessage(e, 'No se pudo actualizar la contraseña.')
+      });
+    }
+  };
+}

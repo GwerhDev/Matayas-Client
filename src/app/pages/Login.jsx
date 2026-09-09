@@ -5,18 +5,22 @@ import { LoginInner } from "../components/LoginInner/LoginInner";
 const Login = () => {
   return (
     <div className="auth-container">
-      <form className="auth-form">
+      <div className="auth-form">
         <h2>Ingresar</h2>
+        <p className="auth-subtitle">Accede a tu cuenta de Amplificadores Matayas.</p>
+
         <LoginInner />
-        Ingresar usando:
+
+        <div className="auth-divider">o continúa con</div>
         <LoginGoogle />
-        <div className="divider"/>
+
+        <div className="divider" />
         <span className="auth-form-text">
-          No tienes una cuenta aún? Registrate aquí! <Link to="/register" className="link-to">Registrarse</Link>
+          ¿No tienes una cuenta? <Link to="/register" className="link-to">Regístrate</Link>
         </span>
-      </form>
+      </div>
     </div>
-  )
-}
+  );
+};
 
 export default Login;

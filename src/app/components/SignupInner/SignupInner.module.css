@@ -1,10 +1,6 @@
-.buttonSignup {
+.form {
   width: 100%;
-  height: 50px;
-  background-color: var(--color-primary);
-  border-radius: 3px;
-}
-
-.buttonSignup:hover {
-  background-color: var(--color-primary-hover);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }

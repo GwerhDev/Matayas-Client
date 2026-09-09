@@ -7,17 +7,10 @@ export function LoginGoogle() {
     <div className={s.googleLoginContainer}>
       <a className={s.googleBtn} href={`${URL_API}/login-google`}>
         <span className={s.spanIcon}>
-          <img
-            src={googleIcon}
-            height="40px"
-            className={s.googleImg}
-            alt="Sign Up with Google"
-          />
+          <img src={googleIcon} className={s.googleImg} alt="" />
         </span>
-        <span className={s.spanText}>
-          Google
-        </span>
+        <span className={s.spanText}>Continuar con Google</span>
       </a>
     </div>
-  )
+  );
 }

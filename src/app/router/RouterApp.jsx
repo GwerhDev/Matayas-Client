@@ -23,6 +23,8 @@ import GalleryUpdate from '../pages/admin/GalleryUpdate';
 import Shop from '../pages/Shop';
 import MailVerification from '../pages/MailVerification';
 import PendingMailVerification from '../pages/PendingMailVerification';
+import PasswordRecovery from '../pages/PasswordRecovery';
+import PasswordReset from '../pages/PasswordReset';
 import Message from '../pages/Message';
 import PrivacyPolicy from '../pages/PrivacyPolicy';
 import Conditions from '../pages/Conditions';
@@ -43,6 +45,9 @@ function RouterApp() {
 
           <Route path='/mail-verification/auth' element={<MailVerification />} />
           <Route path='/mail-verification/pending' element={<PendingMailVerification />} />
+
+          <Route path='/password-recovery' element={<PasswordRecovery />} />
+          <Route path='/password-recovery/reset' element={<PasswordReset />} />
 
           <Route path='/admin/dashboard' element={<Dashboard />} />
           <Route path='/admin/users/management' element={<UsersManagement />} />

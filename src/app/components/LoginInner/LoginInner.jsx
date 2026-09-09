@@ -14,8 +14,7 @@ export const LoginInner = () => {
 
   function handleLogin(e) {
     e.preventDefault();
-    const formData = { email, password }
-    dispatch(loginInner(formData, navigate));
+    dispatch(loginInner({ email, password }, navigate));
   }
 
   useEffect(() => {
@@ -23,16 +22,39 @@ export const LoginInner = () => {
   }, [dispatch]);
 
   return (
-    <>
+    <form className={s.form} onSubmit={handleLogin}>
       <div className="form-group">
-        <input onInput={(e) => { setEmail(e.target.value), dispatch(resetError()) }} type="email" placeholder="Email" />
-        <input onInput={(e) => { setPassword(e.target.value), dispatch(resetError()) }} type="password" placeholder="Password" />
+        <div className="field">
+          <label htmlFor="login-email">Email</label>
+          <input
+            id="login-email"
+            type="email"
+            autoComplete="email"
+            placeholder="tucorreo@ejemplo.com"
+            value={email}
+            onChange={(e) => { setEmail(e.target.value); dispatch(resetError()); }}
+          />
+        </div>
+
+        <div className="field">
+          <div className={s.labelRow}>
+            <label htmlFor="login-password">Contraseña</label>
+            <Link to="/password-recovery" className={s.forgot}>¿Olvidaste tu contraseña?</Link>
+          </div>
+          <input
+            id="login-password"
+            type="password"
+            autoComplete="current-password"
+            placeholder="••••••••"
+            value={password}
+            onChange={(e) => { setPassword(e.target.value); dispatch(resetError()); }}
+          />
+        </div>
       </div>
-      <div>
-        <Link to="/password-recovery">Forgot password?</Link>
-      </div>
+
       { error && <span className='error-span'><p>{error}</p></span> }
-      <button className={s.buttonLogin} onClick={handleLogin}>Login</button>
-    </>
-  )
-}
+
+      <button type="submit" className="auth-submit">Ingresar</button>
+    </form>
+  );
+};

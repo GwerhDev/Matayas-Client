@@ -1,88 +1,77 @@
-import s from './ProductList.module.css';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { getProducts, resetProductDetails } from '../../../middlewares/redux/actions/products';
+import { deleteProduct } from '../../../middlewares/redux/actions/admin';
+import { AdminHeader } from '../admin/AdminHeader';
 import editIcon from '../../../assets/png/edit-icon.png';
 import deleteIcon from '../../../assets/png/delete-icon.png';
-import { Link } from 'react-router-dom';
-import { deleteProduct } from '../../../middlewares/redux/actions/admin';
-import { $gId } from '../../../functions';
+import defaultImage from '../../../assets/png/default-image.png';
 
 export const ProductList = () => {
   const dispatch = useDispatch();
   const products = useSelector(state => state.products);
-
-  function handleDelete(e, id) {
-    e.preventDefault();
-    dispatch(deleteProduct(id));
-    return;
-  }
-
-  function handleDeleteOptions(e, id, value) {
-    e.preventDefault();
-    if (value) {
-      $gId(`delete-${id}`).style.display = 'none';
-      $gId(`check-delete-${id}`).style.display = 'flex';
-    } else {
-      $gId(`delete-${id}`).style.display = 'flex';
-      $gId(`check-delete-${id}`).style.display = 'none';
-    }
-  }
+  const [confirmId, setConfirmId] = useState(null);
 
   useEffect(() => {
     dispatch(getProducts());
     dispatch(resetProductDetails());
   }, [dispatch]);
 
+  function handleDelete(id) {
+    dispatch(deleteProduct(id));
+    setConfirmId(null);
+  }
+
   return (
-    <div className={s.container}>
-      <div className={s.optionsContainer}>
-        <Link to="/admin/dashboard"><button className="button-user-options">Dashboard</button></Link>
-        <Link to="/admin/products/management/create"><button className="button-user-options">Crear</button></Link>
+    <div>
+      <AdminHeader title="Productos">
+        <Link to="/admin/dashboard" className="btn btn-ghost btn-sm">← Panel</Link>
+        <Link to="/admin/products/management/create" className="btn btn-primary btn-sm">+ Crear producto</Link>
+      </AdminHeader>
+
+      <div className="table-wrap">
+        <table className="table">
+          <thead>
+            <tr>
+              <th>Foto</th>
+              <th>Título</th>
+              <th>Precio</th>
+              <th>Descripción</th>
+              <th className="col-actions">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            {products?.map(product => (
+              <tr key={product._id}>
+                <td><img className="thumb" src={product.image || defaultImage} alt="" /></td>
+                <td>{product.title}</td>
+                <td>${product?.price?.toLocaleString('es', { useGrouping: true })}</td>
+                <td className="cell-truncate">{product.description}</td>
+                <td className="col-actions">
+                  {confirmId === product._id ? (
+                    <span className="row-actions">
+                      <button className="btn btn-danger btn-sm" onClick={() => handleDelete(product._id)}>Eliminar</button>
+                      <button className="btn btn-ghost btn-sm" onClick={() => setConfirmId(null)}>Cancelar</button>
+                    </span>
+                  ) : (
+                    <span className="row-actions">
+                      <Link to={`/admin/products/management/update/${product._id}`} className="btn btn-ghost btn-icon" aria-label="Editar">
+                        <img src={editIcon} alt="" height="16px" />
+                      </Link>
+                      <button className="btn btn-ghost btn-icon" aria-label="Eliminar" onClick={() => setConfirmId(product._id)}>
+                        <img src={deleteIcon} alt="" height="16px" />
+                      </button>
+                    </span>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        {products && products.length === 0 && <p className="admin-empty">Aún no hay productos. Crea el primero.</p>}
+        {!products && <p className="admin-empty">Cargando…</p>}
       </div>
-      <nav className={s.fieldsContainer}>
-        <ul className={s.fieldsUl}>
-          <li>Foto</li> -
-          <li>Título</li> -
-          <li>Precio</li> -
-          <li>Descripción</li> -
-          <li>Editar</li> -
-          <li>Eliminar</li>
-        </ul>
-      </nav>
-      <ul className={s.productsUl}>
-        {
-          products?.map(product => {
-            const formattedPrice = product?.price.toLocaleString('es', {
-              useGrouping: true,
-            });
-            return (
-              <ul key={product._id} className={s.productsUlLi}>
-                <li><img src={product.image} alt="" width="30px" /></li> -
-                <li>{product.title}</li> -
-                <li>{formattedPrice}</li> -
-                <li>{product.description}</li> -
-                <li>
-                  <Link to={`/admin/products/management/update/${product._id}`}>
-                    <button className='button-nostyle'>
-                      <img src={editIcon} alt="" height="20px" />
-                    </button>
-                  </Link>
-                </li> -
-                <li>
-                  <button id={`delete-${product._id}`} onClick={(e) => handleDeleteOptions(e, product._id, true)} className='button-nostyle'>
-                    <img src={deleteIcon} alt="" height="20px" />
-                  </button>
-                  <div className={s.deleteOptionsContainer} id={`check-delete-${product._id}`}>
-                    <button onClick={(e) => handleDelete(e, product._id)}>✔️</button>
-                    <button onClick={(e) => handleDeleteOptions(e, product._id, false)}>❌</button>
-                  </div>
-                </li>
-              </ul>
-            )
-          })
-        }
-      </ul>
     </div>
-  )
-}
+  );
+};

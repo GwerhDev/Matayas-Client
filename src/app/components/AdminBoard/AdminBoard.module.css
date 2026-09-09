@@ -1,27 +1,44 @@
-.container {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 1rem;
 }
 
-.options {
-  background: linear-gradient(168deg, var(--color-background) 50% , var(--color-secondary) 100%);
-  width: 100%;
-  height: 100px;
-  border-radius: 5px;
+.card {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 0 4px white;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  background: var(--color-background-dark);
+  color: var(--color-font);
+  transition: border-color 0.15s ease, transform 0.15s ease;
 }
 
-.options:hover {
-  background: linear-gradient(168deg, var(--color-secondary) 50% , var(--color-secondary) 100%);
-  cursor: pointer;
-  color: white;
+.card:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+  color: var(--color-font);
+}
+
+.card h3 {
+  font-size: 1.15rem;
+}
+
+.card p {
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: var(--color-font-muted);
+  flex: 1;
+}
+
+.cta {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.card:hover .cta {
+  color: #8b83b8;
 }

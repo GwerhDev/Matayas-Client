@@ -1,81 +1,75 @@
-import s from './GalleryList.module.css';
-import { Link } from 'react-router-dom';
-import editIcon from '../../../assets/png/edit-icon.png';
-import deleteIcon from '../../../assets/png/delete-icon.png';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { $gId } from '../../../functions';
-import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { deleteGallery } from '../../../middlewares/redux/actions/admin';
 import { getGallery, resetGalleryDetails } from '../../../middlewares/redux/actions/gallery';
+import { AdminHeader } from '../admin/AdminHeader';
+import editIcon from '../../../assets/png/edit-icon.png';
+import deleteIcon from '../../../assets/png/delete-icon.png';
+import defaultImage from '../../../assets/png/default-image.png';
 
 export const GalleryList = () => {
   const dispatch = useDispatch();
   const gallery = useSelector(state => state.gallery);
-
-  function handleDelete(e, id) {
-    e.preventDefault();
-    dispatch(deleteGallery(id));
-    return;
-  }
-
-  function handleDeleteOptions(e, id, value) {
-    e.preventDefault();
-    if (value) {
-      $gId(`delete-${id}`).style.display = 'none';
-      $gId(`check-delete-${id}`).style.display = 'flex';
-    } else {
-      $gId(`delete-${id}`).style.display = 'flex';
-      $gId(`check-delete-${id}`).style.display = 'none';
-    }
-  }
+  const [confirmId, setConfirmId] = useState(null);
 
   useEffect(() => {
     dispatch(getGallery());
     dispatch(resetGalleryDetails());
   }, [dispatch]);
 
+  function handleDelete(id) {
+    dispatch(deleteGallery(id));
+    setConfirmId(null);
+  }
+
   return (
-    <div className={s.container}>
-      <div className={s.optionsContainer}>
-        <Link to="/admin/dashboard"><button className="button-user-options">Dashboard</button></Link>
-        <Link to="/admin/gallery/management/create"><button className="button-user-options">Crear</button></Link>
+    <div>
+      <AdminHeader title="Galería">
+        <Link to="/admin/dashboard" className="btn btn-ghost btn-sm">← Panel</Link>
+        <Link to="/admin/gallery/management/create" className="btn btn-primary btn-sm">+ Nueva publicación</Link>
+      </AdminHeader>
+
+      <div className="table-wrap">
+        <table className="table">
+          <thead>
+            <tr>
+              <th>Archivo</th>
+              <th>Título</th>
+              <th>Descripción</th>
+              <th className="col-actions">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            {gallery?.map(elem => (
+              <tr key={elem._id}>
+                <td><img className="thumb" src={elem.file || defaultImage} alt="" /></td>
+                <td>{elem.title}</td>
+                <td className="cell-truncate">{elem.description}</td>
+                <td className="col-actions">
+                  {confirmId === elem._id ? (
+                    <span className="row-actions">
+                      <button className="btn btn-danger btn-sm" onClick={() => handleDelete(elem._id)}>Eliminar</button>
+                      <button className="btn btn-ghost btn-sm" onClick={() => setConfirmId(null)}>Cancelar</button>
+                    </span>
+                  ) : (
+                    <span className="row-actions">
+                      <Link to={`/admin/gallery/management/update/${elem._id}`} className="btn btn-ghost btn-icon" aria-label="Editar">
+                        <img src={editIcon} alt="" height="16px" />
+                      </Link>
+                      <button className="btn btn-ghost btn-icon" aria-label="Eliminar" onClick={() => setConfirmId(elem._id)}>
+                        <img src={deleteIcon} alt="" height="16px" />
+                      </button>
+                    </span>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        {gallery && gallery.length === 0 && <p className="admin-empty">Aún no hay publicaciones en la galería.</p>}
+        {!gallery && <p className="admin-empty">Cargando…</p>}
       </div>
-      <nav className={s.fieldsContainer}>
-        <ul className={s.fieldsUl}>
-          <li>Archivo</li> -
-          <li>Título</li> -
-          <li>Descripción</li> -
-          <li>Editar</li> -
-          <li>Eliminar</li>
-        </ul>
-      </nav>
-      <ul className={s.productsUl}>
-        {
-          gallery?.map(elem => (
-            <ul key={elem._id} className={s.productsUlLi}>
-              <li><img src={elem.file} alt="" width="30px" /></li> -
-              <li>{elem.title}</li> -
-              <li>{elem.description}</li> -
-              <li>
-                <Link to={`/admin/gallery/management/update/${elem._id}`}>
-                  <button className='button-nostyle'>
-                    <img src={editIcon} alt="" height="20px" />
-                  </button>
-                </Link>
-              </li> -
-              <li>
-                <button id={`delete-${elem._id}`} onClick={(e) => handleDeleteOptions(e, elem._id, true)} className='button-nostyle'>
-                  <img src={deleteIcon} alt="" height="20px" />
-                </button>
-                <div className={s.deleteOptionsContainer} id={`check-delete-${elem._id}`}>
-                  <button onClick={(e) => handleDelete(e, elem._id)}>✔️</button>
-                  <button onClick={(e) => handleDeleteOptions(e, elem._id, false)}>❌</button>
-                </div>
-              </li>
-            </ul>
-          ))
-        }
-      </ul>
-    </div>  
-  )
-}
+    </div>
+  );
+};

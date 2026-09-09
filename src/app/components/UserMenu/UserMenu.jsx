@@ -13,44 +13,32 @@ export const UserMenu = () => {
     if (!container?.contains(e.target)) {
       return (
         $d('#profile-menu-container').style.display = 'none'
-      )
+      );
     }
     return;
   });
 
   function handleClick() {
-    $d('#profile-menu-container').style.display = 'none'
-  }
-
-  function handleLogout() {
-    logout();
+    $d('#profile-menu-container').style.display = 'none';
   }
 
   return (
     <ul className={s.profileMenuContainer} id='profile-menu-container'>
-      {
-        currentUser &&
-        <li className={s.liOption}><Link className={s.linkOption} onClick={handleClick} to={`/profile/${currentUser?.id}`}>Perfil</Link></li>
-      }
-      {/* <li className={s.liOption}><Link className={s.linkOption} onClick={handleClick} to='/my-favorites'>Favoritos</Link></li> */}
-      {
-        currentUser?.role === admin
-          ? <li className={s.liOption}><Link className={s.linkOption} onClick={handleClick} to='/admin/dashboard'>Dashboard</Link></li>
-          : null
-      }
-      {
-        currentUser &&
-        <div className='divider pad-0 mar-0' /> &&
-        <li><button className='btn-logout' onClick={handleLogout}>Cerrar sesión</button></li>
-      }
-
-      {
-        !currentUser &&
+      {currentUser ? (
+        <>
+          <li><Link className={s.linkOption} onClick={handleClick} to={`/profile/${currentUser?.id}`}>Perfil</Link></li>
+          {currentUser?.role === admin && (
+            <li><Link className={s.linkOption} onClick={handleClick} to='/admin/dashboard'>Panel de administración</Link></li>
+          )}
+          <div className='divider pad-0 mar-0' />
+          <li><button className="btn btn-ghost btn-sm btn-block" onClick={logout}>Cerrar sesión</button></li>
+        </>
+      ) : (
         <div className={s.authButtons}>
-          <Link to="/register" className={s.registerLink} onClick={handleClick}>Registrarse</Link>
-          <Link to="/login" className={s.enterButton}><button className={s.enterButton} onClick={handleClick}>Ingresar</button></Link>
+          <Link to="/login" className="btn btn-primary btn-sm btn-block" onClick={handleClick}>Ingresar</Link>
+          <Link to="/register" className="btn btn-ghost btn-sm btn-block" onClick={handleClick}>Registrarse</Link>
         </div>
-      }
+      )}
     </ul>
-  )
-}
+  );
+};

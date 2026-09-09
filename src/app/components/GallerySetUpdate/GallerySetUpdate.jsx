@@ -1,86 +1,77 @@
-import s from './GallerySetUpdate.module.css';
 import { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import defaultImage from '../../../assets/png/default-image.png';
 import { useDispatch, useSelector } from 'react-redux';
+import defaultImage from '../../../assets/png/default-image.png';
 import { updateGallery } from '../../../middlewares/redux/actions/admin';
-import { Spinner } from '../Spinner/Spinner';
 import { getGalleryDetails } from '../../../middlewares/redux/actions/gallery';
+import { AdminHeader } from '../admin/AdminHeader';
+import { Spinner } from '../Spinner/Spinner';
 
 export const GallerySetUpdate = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const params = useParams();
-  const { id } = params;
+  const { id } = useParams();
+  const galleryDetails = useSelector(state => state.galleryDetails);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [featuredFile, setFeaturedFile] = useState(null);
-  const galleryDetails = useSelector(state => state.galleryDetails);
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    const formData = {
-      file: featuredFile,
-      title,
-      description,
-    }
-
-    dispatch(updateGallery(formData, id, navigate));
-    return;
-  }
 
   useEffect(() => {
     dispatch(getGalleryDetails(id));
-    setTitle(galleryDetails?.title);
-    setDescription(galleryDetails?.description);
-    setFeaturedFile(galleryDetails?.file);
-    return;
-  }, [dispatch, id, galleryDetails?.title, galleryDetails?.price, galleryDetails?.description, galleryDetails?.file]);
+  }, [dispatch, id]);
+
+  useEffect(() => {
+    if (!galleryDetails) return;
+    setTitle(galleryDetails.title || '');
+    setDescription(galleryDetails.description || '');
+    setFeaturedFile(galleryDetails.file || null);
+  }, [galleryDetails]);
+
+  function readImage(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onloadend = () => setFeaturedFile(reader.result);
+    reader.readAsDataURL(file);
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    dispatch(updateGallery({ file: featuredFile, title, description }, id, navigate));
+  }
+
+  if (!galleryDetails) return <Spinner label="Cargando…" />;
 
   return (
-    <>
-      {
-        galleryDetails
-        ?
-        <div className={s.container}>
-          <div className={s.optionsContainer}>
-            <Link to="/admin/gallery/management"><button className="button-user-options">Volver</button></Link>
-            <Link to="/admin/dashboard"><button className="button-user-options">Dashboard</button></Link>
+    <div>
+      <AdminHeader title="Editar publicación">
+        <Link to="/admin/gallery/management" className="btn btn-ghost btn-sm">← Volver</Link>
+      </AdminHeader>
+
+      <form className="form-card" onSubmit={handleSubmit}>
+        <div className="field">
+          <span className="field-label">Imagen</span>
+          <div className="image-drop">
+            <img src={featuredFile || defaultImage} alt="" />
           </div>
-          <form className="auth-form">
-            <span className={s.formImage}>
-              <label htmlFor="Image">Imagen principal</label>
-              <img src={featuredFile || defaultImage} alt="" />
-              <input
-                type="file"
-                style={{ cursor: 'pointer' }}
-                name="imageSlider"
-                accept="image/jpeg"
-                onChange={(e) => {
-                  const file = e.target.files[0];
-                  const reader = new FileReader();
-                  reader.onloadend = () => {
-                    setFeaturedFile(reader.result);
-                  }
-                  reader.readAsDataURL(file);
-                }}
-              />
-            </span>
-            <span className={s.formSpan}>
-              <label htmlFor="Title">Título</label>
-              <input defaultValue={title} onInput={(e) => setTitle(e.target.value)} type="text" placeholder='Ej: sexo, drogas, rock n roll, etc.' />
-            </span>
-            <span className={s.formTextarea}>
-              <label htmlFor="Description">Descripción</label>
-              <textarea className='resize-vertical' defaultValue={description} onInput={(e) => setDescription(e.target.value)} placeholder='Ej: En estricto rigor...' />
-            </span>
-            <div className='divider' />
-            <button onClick={handleSubmit}>Actualizar</button>
-          </form>
+          <input type="file" accept="image/jpeg" onChange={readImage} />
         </div>
-        :
-        <Spinner label="Cargando…" />
-      }
-    </>
-  )
-}
+
+        <div className="field">
+          <label htmlFor="gu-title">Título</label>
+          <input id="gu-title" type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+        </div>
+
+        <div className="field">
+          <label htmlFor="gu-desc">Descripción</label>
+          <textarea id="gu-desc" className="resize-vertical" rows="4" value={description} onChange={(e) => setDescription(e.target.value)} />
+        </div>
+
+        <div className="divider" />
+        <div className="form-actions">
+          <button type="submit" className="btn btn-primary">Guardar cambios</button>
+        </div>
+      </form>
+    </div>
+  );
+};

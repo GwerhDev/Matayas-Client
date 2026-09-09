@@ -9,8 +9,8 @@ import { UserButton } from '../UserButton/UserButton';
 import { UserMenu } from '../UserMenu/UserMenu';
 import { Menu } from '../Menu/Menu';
 /* import { SearchBar } from '../SearchBar/SearchBar';*/
-import burgerIcon from '../../../assets/svg/burger-icon.svg';
 import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
+import { Icon } from '../Icon/Icon';
 import { $display } from '../../../functions';
 
 export const Navigator = () => {
@@ -54,7 +54,7 @@ export const Navigator = () => {
       <div className={s.menuContainer}>
         <nav>
           <section className={s.menuSectionMobile}>
-            <button className={s.menuIcon} onClick={handleClick}><img src={burgerIcon} alt="" width={"20px"}/></button>
+            <button className={s.menuIcon} onClick={handleClick} aria-label="Menú"><Icon name="menu" /></button>
           </section>
           <section className={s.underLogo}>
             <Link to="/">

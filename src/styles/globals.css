@@ -124,10 +124,6 @@ a:hover {
   color: var(--color-primary)
 }
 
-a:visited {
-  color: var(--color-font);
-}
-
 h1 {
   font-size: 2.75rem;
   line-height: 1.08;
@@ -537,6 +533,7 @@ select:hover {
    ============================================================ */
 
 .btn {
+  box-sizing: border-box;
   display: inline-flex;
   align-items: center;
   justify-content: center;

@@ -23,22 +23,22 @@ export const UserMenu = () => {
   }
 
   return (
-    <ul className={s.profileMenuContainer} id='profile-menu-container'>
+    <div className={s.menu} id='profile-menu-container'>
       {currentUser ? (
         <>
-          <li><Link className={s.linkOption} onClick={handleClick} to={`/profile/${currentUser?.id}`}>Perfil</Link></li>
+          <Link className={s.item} onClick={handleClick} to={`/profile/${currentUser?.id}`}>Perfil</Link>
           {currentUser?.role === admin && (
-            <li><Link className={s.linkOption} onClick={handleClick} to='/admin/dashboard'>Panel de administración</Link></li>
+            <Link className={s.item} onClick={handleClick} to='/admin/dashboard'>Panel de administración</Link>
           )}
-          <div className='divider pad-0 mar-0' />
-          <li><button className="btn btn-ghost btn-sm btn-block" onClick={logout}>Cerrar sesión</button></li>
+          <div className={s.sep} />
+          <button className={`${s.item} ${s.danger}`} onClick={logout}>Cerrar sesión</button>
         </>
       ) : (
-        <div className={s.authButtons}>
+        <>
           <Link to="/login" className="btn btn-primary btn-sm btn-block" onClick={handleClick}>Ingresar</Link>
           <Link to="/register" className="btn btn-ghost btn-sm btn-block" onClick={handleClick}>Registrarse</Link>
-        </div>
+        </>
       )}
-    </ul>
+    </div>
   );
 };

@@ -1,5 +1,5 @@
 import s from './SearchBar.module.css';
-import searchIcon from '../../../assets/svg/search-icon.svg';
+import { Icon } from '../Icon/Icon';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
@@ -17,7 +17,7 @@ export const SearchBar = () => {
     <form onSubmit={handleSearch}>
       <div className={s.container}>
         <input onInput={(e) => setQuery(e.target.value)} placeholder='Buscar productos, marcas y más...' type="text" />
-        <button type='submit' className={s.searchButton}><img src={searchIcon} alt="" width="20px" /></button>
+        <button type='submit' className={s.searchButton} aria-label="Buscar"><Icon name="search" /></button>
       </div>
     </form>
   )

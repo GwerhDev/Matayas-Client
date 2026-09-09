@@ -4,8 +4,7 @@ import { Link } from 'react-router-dom';
 import { getProducts, resetProductDetails } from '../../../middlewares/redux/actions/products';
 import { deleteProduct } from '../../../middlewares/redux/actions/admin';
 import { AdminHeader } from '../admin/AdminHeader';
-import editIcon from '../../../assets/png/edit-icon.png';
-import deleteIcon from '../../../assets/png/delete-icon.png';
+import { Icon } from '../Icon/Icon';
 import defaultImage from '../../../assets/png/default-image.png';
 
 export const ProductList = () => {
@@ -26,8 +25,8 @@ export const ProductList = () => {
   return (
     <div>
       <AdminHeader title="Productos">
-        <Link to="/admin/dashboard" className="btn btn-ghost btn-sm">← Panel</Link>
-        <Link to="/admin/products/management/create" className="btn btn-primary btn-sm">+ Crear producto</Link>
+        <Link to="/admin/dashboard" className="btn btn-ghost btn-sm"><Icon name="back" /> Panel</Link>
+        <Link to="/admin/products/management/create" className="btn btn-primary btn-sm"><Icon name="plus" /> Crear producto</Link>
       </AdminHeader>
 
       <div className="table-wrap">
@@ -57,10 +56,10 @@ export const ProductList = () => {
                   ) : (
                     <span className="row-actions">
                       <Link to={`/admin/products/management/update/${product._id}`} className="btn btn-ghost btn-icon" aria-label="Editar">
-                        <img src={editIcon} alt="" height="16px" />
+                        <Icon name="edit" />
                       </Link>
                       <button className="btn btn-ghost btn-icon" aria-label="Eliminar" onClick={() => setConfirmId(product._id)}>
-                        <img src={deleteIcon} alt="" height="16px" />
+                        <Icon name="delete" />
                       </button>
                     </span>
                   )}

@@ -4,8 +4,7 @@ import { Link } from 'react-router-dom';
 import { deleteGallery } from '../../../middlewares/redux/actions/admin';
 import { getGallery, resetGalleryDetails } from '../../../middlewares/redux/actions/gallery';
 import { AdminHeader } from '../admin/AdminHeader';
-import editIcon from '../../../assets/png/edit-icon.png';
-import deleteIcon from '../../../assets/png/delete-icon.png';
+import { Icon } from '../Icon/Icon';
 import defaultImage from '../../../assets/png/default-image.png';
 
 export const GalleryList = () => {
@@ -26,8 +25,8 @@ export const GalleryList = () => {
   return (
     <div>
       <AdminHeader title="Galería">
-        <Link to="/admin/dashboard" className="btn btn-ghost btn-sm">← Panel</Link>
-        <Link to="/admin/gallery/management/create" className="btn btn-primary btn-sm">+ Nueva publicación</Link>
+        <Link to="/admin/dashboard" className="btn btn-ghost btn-sm"><Icon name="back" /> Panel</Link>
+        <Link to="/admin/gallery/management/create" className="btn btn-primary btn-sm"><Icon name="plus" /> Nueva publicación</Link>
       </AdminHeader>
 
       <div className="table-wrap">
@@ -55,10 +54,10 @@ export const GalleryList = () => {
                   ) : (
                     <span className="row-actions">
                       <Link to={`/admin/gallery/management/update/${elem._id}`} className="btn btn-ghost btn-icon" aria-label="Editar">
-                        <img src={editIcon} alt="" height="16px" />
+                        <Icon name="edit" />
                       </Link>
                       <button className="btn btn-ghost btn-icon" aria-label="Eliminar" onClick={() => setConfirmId(elem._id)}>
-                        <img src={deleteIcon} alt="" height="16px" />
+                        <Icon name="delete" />
                       </button>
                     </span>
                   )}

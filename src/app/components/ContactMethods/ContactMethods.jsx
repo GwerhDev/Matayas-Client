@@ -1,33 +1,30 @@
 import s from './ContactMethods.module.css';
-import phoneIcon from '../../../assets/svg/phone-icon.svg';
-import whatsappIcon from '../../../assets/svg/whatsapp-icon.svg';
-import instagramIcon from '../../../assets/svg/instagram-icon.svg';
-import messengerIcon from '../../../assets/svg/messenger-icon.svg';
-import mailIcon from '../../../assets/svg/mail-icon.svg';
-import telegramIcon from '../../../assets/svg/telegram-icon.svg';
+import { Icon } from '../Icon/Icon';
 import { instagramLink, mailLink, messengerLink, phoneLink, telegramLink, whatsappLink } from '../Utils/consts';
+
+const methods = [
+  { name: 'phone', href: phoneLink, brand: 'phone', label: 'Teléfono' },
+  { name: 'whatsapp', href: whatsappLink, brand: 'whatsapp', label: 'WhatsApp', external: true },
+  { name: 'instagram', href: instagramLink, brand: 'instagram', label: 'Instagram', external: true },
+  { name: 'messenger', href: messengerLink, brand: 'messenger', label: 'Messenger', external: true },
+  { name: 'telegram', href: telegramLink, brand: 'telegram', label: 'Telegram', external: true },
+  { name: 'mail', href: mailLink, brand: 'mail', label: 'Correo' },
+];
 
 export const ContactMethods = () => {
   return (
     <span className={s.contactMethod}>
-      <div className={s.imgContainer}>
-        <a href={phoneLink}><img src={phoneIcon} alt="" width="38px" height="38px" /></a>
-      </div>
-      <div className={s.imgContainer}>
-        <a target='_blank' rel='noreferrer' href={whatsappLink}><img src={whatsappIcon} alt="" width="38px" height="38px" /></a>
-      </div>
-      <div className={s.imgContainer}>
-        <a target='_blank' rel='noreferrer' href={instagramLink}><img src={instagramIcon} alt="" width="38px" height="38px" /></a>
-      </div>
-      <div className={s.imgContainer}>
-        <a target='_blank' rel='noreferrer' href={messengerLink}><img src={messengerIcon} alt="" width="38px" height="38px" /></a>
-      </div>
-      <div className={s.imgContainer}>
-        <a target='_blank' rel='noreferrer' href={telegramLink}><img src={telegramIcon} alt="" width="38px" height="38px" /></a>
-      </div>
-      <div className={s.imgContainer}>
-        <a href={mailLink}><img src={mailIcon} alt="" width="38px" height="38px" /></a>
-      </div>
+      {methods.map((m) => (
+        <a
+          key={m.name}
+          href={m.href}
+          aria-label={m.label}
+          className={`${s.chip} ${s[m.brand]}`}
+          {...(m.external ? { target: '_blank', rel: 'noreferrer' } : {})}
+        >
+          <Icon name={m.name} />
+        </a>
+      ))}
     </span>
-  )
-}
+  );
+};

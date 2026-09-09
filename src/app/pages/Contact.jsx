@@ -1,20 +1,12 @@
-import s from '../components/ContactMethods/ContactMethods.module.css'
-import { instagramLink, mailLink, messengerLink, phoneLink, telegramLink, whatsappLink } from "../components/Utils/consts";
-import phoneIcon from '../../assets/svg/phone-icon.svg';
-import whatsappIcon from '../../assets/svg/whatsapp-icon.svg';
-import instagramIcon from '../../assets/svg/instagram-icon.svg';
-import messengerIcon from '../../assets/svg/messenger-icon.svg';
-import mailIcon from '../../assets/svg/mail-icon.svg';
-import telegramIcon from '../../assets/svg/telegram-icon.svg';
 import { useEffect } from 'react';
+import { mailLink, phoneLink } from "../components/Utils/consts";
+import { ContactMethods } from '../components/ContactMethods/ContactMethods';
 import { scrollToTop } from '../../functions';
-import { Link } from 'react-router-dom';
 
 const Contact = () => {
   useEffect(() => {
     scrollToTop();
-  }
-  )
+  }, []);
 
   return (
     <div className="page-container">
@@ -25,26 +17,9 @@ const Contact = () => {
           <p className="pad-top-1"><span className="text-muted">Teléfono:</span> <a href={phoneLink}>+56 9 3345 1508</a></p>
           <p><span className="text-muted">Email:</span> <a href={mailLink}>info@amplificadoresmatayas.com</a></p>
           <p><span className="text-muted">Dirección:</span> Santiago Concha 1290, Santiago Centro</p>
-          <span className="contactMethod d-flex g-1 pad-top-1">
-            <div className={s.imgContainer}>
-              <a href={phoneLink}><img src={phoneIcon} alt="" width="38px" height="38px" /></a>
-            </div>
-            <div className={s.imgContainer}>
-              <a target='_blank' rel='noreferrer' href={whatsappLink}><img src={whatsappIcon} alt="" width="38px" height="38px" /></a>
-            </div>
-            <div className={s.imgContainer}>
-              <a target='_blank' rel='noreferrer' href={instagramLink}><img src={instagramIcon} alt="" width="38px" height="38px" /></a>
-            </div>
-            <div className={s.imgContainer}>
-              <a target='_blank' rel='noreferrer' href={messengerLink}><img src={messengerIcon} alt="" width="38px" height="38px" /></a>
-            </div>
-            <div className={s.imgContainer}>
-              <a target='_blank' rel='noreferrer' href={telegramLink}><img src={telegramIcon} alt="" width="38px" height="38px" /></a>
-            </div>
-            <div className={s.imgContainer}>
-              <Link to="/contact/message"><img src={mailIcon} alt="" width="38px" height="38px" /></Link>
-            </div>
-          </span>
+          <div className="pad-top-1">
+            <ContactMethods />
+          </div>
         </section>
         <section className="map-contact">
           <iframe
@@ -60,7 +35,7 @@ const Contact = () => {
         </section>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Contact;

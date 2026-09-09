@@ -20,6 +20,29 @@
   border-color: var(--color-primary);
 }
 
+.guestIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 100%;
+  border: 1px solid var(--color-border-strong);
+  color: var(--color-font-soft);
+  font-size: 15px;
+  transition: border-color .2s ease, color .2s ease;
+}
+
+.container:hover .guestIcon {
+  border-color: var(--color-primary);
+  color: var(--color-font);
+}
+
+.profilePicContainer svg {
+  font-size: 12px;
+  color: var(--color-font);
+}
+
 .container img:active,
 .container img:focus,
 .container img:focus-visible,

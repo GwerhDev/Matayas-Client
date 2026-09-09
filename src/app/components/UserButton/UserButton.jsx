@@ -1,7 +1,7 @@
 import s from './UserButton.module.css';
 import { useSelector } from 'react-redux';
 import { $display } from '../../../functions';
-import userIcon from '../../../assets/svg/profile-icon.svg';
+import { Icon } from '../Icon/Icon';
 
 export const UserButton = () => {
   const currentUser = useSelector((state) => state.currentUser);
@@ -12,17 +12,18 @@ export const UserButton = () => {
 
   return (
     <div className={s.container} onClick={handleClick}>
-      {currentUser
-        ?
+      {currentUser ? (
         <>
           <p className={s.username}>{currentUser.username}</p>
           <div className={s.profilePicContainer}>
-            <img src={currentUser.profilePic} alt="" width="100%" />
+            {currentUser.profilePic
+              ? <img src={currentUser.profilePic} alt="" width="100%" />
+              : <Icon name="user" />}
           </div>
         </>
-        :
-        <img src={userIcon} />
-      }
+      ) : (
+        <span className={s.guestIcon}><Icon name="user" /></span>
+      )}
     </div>
-  )
-}
+  );
+};

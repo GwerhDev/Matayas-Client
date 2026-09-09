@@ -1,7 +1,7 @@
 import axios from "axios";
 import { URL_API } from "../../config";
 import { CURRENT_USER, ERROR } from "../../misc/consts";
-import { options } from "../../helpers";
+import { options, errMessage } from "../../helpers";
 import { getUserData } from "./account";
 
 export function auth(navigate) {
@@ -14,7 +14,7 @@ export function auth(navigate) {
         });
         return res.data.logged && navigate(`/`);
       })
-      .then(dispatch(getUserData()))
+      .then(() => dispatch(getUserData()))
       .catch((e) => {
         console.error(e);
         return;
@@ -32,7 +32,7 @@ export function loginInner(formData, navigate) {
       .catch((e) => {
         dispatch({
           type: ERROR,
-          payload: e.response.data.message
+          payload: errMessage(e, 'No se pudo iniciar sesión.')
         });
         console.error(e.code);
         return;
@@ -58,7 +58,7 @@ export function signupInner(formData, navigate) {
         return (
           dispatch({
             type: ERROR,
-            payload: e.response.data.error
+            payload: errMessage(e, 'No se pudo completar el registro.')
           })
         );
       });
@@ -99,7 +99,7 @@ export function emailVerification(token, navigate) {
         return (
           dispatch({
             type: ERROR,
-            payload: e.response.data.error
+            payload: errMessage(e, 'No se pudo verificar el correo.')
           })
         );
       });

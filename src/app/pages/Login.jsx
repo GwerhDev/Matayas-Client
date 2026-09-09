@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import { Link } from "react-router-dom";
 import { LoginGoogle } from "../components/LoginGoogle/LoginGoogle";
 import { LoginInner } from "../components/LoginInner/LoginInner";

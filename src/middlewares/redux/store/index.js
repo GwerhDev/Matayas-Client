@@ -1,25 +1,15 @@
 import { createStore, applyMiddleware, compose } from 'redux';
-import rootReducer from '../reducer';
 import thunkMiddleware from 'redux-thunk';
-import { DEVELOPMENT } from '../../misc/consts';
-import { environment } from '../../../environment';
+import rootReducer from '../reducer';
 
-let store = {};
-const composeEnhancer = compose;
+// Usa la extensión Redux DevTools si está instalada; si no, compose normal.
+// (Antes crasheaba en dev cuando la extensión no estaba presente.)
+const composeEnhancers =
+  (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 
-if (environment === DEVELOPMENT) {
-  store = createStore(
-    rootReducer,
-    compose(
-      applyMiddleware(thunkMiddleware),
-      window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-    )
-  );
-} else {
-  store = createStore(
-    rootReducer,
-    composeEnhancer(applyMiddleware(thunkMiddleware))
-  );
-}
+const store = createStore(
+  rootReducer,
+  composeEnhancers(applyMiddleware(thunkMiddleware))
+);
 
 export default store;

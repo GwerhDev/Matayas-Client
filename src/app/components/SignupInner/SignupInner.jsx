@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { signupInner } from '../../../middlewares/redux/actions/auth';
 import { resetError } from '../../../middlewares/redux/actions';
+import { PasswordField } from '../PasswordField/PasswordField';
 
 export const SignupInner = () => {
   const dispatch = useDispatch();
@@ -49,18 +50,14 @@ export const SignupInner = () => {
           />
         </div>
 
-        <div className="field">
-          <label htmlFor="signup-password">Contraseña</label>
-          <input
-            id="signup-password"
-            type="password"
-            autoComplete="new-password"
-            placeholder="••••••••"
-            value={password}
-            onChange={(e) => { setPassword(e.target.value); dispatch(resetError()); }}
-          />
-          <span className="field-hint">Mínimo 6 caracteres.</span>
-        </div>
+        <PasswordField
+          id="signup-password"
+          label="Contraseña"
+          autoComplete="new-password"
+          hint="Mínimo 6 caracteres."
+          value={password}
+          onChange={(e) => { setPassword(e.target.value); dispatch(resetError()); }}
+        />
       </div>
 
       { error && <span className='error-span'><p>{error}</p></span> }

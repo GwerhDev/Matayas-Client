@@ -27,6 +27,7 @@ export const UserMenu = () => {
       {currentUser ? (
         <>
           <Link className={s.item} onClick={handleClick} to={`/profile/${currentUser?.id}`}>Perfil</Link>
+          <Link className={s.item} onClick={handleClick} to="/account">Cuenta</Link>
           {currentUser?.role === admin && (
             <Link className={s.item} onClick={handleClick} to='/admin/dashboard'>Panel de administración</Link>
           )}

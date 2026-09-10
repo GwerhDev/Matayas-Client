@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { resetPassword } from "../../middlewares/redux/actions/auth";
 import { resetError } from "../../middlewares/redux/actions";
+import { PasswordField } from "../components/PasswordField/PasswordField";
 
 const PasswordReset = () => {
   const dispatch = useDispatch();
@@ -62,30 +63,22 @@ const PasswordReset = () => {
         <p className="auth-subtitle">Elige una contraseña para tu cuenta.</p>
 
         <div className="form-group">
-          <div className="field">
-            <label htmlFor="reset-password">Contraseña nueva</label>
-            <input
-              id="reset-password"
-              type="password"
-              autoComplete="new-password"
-              placeholder="••••••••"
-              value={password}
-              onChange={(e) => { setPassword(e.target.value); setLocalError(""); dispatch(resetError()); }}
-            />
-            <span className="field-hint">Mínimo 6 caracteres.</span>
-          </div>
+          <PasswordField
+            id="reset-password"
+            label="Contraseña nueva"
+            autoComplete="new-password"
+            hint="Mínimo 6 caracteres."
+            value={password}
+            onChange={(e) => { setPassword(e.target.value); setLocalError(""); dispatch(resetError()); }}
+          />
 
-          <div className="field">
-            <label htmlFor="reset-confirm">Repite la contraseña</label>
-            <input
-              id="reset-confirm"
-              type="password"
-              autoComplete="new-password"
-              placeholder="••••••••"
-              value={confirm}
-              onChange={(e) => { setConfirm(e.target.value); setLocalError(""); dispatch(resetError()); }}
-            />
-          </div>
+          <PasswordField
+            id="reset-confirm"
+            label="Repite la contraseña"
+            autoComplete="new-password"
+            value={confirm}
+            onChange={(e) => { setConfirm(e.target.value); setLocalError(""); dispatch(resetError()); }}
+          />
         </div>
 
         { shownError && <span className="error-span"><p>{shownError}</p></span> }

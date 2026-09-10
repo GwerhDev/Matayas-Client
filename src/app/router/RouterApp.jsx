@@ -9,6 +9,7 @@ import Login from '../pages/Login';
 import Register from '../pages/Register';
 import Auth from '../pages/Auth';
 import Profile from '../pages/Profile';
+import Account from '../pages/Account';
 import Favorites from '../pages/Favorites';
 import Dashboard from '../pages/admin/Dashboard';
 import Product from '../pages/Product';
@@ -40,6 +41,7 @@ function RouterApp() {
           <Route path='/' element={<Home />} />
           <Route path='/auth' element={<Auth />} />
           <Route path='/profile/:id' element={<Profile />} />
+          <Route path='/account' element={<Account />} />
           <Route path='/product/:id' element={<Product />} />
           <Route path='/my-favorites' element={<Favorites />} />
 

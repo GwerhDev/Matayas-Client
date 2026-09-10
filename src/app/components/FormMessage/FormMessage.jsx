@@ -40,12 +40,12 @@ export const FormMessage = () => {
           </div>
           <label htmlFor="">Mensaje:</label>
           <textarea name="" id="" cols="30" rows="10" onInput={(e) => setContactMessage(e.target.value)}></textarea>
-          <button>Enviar</button>
+          <button type="submit" className="btn btn-primary">Enviar</button>
         </>
         :
         <div className={s.sendedMessage}>
           <h2>¡Mensaje enviado!</h2>
-          <Link to="/"><button>Volver al inicio</button></Link>
+          <Link to="/" className="btn btn-primary" style={{ textDecoration: 'none' }}>Volver al inicio</Link>
         </div>
       }
       { error && <span className='error-span'><p>{error}</p></span> }

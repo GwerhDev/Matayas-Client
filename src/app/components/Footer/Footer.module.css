@@ -1,7 +1,7 @@
 .container {
   position: relative;
   bottom: 0;
-  width: 100vw;
+  width: 100%;
   min-height: 40vh;
   color: var(--color-font);
   display: flex;

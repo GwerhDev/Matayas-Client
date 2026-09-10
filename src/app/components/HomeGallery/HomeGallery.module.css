@@ -8,10 +8,6 @@
   margin-bottom: 3rem;
 }
 
-h1:hover {
-  color: var(--color-primary);
-}
-
 .container ul li {
   filter: grayscale(.4);
 }
@@ -23,7 +19,7 @@ h1:hover {
 
 @media only screen and (max-width: calc(1200px + 6rem)) {
   .container {
-    padding-left: 3rem;
-    padding-right: 3rem;
+    padding-left: 0;
+    padding-right: 0;
   }
 }

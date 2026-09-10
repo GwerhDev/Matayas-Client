@@ -1,6 +1,5 @@
 import s from './Products.module.css';
 import { ProductCard } from "../ProductsCard/ProductCard";
-import { Link } from 'react-router-dom';
 import { formattedPrice } from '../../../functions';
 
 export const Products = (props) => {
@@ -8,7 +7,7 @@ export const Products = (props) => {
 
   return (
     <div className={s.container}>
-      <Link to="/shop"><h1>Venta</h1></Link>
+      <h1>Venta</h1>
       <p className="section-subtitle">Productos en venta</p>
       <ul className={s.productsContainer}>
         {

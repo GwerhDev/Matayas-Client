@@ -20,7 +20,7 @@ export const ProductComments = () => {
           ?
           <form onSubmit={handleComment}>
             <textarea placeholder='Escribe un comentario' className={s.comment} onInput={(e) => setComment(e.target.value)}></textarea>
-            <button>Enviar</button>
+            <button type="submit" className="btn btn-primary">Enviar</button>
           </form>
           :
           <p>Para comentar debes <Link to="/login" className='link-to'>iniciar sesión</Link></p>

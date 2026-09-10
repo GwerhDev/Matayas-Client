@@ -1,9 +1,24 @@
+.menu {
+  gap: 1.75rem;
+}
+
+.link {
+  color: var(--color-font-soft);
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+
+.link:hover {
+  color: var(--color-font);
+}
+
 @media only screen and (max-width: calc(1200px + 6rem)) {
   .menu {
     display: flex;
     flex-direction: column;
     padding: 3rem;
     width: 100%;
+    gap: 0;
   }
 
   .link {

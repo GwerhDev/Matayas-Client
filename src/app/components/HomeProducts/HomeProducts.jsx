@@ -1,13 +1,14 @@
 import s from './HomeProducts.module.css';
 import { ProductCard } from "../ProductsCard/ProductCard";
 import { Link } from 'react-router-dom';
+import { Icon } from '../Icon/Icon';
 
 export const HomeProducts = (props) => {
   const { products } = props || null;
 
   return (
     <div className={s.container}>
-      <Link to="/shop"><h1>Venta</h1></Link>
+      <Link to="/shop" className="section-link"><h1>Venta</h1><Icon name="arrowRight" /></Link>
       <p className="section-subtitle">Productos en venta</p>
       <ul className={s.productsContainer}>
         {

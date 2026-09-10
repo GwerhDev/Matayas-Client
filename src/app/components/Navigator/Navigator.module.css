@@ -50,7 +50,8 @@
 
 .menuContainer nav {
   width: 100%;
-  max-width: 1190px;
+  max-width: 1360px;
+  padding: 0 2rem;
   display: flex;
   justify-content: space-between;
 }
@@ -107,7 +108,7 @@
   width: 100%;
   display: flex;
   justify-content: flex-start;
-  max-width: 1190px;
+  max-width: 1360px;
 }
 
 .menuSection ul {
@@ -156,6 +157,7 @@
     display: flex;
     justify-content: flex-start;
     width: auto;
+    padding-left: 0;
   }
 
   .userSection {
@@ -173,6 +175,10 @@
   }
 
   .userSection {
-    padding-right: 3rem;
+    padding-right: 0;
+  }
+
+  .menuContainer nav {
+    padding: 0 1rem;
   }
 }

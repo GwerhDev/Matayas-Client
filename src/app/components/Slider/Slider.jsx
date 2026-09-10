@@ -27,6 +27,7 @@ export const Slider = (props) => {
   const [swipePause, setSwipePause] = useState(false);
 
   const viewportRef = useRef(null);
+  const trackRef = useRef(null);
   const pointerStart = useRef(null);
   const dragRef = useRef(0);
   const movedRef = useRef(false);
@@ -51,36 +52,45 @@ export const Slider = (props) => {
     resumeTimer.current = setTimeout(() => setSwipePause(false), SWIPE_RESUME_MS);
   }
 
+  // --- Drag / swipe (solo sobre el track; flechas y puntos quedan fuera) ---
   function onPointerDown(e) {
     if (count <= 1) return;
     pointerStart.current = { x: e.clientX, y: e.clientY };
     dragRef.current = 0;
     movedRef.current = false;
-    setDragging(true);
-    viewportRef.current?.setPointerCapture?.(e.pointerId);
   }
 
   function onPointerMove(e) {
     if (!pointerStart.current) return;
     const dx = e.clientX - pointerStart.current.x;
     dragRef.current = dx;
-    if (Math.abs(dx) > 8) movedRef.current = true;
-    setDrag(dx);
+    // Recién se considera "drag" (y se captura el puntero) al pasar el umbral.
+    if (!movedRef.current && Math.abs(dx) > 8) {
+      movedRef.current = true;
+      setDragging(true);
+      trackRef.current?.setPointerCapture?.(e.pointerId);
+    }
+    if (movedRef.current) setDrag(dx);
   }
 
   function endDrag(e) {
     if (!pointerStart.current) return;
     const width = viewportRef.current?.offsetWidth || 1;
     const dx = dragRef.current;
+    const wasDrag = movedRef.current;
     pointerStart.current = null;
     dragRef.current = 0;
     setDragging(false);
     setDrag(0);
-    viewportRef.current?.releasePointerCapture?.(e.pointerId);
-    if (Math.abs(dx) > Math.min(width * 0.15, 90)) {
-      goBy(dx < 0 ? 1 : -1);
+    try {
+      trackRef.current?.releasePointerCapture?.(e.pointerId);
+    } catch {
+      /* el puntero podía no estar capturado */
     }
-    bumpSwipePause();
+    if (wasDrag && Math.abs(dx) > Math.min(width * 0.15, 90)) {
+      goBy(dx < 0 ? 1 : -1);
+      bumpSwipePause();
+    }
   }
 
   // Un swipe no debe disparar la navegación del <Link>.
@@ -111,12 +121,17 @@ export const Slider = (props) => {
       ref={viewportRef}
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
-      onPointerDown={onPointerDown}
-      onPointerMove={onPointerMove}
-      onPointerUp={endDrag}
-      onPointerCancel={endDrag}
     >
-      <div className={s.track} style={trackStyle} onClickCapture={onClickCapture}>
+      <div
+        className={s.track}
+        ref={trackRef}
+        style={trackStyle}
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={endDrag}
+        onPointerCancel={endDrag}
+        onClickCapture={onClickCapture}
+      >
         <div className={s.slide}><LogoSlide /></div>
         {list.map((item, i) => (
           <div className={s.slide} key={item._id || i}>

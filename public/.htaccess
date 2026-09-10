@@ -2,6 +2,11 @@
 # Asume que el sitio se sube a la RAÍZ del dominio (public_html/).
 # Si lo subes a un subdirectorio, cambia RewriteBase y añade `base` en vite.config.js.
 
+# El deploy por FTP deja aquí su manifiesto de sincronización: que no sea público.
+<Files ".ftp-deploy-sync-state.json">
+  Require all denied
+</Files>
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /

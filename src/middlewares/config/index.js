@@ -3,7 +3,7 @@ import { DEVELOPMENT } from "../misc/consts";
 
 const fallback = environment === DEVELOPMENT
   ? "http://localhost:4000"
-  : "https://matayas-api.fly.dev";
+  : "https://api.amplificadoresmatayas.com";
 
 // Configurable con VITE_API_URL (ver .env.example). Si no se define, usa el
 // fallback por entorno.
